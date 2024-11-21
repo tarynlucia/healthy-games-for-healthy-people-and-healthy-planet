@@ -26,37 +26,23 @@ const Home = () => {
           <Image
             className={styles.homepagebackgroundimageIcon}
             alt=""
-            src="/homepageBackgroundImage.png"
-            width={2880}
-            height={1039}
+            src="/outsideLong.png"
+            width={1920}
+            height={1080}
           />
           <b className={styles.juniorOutdoorFoodContainer}>
-            <p>Junior Outdoor Food Navigators Food App</p>
+            <p>Food<br></br>Calculator</p>
           </b>
         </div>
-        <div className={styles.jofndescriptionframe}>
-          <b className={styles.theJrOutdoorContainer}>
-            <b className={styles.climateResilienceStarts}>
-              Climate Resilience Starts Here
-            </b>
-            <p
-              className={styles.theJrOutdoor}
-            >{`The Jr. Outdoor Food Navigators (JOFN) is funded by the National Institute of Environmental Health Sciences (NIEHS)
-          through the Oregon State University ASP3IRE Center Translational Core to build climate resilience through outdoor play 
-          and positive food experience among school-aged children. One of the education and outreach tools is the Food Calculator. 
-           `}</p>
-          </b>
-        </div>
-
         <div className={styles.calculatorframe} onClick={onCalculatorClick}>
           <div>
             <div className={styles.calculatorbutton}>
               <Image
                 className={styles.calculatoricon}
                 alt=""
-                src="/calculatorIcon.png"
-                width={100}
-                height={100}
+                src="/calculatorMascot.png"
+                width={200}
+                height={200}
               />
               <b className={styles.calculator}>Calculator</b>
             </div>
