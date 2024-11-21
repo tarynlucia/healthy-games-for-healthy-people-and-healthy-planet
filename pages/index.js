@@ -25,21 +25,74 @@ const Home = () => {
         <div className={styles.homepagebackgroundframe}>
           <Image
             className={styles.homepagebackgroundimageIcon}
-            alt=""
+            alt="Background Image"
             src="/outsideLong.png"
             width={1920}
             height={1080}
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+          <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
+          <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
           <b className={styles.juniorOutdoorFoodContainer}>
             <p>Food<br></br>Calculator</p>
           </b>
         </div>
+        <Image
+          className={styles.pepper}
+          alt="Pepper"
+          src="/pepper.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.pizza}
+          alt="Pizza"
+          src="/pizza.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.carrot}
+          alt="Carrot"
+          src="/carrot.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.watermelon}
+          alt="Watermelon"
+          src="/watermelon.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.apple}
+          alt="Apple"
+          src="/apple.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.cookie}
+          alt="Cookie"
+          src="/cookie.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.eggplant}
+          alt="Eggplant"
+          src="/eggplant.png"
+          width={175}
+          height={160}
+        />
         <div className={styles.calculatorframe} onClick={onCalculatorClick}>
           <div>
             <div className={styles.calculatorbutton}>
               <Image
                 className={styles.calculatoricon}
-                alt=""
+                alt="Calculator"
                 src="/calculatorMascot.png"
                 width={200}
                 height={200}

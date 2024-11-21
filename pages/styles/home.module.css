@@ -33,13 +33,68 @@
 
 .juniorOutdoorFoodContainer {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: inline-block;
   width: 680px;
   min-width: 300px;
   height: 121.5px;
+  font-size: 110px;
+  line-height: 100px;
+  letter-spacing: 12px;
+  font-family: "Nerko One", cursive;
+}
+
+/*FOOD ICONS STYLES*/
+.pepper {
+  display: flex;
+  position: absolute;
+  margin-left: -400px;
+  margin-top: -10px;
+  transform: rotate(15deg);
+}
+
+.pizza {
+  position: absolute;
+  margin-left: 460px;
+  margin-top: 90px;
+  transform: rotate(20deg);
+}
+
+.carrot {
+  position: absolute;
+  margin-left: 1200px;
+  margin-top: 0px;
+  transform: rotate(-8deg);
+}
+
+.watermelon {
+  position: absolute;
+  margin-left: -1025px;
+  margin-top: 175px;
+  transform: rotate(-15deg);
+}
+
+.apple {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 400px;
+  transform: rotate(-5deg);
+}
+ 
+.cookie {
+  position: absolute;
+  margin-left: -1150px;
+  margin-top: 500px;
+  transform: rotate(20deg);
+}
+
+.eggplant {
+  position: absolute;
+  margin-left: 975px;
+  margin-top: 450px;
+  transform: rotate(-25deg);
 }
 
 /*JOFN DESCRIPTION STYLES*/
@@ -98,6 +153,9 @@
   margin-left: -25px;
   width: 188px;
   height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-size: 35px;
 }
 .calculatoricon {
   height: 160px;
@@ -109,7 +167,7 @@
 }
 .calculatorframe {
   position: absolute;
-  bottom: -170px;
+  bottom: -250px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
