@@ -93,7 +93,7 @@ const Home = () => {
               <Image
                 className={styles.calculatoricon}
                 alt="Calculator"
-                src="/calculatorMascot.png"
+                src="/rotatedCalculator.png"
                 width={200}
                 height={200}
               />

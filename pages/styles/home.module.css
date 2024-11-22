@@ -118,7 +118,7 @@
   color: var(--color-orangered);
 }
 .calculatorbutton:hover .calculatoricon {
-  transform: rotate(-18deg) scale(1.2); /* Enlarge image with scale */
+  transform: scale(1.1) translateY(-12px); /* Enlarge image with scale and move it up*/
   transition: transform 0.3s ease; /* Smooth transition for image scaling */
 }
 
@@ -147,6 +147,7 @@
   width: 318px;
   height: 100px;
   color: #D73F09;
+  transition: border 0.2s ease;
 }
 .calculator {
   display: inline-block;
@@ -161,9 +162,8 @@
   height: 160px;
   width: auto;
   object-fit: contain;
-  transform: rotate(-18deg);
   margin-left: -60px;
-  margin-top: 40px;
+  margin-top: -66px;
 }
 .calculatorframe {
   position: absolute;
