@@ -45,7 +45,7 @@
 }
 
 .headerframe {
-  background-color: var(--color-orangered);
+  background-color: WHITE;
   width: 100%;
   height: 122px;
   display: flex;

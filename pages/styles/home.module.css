@@ -11,7 +11,7 @@
   font-size: var(--font-size-xl);
   color: var(--color-black);
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-  height: 1039px;
+  height: 1030px;
 }
 
 /*HOME PAGE IMAGE STYLES*/
@@ -46,6 +46,311 @@
   font-family: "Nerko One", cursive;
 }
 
+/*ANIMATION*/
+@keyframes animatePepper {
+  0% {
+    transform: translateY(0px) rotate(15deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(18deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(15deg);
+  }
+}
+
+@keyframes animatePizza {
+  0% {
+    transform: translateY(0px) rotate(20deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(23deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(20deg);
+  }
+}
+
+@keyframes animateCarrot {
+  0% {
+    transform: translateY(0px) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-11deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(-8deg);
+  }
+}
+
+@keyframes animateWatermelon {
+  0% {
+    transform: translateY(0px) rotate(-15deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-18deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(-15deg);
+  }
+}
+
+@keyframes animateApple {
+  0% {
+    transform: translateY(0px) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-8deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(-5deg);
+  }
+}
+
+@keyframes animateCookie {
+  0% {
+    transform: translateY(0px) rotate(20deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(23deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(20deg);
+  }
+}
+
+@keyframes animateEggplant {
+  0% {
+    transform: translateY(0px) rotate(-25deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-28deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(-25deg);
+  }
+}
+
+/* @keyframes walkInPepper {
+  0% {
+    transform: rotate(15deg);
+    margin-left: -1600px;
+    margin-top: -400px;
+  }
+
+  20% {
+    transform: rotate(20deg);
+  }
+
+  40% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(20deg);
+  }
+
+  80% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(15deg);
+    margin-left: -400px;
+    margin-top: -10px;
+  }
+}
+
+@keyframes walkInPizza {
+  0% {
+    transform: rotate(20deg);
+    margin-top: -400px;
+    margin-left: 460px;
+  }
+
+  20% {
+    transform: rotate(25deg);
+  }
+
+  40% {
+    transform: rotate(15deg);
+  }
+
+  60% {
+    transform: rotate(25deg);
+  }
+
+  80% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(20deg);
+    margin-top: 90px;
+    margin-left: 460px;
+  }
+}
+
+@keyframes walkInCarrot {
+  0% {
+    transform: rotate(-8deg);
+    margin-left: 1600px;
+  }
+
+  20% {
+    transform: rotate(-13deg);
+  }
+
+  40% {
+    transform: rotate(-3deg);
+  }
+
+  60% {
+    transform: rotate(-13deg);
+  }
+
+  80% {
+    transform: rotate(-3deg);
+  }
+
+  100% {
+    transform: rotate(-8deg);
+    margin-left: 1200px;
+  }
+}
+
+@keyframes walkInWatermelon {
+  0% {
+    transform: rotate(-15deg);
+    margin-left: -1800px;
+  }
+
+  20% {
+    transform: rotate(-20deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(-20deg);
+  }
+
+  80% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(-15deg);
+    margin-left: -1025px;
+  }
+}
+
+@keyframes walkInApple {
+  0% {
+    transform: rotate(-5deg);
+    margin-top: 1000px;
+    margin-left: 20px;
+  }
+
+  20% {
+    transform: rotate(0deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  80% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(-5deg);
+    margin-top: 400px;
+    margin-left: 20px;
+  }
+}
+
+@keyframes walkInCookie {
+  0% {
+    transform: rotate(20deg);
+    margin-left: -1600px;
+    margin-top: 800px;
+  }
+
+  20% {
+    transform: rotate(25deg);
+  }
+
+  40% {
+    transform: rotate(15deg);
+  }
+
+  60% {
+    transform: rotate(25deg);
+  }
+
+  80% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(20deg);
+    margin-left: -1150px;
+    margin-top: 500px;
+  }
+}
+
+@keyframes walkInEggplant {
+  0% {
+    transform: rotate(-25deg);
+    margin-left: 1600px;
+    margin-top: 800px;
+  }
+
+  20% {
+    transform: rotate(-30deg);
+  }
+
+  40% {
+    transform: rotate(-20deg);
+  }
+
+  60% {
+    transform: rotate(-30deg);
+  }
+
+  80% {
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    transform: rotate(-25deg);
+    margin-left: 975px;
+    margin-top: 450px;
+  }
+} */
+
 /*FOOD ICONS STYLES*/
 .pepper {
   display: flex;
@@ -53,6 +358,14 @@
   margin-left: -400px;
   margin-top: -10px;
   transform: rotate(15deg);
+
+  animation-name: walkInPepper, animatePepper;
+  animation-duration: 3.5s, 2s;
+  animation-timing-function: linear, linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal; /* both animations run forward */
+  animation-fill-mode: forwards, none; /* keep final state of walkInFromLeft */
+  animation-delay: 0s, 3.5s; /* delay the bobbing until the walk-in finishes */
 }
 
 .pizza {
@@ -60,6 +373,14 @@
   margin-left: 460px;
   margin-top: 90px;
   transform: rotate(20deg);
+
+  animation-name: walkInPizza, animatePizza;
+  animation-duration: 3.5s, 2s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal;
+  animation-fill-mode: forwards, none;
+  animation-delay: 0s, 3.7s;
 }
 
 .carrot {
@@ -67,6 +388,14 @@
   margin-left: 1200px;
   margin-top: 0px;
   transform: rotate(-8deg);
+
+  animation-name: walkInCarrot, animateCarrot;
+  animation-duration: 3.5s, 2s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal;
+  animation-fill-mode: forwards, none;
+  animation-delay: 0s, 3.9s;
 }
 
 .watermelon {
@@ -74,6 +403,14 @@
   margin-left: -1025px;
   margin-top: 175px;
   transform: rotate(-15deg);
+
+  animation-name: walkInWatermelon, animateWatermelon;
+  animation-duration: 3.5s, 2s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal;
+  animation-fill-mode: forwards, none;
+  animation-delay: 0s, 3.5s;
 }
 
 .apple {
@@ -81,6 +418,14 @@
   margin-left: 20px;
   margin-top: 400px;
   transform: rotate(-5deg);
+
+  animation-name: walkInApple, animateApple;
+  animation-duration: 3.5s, 2s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal;
+  animation-fill-mode: forwards, none;
+  animation-delay: 0s, 3.7s;
 }
  
 .cookie {
@@ -88,6 +433,14 @@
   margin-left: -1150px;
   margin-top: 500px;
   transform: rotate(20deg);
+
+  animation-name: walkInCookie, animateCookie;
+  animation-duration: 3.5s, 2s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal;
+  animation-fill-mode: forwards, none;
+  animation-delay: 0s, 3.9s;
 }
 
 .eggplant {
@@ -95,6 +448,14 @@
   margin-left: 975px;
   margin-top: 450px;
   transform: rotate(-25deg);
+
+  animation-name: walkInEggplant, animateEggplant;
+  animation-duration: 3.5s, 2s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal;
+  animation-fill-mode: forwards, none;
+  animation-delay: 0s, 3.5s;
 }
 
 /*JOFN DESCRIPTION STYLES*/
