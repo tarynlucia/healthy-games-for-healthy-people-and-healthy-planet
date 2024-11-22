@@ -1,18 +1,37 @@
 /*LAYOUT CONTAINER*/
 .layoutContainer {
   display: flex;
-  
+
   flex-direction: column;
-  min-height: 100vh; /*make sure height is at least as tall as the screen*/
+  min-height: 100vh;
+  /* Make sure height is at least as tall as the screen */
 }
 
 /*HEADER*/
-.oregonstateuniversityicon {
-  width: 311px;
-  position: relative;
-  height: 75.5px;
-  object-fit: cover;
+.headerframe {
+  background-color: #ffffff;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Align items to the left */
+  padding: 0 20px;
+  /* Reduce padding on the left */
+  box-sizing: border-box;
 }
+
+
+/*HEADER ICON*/
+.oregonstateuniversityicon {
+  width: auto;
+  /* Keep aspect ratio */
+  height: 80px;
+  object-fit: contain;
+  margin-left: -10px;
+  /* Precise position towrads the left edge */
+}
+
 
 .homebutton {
   width: 158px;
@@ -24,7 +43,8 @@
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  margin-right: 6%; /* Adjust the margin-right as needed */
+  margin-right: 6%;
+  /* Adjust the margin-right as needed */
   cursor: pointer;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
@@ -44,129 +64,154 @@
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
-.headerframe {
-  background-color: WHITE;
-  width: 100%;
-  height: 122px;
-  display: flex;
-  align-items: center;
-  padding: 21px var(--padding-11xs) 25px;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: var(--font-size-xl);
-  color: var(--color-black);
-  position: relative;
-}
-
 /*CONTENT IN BETWEEN*/
 .contentInBetween {
   flex: 1;
 }
 
-/*FOOTER*/
+/* FOOTER FRAME */
 .footerframe {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  /* Space left and right sections */
   align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
   background-color: #212529;
-  height: 458px;
-  flex-shrink: 0;
-  font-size: var(--font-size-7xl);
-  color: var(--color-orangered);
+  width: 100%;
+  padding: 40px;
+  /* Padding around the content */
+  box-sizing: border-box;
+  color: #ffffff;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  position: relative;
 }
 
+/* Left Section */
 .footerInfoContainer {
-  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
-}
-
-.dividerlineIcon {
-  padding: 50px;
-  max-width: 100%;
-  height: 276px;
-  right: 50%;
-  object-fit: contain;
-}
-.osufootericon {
-  width: 234.7px;
-  height: 75px;
-}
-.collegeOfHealth,
-.oregonStateUniversitys {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 368px;
-  font-size: x-large;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-}
-.oregonStateUniversitys {
-  top: 265px;
-  left: 170px;
-  font-size: var(--font-size-xl);
-  color: var(--color-white);
-  width: 361px;
-  height: 100px;
   text-align: center;
+  width: 33%;
+  /* Take up only one-third of the footer width */
 }
 
+.osufootericon {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.collegeOfHealth {
+  font-size: 22px;
+  font-weight: bold;
+  color: #D73F09;
+  /* OSU orange */
+  margin-bottom: 15px;
+  padding-top: 30px;
+}
+
+.oregonStateUniversitys {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* DIVIDER LINE */
+.dividerlineIcon {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  /* Relatively thin vertical line */
+  background-color: #D73F09;
+  /* OSU orange */
+}
+
+/* Right Section */
 .authorAndContributorContainer {
-  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex;
+  text-align: center;
+  width: 33%;
+  /* Take up only one-third of the footer width */
 }
 
 .authorAndContibutorText {
-
-  font-size: var(--font-size-xl);
-  color: var(--color-white);
+  font-size: 22px;
   font-weight: bold;
-  margin: 10px;
+  color: #D73F09;
+  /* OSU orange */
+  margin-bottom: 15px;
+}
 
+.authorText {
+  font-size: 22px;
+  font-weight: bold;
+  color: #D73F09;
+  /* OSU orange */
+  margin-bottom: 15px;
 }
 
 .authorAndContibutorMemberText {
-  font-size: var(--font-size-xl);
-  color: var(--color-white);
-  margin: 10px;
-
-}
-
-.communityContainer {
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex;
-}
-
-.communityTextBold {
-  font-size: var(--font-size-xl);
-  color: var(--color-white);
-  margin: 10px;
+  font-size: 16px;
   font-weight: bold;
-
-
+  color: #ffffff;
+  margin-bottom: 30px;
 }
 
-.communityText {
-  font-size: var(--font-size-xl);
-  color: var(--color-white);
-  margin: 10px;
-
+/* Contributors Grid */
+.contributorsGrid {
+  display: grid;
+  font-weight: bold;
+  grid-template-columns: repeat(2, 1fr);
+  /* Two columns */
+  gap: 15px;
+  /* Space between grid items */
+  justify-content: center;
+  /* Center the grid under the heading */
+  text-align: center;
+  font-size: 16px;
+  /* Align text within each grid cell */
 }
 
+/* FOOTER BOTTOM BAR */
+.footerBottomBar {
+  display: flex;
+  justify-content: flex-start;
+  /* Align items to the left */
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  /* White background */
+  width: 100%;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-weight: bold;
+}
+
+/* COMMUNITY TEXT */
+.communityTitle {
+  font-size: 22px;
+  /* Match "Author" and "Contributors" font size */
+  color: #D73F09;
+  /* OSU orange color */
+  margin-right: 35px;
+}
+
+/* FEEDBACK LINK */
 .feedbackLink {
-  text-decoration: none; 
-  font-size: var(--font-size-xl);
-  color: var(--color-orangered);
+  font-size: 16px;
+  /* Match Community's font size */
+  text-decoration: none;
+  /* Make sure to remove underline */
+  color: #000000;
+}
+
+.feedbackLink:hover {
+  text-decoration: underline;
 }
