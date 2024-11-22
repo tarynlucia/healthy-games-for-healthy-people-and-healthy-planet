@@ -25,38 +25,77 @@ const Home = () => {
         <div className={styles.homepagebackgroundframe}>
           <Image
             className={styles.homepagebackgroundimageIcon}
-            alt=""
-            src="/homepageBackgroundImage.png"
-            width={2880}
-            height={1039}
+            alt="Background Image"
+            src="/outsideLong.png"
+            width={1920}
+            height={1080}
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+          <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
+          <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
           <b className={styles.juniorOutdoorFoodContainer}>
-            <p>Junior Outdoor Food Navigators Food App</p>
+            <p>Food<br></br>Calculator</p>
           </b>
         </div>
-        <div className={styles.jofndescriptionframe}>
-          <b className={styles.theJrOutdoorContainer}>
-            <b className={styles.climateResilienceStarts}>
-              Climate Resilience Starts Here
-            </b>
-            <p
-              className={styles.theJrOutdoor}
-            >{`The Jr. Outdoor Food Navigators (JOFN) is funded by the National Institute of Environmental Health Sciences (NIEHS)
-          through the Oregon State University ASP3IRE Center Translational Core to build climate resilience through outdoor play 
-          and positive food experience among school-aged children. One of the education and outreach tools is the Food Calculator. 
-           `}</p>
-          </b>
-        </div>
-
+        <Image
+          className={styles.pepper}
+          alt="Pepper"
+          src="/pepper.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.pizza}
+          alt="Pizza"
+          src="/pizza.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.carrot}
+          alt="Carrot"
+          src="/carrot.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.watermelon}
+          alt="Watermelon"
+          src="/watermelon.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.apple}
+          alt="Apple"
+          src="/apple.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.cookie}
+          alt="Cookie"
+          src="/cookie.png"
+          width={175}
+          height={160}
+        />
+        <Image
+          className={styles.eggplant}
+          alt="Eggplant"
+          src="/eggplant.png"
+          width={175}
+          height={160}
+        />
         <div className={styles.calculatorframe} onClick={onCalculatorClick}>
           <div>
             <div className={styles.calculatorbutton}>
               <Image
                 className={styles.calculatoricon}
-                alt=""
-                src="/calculatorIcon.png"
-                width={100}
-                height={100}
+                alt="Calculator"
+                src="/rotatedCalculator.png"
+                width={200}
+                height={200}
               />
               <b className={styles.calculator}>Calculator</b>
             </div>
