@@ -586,7 +586,7 @@
 }
 .calculatorframe {
   position: absolute;
-  bottom: -250px;
+  top: 900px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
