@@ -359,13 +359,23 @@
   margin-top: -10px;
   transform: rotate(15deg);
 
+  animation-name: animatePepper;
+  animation-duration: 2s;
+  animation-timing-function: linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-iteration-count: infinite;
+  animation-direction: normal; /* both animations run forward */
+  animation-fill-mode: none; /* keep final state of walkInFromLeft */
+  animation-delay: 0s; /* delay the bobbing until the walk-in finishes */
+
+  /*
   animation-name: walkInPepper, animatePepper;
   animation-duration: 3.5s, 2s;
-  animation-timing-function: linear, linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-timing-function: linear, linear;
   animation-iteration-count: 1, infinite;
-  animation-direction: normal, normal; /* both animations run forward */
-  animation-fill-mode: forwards, none; /* keep final state of walkInFromLeft */
-  animation-delay: 0s, 3.5s; /* delay the bobbing until the walk-in finishes */
+  animation-direction: normal, normal;
+  animation-fill-mode: forwards, none;
+  animation-delay: 0s, 3.5s;
+  */
 }
 
 .pizza {
@@ -374,13 +384,21 @@
   margin-top: 90px;
   transform: rotate(20deg);
 
-  animation-name: walkInPizza, animatePizza;
+  animation-name: animatePizza;
+  animation-duration: 2s;
+  animation-timing-function: linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-iteration-count: infinite;
+  animation-direction: normal; /* both animations run forward */
+  animation-fill-mode: none; /* keep final state of walkInFromLeft */
+  animation-delay: 0.2s; /* delay the bobbing until the walk-in finishes */
+
+  /* animation-name: walkInPizza, animatePizza;
   animation-duration: 3.5s, 2s;
   animation-timing-function: linear, linear;
   animation-iteration-count: 1, infinite;
   animation-direction: normal, normal;
   animation-fill-mode: forwards, none;
-  animation-delay: 0s, 3.7s;
+  animation-delay: 0s, 3.7s; */
 }
 
 .carrot {
@@ -389,13 +407,21 @@
   margin-top: 0px;
   transform: rotate(-8deg);
 
-  animation-name: walkInCarrot, animateCarrot;
+  animation-name: animateCarrot;
+  animation-duration: 2s;
+  animation-timing-function: linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-iteration-count: infinite;
+  animation-direction: normal; /* both animations run forward */
+  animation-fill-mode: none; /* keep final state of walkInFromLeft */
+  animation-delay: 0.4s; /* delay the bobbing until the walk-in finishes */
+
+  /* animation-name: walkInCarrot, animateCarrot;
   animation-duration: 3.5s, 2s;
   animation-timing-function: linear, linear;
   animation-iteration-count: 1, infinite;
   animation-direction: normal, normal;
   animation-fill-mode: forwards, none;
-  animation-delay: 0s, 3.9s;
+  animation-delay: 0s, 3.9s; */
 }
 
 .watermelon {
@@ -404,13 +430,21 @@
   margin-top: 175px;
   transform: rotate(-15deg);
 
-  animation-name: walkInWatermelon, animateWatermelon;
+  animation-name: animateWatermelon;
+  animation-duration: 2s;
+  animation-timing-function: linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-iteration-count: infinite;
+  animation-direction: normal; /* both animations run forward */
+  animation-fill-mode: none; /* keep final state of walkInFromLeft */
+  animation-delay: 0s; /* delay the bobbing until the walk-in finishes */
+
+  /* animation-name: walkInWatermelon, animateWatermelon;
   animation-duration: 3.5s, 2s;
   animation-timing-function: linear, linear;
   animation-iteration-count: 1, infinite;
   animation-direction: normal, normal;
   animation-fill-mode: forwards, none;
-  animation-delay: 0s, 3.5s;
+  animation-delay: 0s, 3.5s; */
 }
 
 .apple {
@@ -419,13 +453,21 @@
   margin-top: 400px;
   transform: rotate(-5deg);
 
-  animation-name: walkInApple, animateApple;
+  animation-name: animateApple;
+  animation-duration: 2s;
+  animation-timing-function: linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-iteration-count: infinite;
+  animation-direction: normal; /* both animations run forward */
+  animation-fill-mode: none; /* keep final state of walkInFromLeft */
+  animation-delay: 0.2s; /* delay the bobbing until the walk-in finishes */
+
+  /* animation-name: walkInApple, animateApple;
   animation-duration: 3.5s, 2s;
   animation-timing-function: linear, linear;
   animation-iteration-count: 1, infinite;
   animation-direction: normal, normal;
   animation-fill-mode: forwards, none;
-  animation-delay: 0s, 3.7s;
+  animation-delay: 0s, 3.7s; */
 }
  
 .cookie {
@@ -434,13 +476,21 @@
   margin-top: 500px;
   transform: rotate(20deg);
 
-  animation-name: walkInCookie, animateCookie;
+  animation-name: animateCookie;
+  animation-duration: 2s;
+  animation-timing-function: linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-iteration-count: infinite;
+  animation-direction: normal; /* both animations run forward */
+  animation-fill-mode: none; /* keep final state of walkInFromLeft */
+  animation-delay: 0.4s; /* delay the bobbing until the walk-in finishes */
+
+  /* animation-name: walkInCookie, animateCookie;
   animation-duration: 3.5s, 2s;
   animation-timing-function: linear, linear;
   animation-iteration-count: 1, infinite;
   animation-direction: normal, normal;
   animation-fill-mode: forwards, none;
-  animation-delay: 0s, 3.9s;
+  animation-delay: 0s, 3.9s; */
 }
 
 .eggplant {
@@ -449,13 +499,21 @@
   margin-top: 450px;
   transform: rotate(-25deg);
 
-  animation-name: walkInEggplant, animateEggplant;
+  animation-name: animateEggplant;
+  animation-duration: 2s;
+  animation-timing-function: linear; /* linear: The animation has the same speed from start to end, ease: Default value. The animation has a slow start, then fast, before it ends slowly*/
+  animation-iteration-count: infinite;
+  animation-direction: normal; /* both animations run forward */
+  animation-fill-mode: none; /* keep final state of walkInFromLeft */
+  animation-delay: 0s; /* delay the bobbing until the walk-in finishes */
+
+  /* animation-name: walkInEggplant, animateEggplant;
   animation-duration: 3.5s, 2s;
   animation-timing-function: linear, linear;
   animation-iteration-count: 1, infinite;
   animation-direction: normal, normal;
   animation-fill-mode: forwards, none;
-  animation-delay: 0s, 3.5s;
+  animation-delay: 0s, 3.5s; */
 }
 
 /*JOFN DESCRIPTION STYLES*/
