@@ -1,9 +1,9 @@
 /*LAYOUT CONTAINER*/
 .layoutContainer {
   display: flex;
-
+  
   flex-direction: column;
-  min-height: 100vh;
+  height: max-content;
   /* Make sure height is at least as tall as the screen */
 }
 
