@@ -9,7 +9,7 @@
 
 /*HEADER*/
 .headerframe {
-  background-color: #ffffff;
+  background-color: white;
   width: 100%;
   height: 150px;
   display: flex;
@@ -28,7 +28,8 @@
   /* Keep aspect ratio */
   height: 80px;
   object-fit: contain;
-  margin-left: -10px;
+  margin-left: 10px;
+  margin-top: -5px;
   /* Precise position towrads the left edge */
 }
 
@@ -78,7 +79,8 @@
   align-items: flex-start;
   background-color: #212529;
   width: 100%;
-  padding: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   /* Padding around the content */
   box-sizing: border-box;
   color: #ffffff;
@@ -93,6 +95,7 @@
   align-items: center;
   text-align: center;
   width: 33%;
+  margin: auto;
   /* Take up only one-third of the footer width */
 }
 
@@ -125,7 +128,6 @@
   top: 40px;
   bottom: 40px;
   left: 50%;
-  transform: translateX(-50%);
   width: 4px;
   /* Relatively thin vertical line */
   background-color: #D73F09;
@@ -139,6 +141,7 @@
   align-items: center;
   text-align: center;
   width: 33%;
+  margin: auto;
   /* Take up only one-third of the footer width */
 }
 
@@ -187,9 +190,8 @@
   /* Align items to the left */
   align-items: center;
   padding: 20px 30px;
-  background-color: #ffffff;
+  background-color: white;
   /* White background */
-  width: 100%;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-weight: bold;
 }
