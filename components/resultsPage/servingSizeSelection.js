@@ -50,7 +50,7 @@ export default function ServingSizeSelection({ curFood, updateServingSize }) {
       {isModalOpen && (
         <div className={styles.modalBackground} onClick={handleOutsideClick}>
           <div className={styles.modalContent}>
-            <button onClick={handleModalClose}>Close Modal</button>
+            <button className={styles.modalCloseBtn} onClick={handleModalClose}>Close</button>
             <div className={styles.servingSizeBtnsContainer}>
               {/* add images and stuff within these buttons! */}
               <button
