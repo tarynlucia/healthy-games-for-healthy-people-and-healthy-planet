@@ -109,7 +109,8 @@
 
 
 .amountBox {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 38px;
   width: 100%;
   border-radius: 10px;
@@ -143,7 +144,8 @@
 }
 
 .footprintText {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   padding-left: 7px;
   padding-right: 2px;
   margin-top: 7px;
@@ -157,14 +159,16 @@
 }
 
 .waterFootprintText {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   color: rgb(40, 136, 196);
   font-size: 20px;
   font-size: clamp(14px, 1.5vw, 20px);
 }
 
 .carbonFootprintText {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 20px;
   font-size: clamp(14px, 1.5vw, 20px);
 }
@@ -190,7 +194,8 @@
 }
 
 .nutritionBoxTitle {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 38px;
   text-decoration: underline;
   height: 50px;
@@ -250,7 +255,8 @@
 
 .legendText {
   font-weight: bold;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 36px;
 }
 
@@ -275,7 +281,8 @@
 }
 
 .legendDescription {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 16px;
 }
 
