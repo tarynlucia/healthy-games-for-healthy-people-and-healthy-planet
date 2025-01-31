@@ -172,14 +172,14 @@ const ResultsPage = () => {
         <div style={{ marginLeft: "1%" }} className={styles.topBtnBar}>
           <div onClick={onBackClick}>
             <div className={styles.topBtnsBar}>
-              <b className={styles.backBtn}>⬅ Back</b>
+              <b>⬅ Back</b>
             </div>
             {/* we have to make sure the data between the mainFoodPage and resultsPage is consistent/same */}
           </div>
 
           <div className={styles.topBtnBarSubDiv}>
             <div className={styles.topBtnsBar} onClick={onBackClick}>
-              <b className={styles.newCalculationBtn} onClick={onNewCalcClick}>
+              <b onClick={onNewCalcClick}>
                 New Calculation
               </b>
             </div>
