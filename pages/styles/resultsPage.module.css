@@ -101,10 +101,12 @@
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-
 .AmountAndFootprint {
   width: 50%;
+  flex: 1;
+  min-width: 0;
 }
+
 
 .amountBox {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
@@ -146,6 +148,8 @@
   padding-right: 2px;
   margin-top: 7px;
   font-size: 25px;
+  font-size: clamp(18px, 2vw, 25px);
+  text-decoration: underline;
 }
 
 .footprintBoxBold {
@@ -156,15 +160,19 @@
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   color: rgb(40, 136, 196);
   font-size: 20px;
+  font-size: clamp(14px, 1.5vw, 20px);
 }
 
 .carbonFootprintText {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 20px;
+  font-size: clamp(14px, 1.5vw, 20px);
 }
 
 .nutritionAndFunFacts {
   width: 50%;
+  flex: 1;
+  min-width: 0;
 }
 
 .nutritionBox {
