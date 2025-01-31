@@ -1,9 +1,14 @@
 .resultsContainer {
   width: 100%;
   min-height: calc(100vh - 123px);
-  background-color: rgb(228, 228, 228);
+  background-image: url("/outsideLong.png");
+  /* Add background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding-bottom: 50px;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
 }
 
 /*STYLES FOR TOP BAR WITH BACK BUTTON AND NEW CALCULATION BUTTON*/
@@ -15,6 +20,7 @@
 
   padding: 2% 0% 1% 0%;
 }
+
 .topBtnsBar {
   display: flex;
   align-items: center;
@@ -34,6 +40,7 @@
 
   cursor: pointer;
 }
+
 .topBtnBarSubDiv {
   display: flex;
 }
@@ -43,6 +50,7 @@
   font-weight: 300;
   font-size: 24px;
 }
+
 .newCalculationBtn {
   font-weight: 300;
   font-size: 24px;
@@ -188,9 +196,11 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
 .imageAndFoodName {
   max-width: 300px;
 }
+
 .currentFoodName {
   color: grey;
 }
@@ -203,19 +213,21 @@
 
 .legend {
   margin-top: 20px;
-  text-align: center; /* Center the text */
+  text-align: center;
+  /* Center the text */
 }
 
 .legendText {
-  font-weight: bold;  
+  font-weight: bold;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 36px;
 }
 
 .legendItems {
   display: flex;
-  font-weight: bold;  
-  justify-content: center; /* Center the items horizontally */
+  font-weight: bold;
+  justify-content: center;
+  /* Center the items horizontally */
   margin-top: 10px;
 }
 
@@ -238,7 +250,8 @@
 
 .colorDisplay {
   width: 75%;
-  margin: 20px auto; /* Center horizontally */
+  margin: 20px auto;
+  /* Center horizontally */
   display: flex;
   height: 20px;
   border-radius: 5px;
@@ -249,4 +262,3 @@
 .colorSegment {
   height: 100%;
 }
-
