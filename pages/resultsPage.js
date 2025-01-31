@@ -154,7 +154,23 @@ const ResultsPage = () => {
     }
     finalVal *= servingAmount;
     let roundedVal = Math.round(finalVal * waterFootprint * 100) / 100;
-    return roundedVal;
+
+    let easy_comparison = "";
+
+    if (roundedVal < 60) {
+      easy_comparison = "That's like flushing a toilet " + Math.round(roundedVal / 1.6) + " times!";
+    }
+    else if (roundedVal < 3600) {
+      easy_comparison = "That's like filling up " + Math.round(roundedVal / 60) + " bathtubs!";
+    }
+    else if (roundedVal < 18000) {
+      easy_comparison = "That's like showering for " + Math.round(roundedVal / 3600) + " whole days!";
+    }
+    else {
+      easy_comparison = "That's like filling up " + Math.round(roundedVal / 18000) + " swimming pools! ";
+    }
+
+    return { gallons: roundedVal, easy_comparison: easy_comparison };
   }
 
   // Define some sample colors
@@ -287,6 +303,12 @@ function FoodResult({
     }
   }
 
+  const waterData = servingSizeConversion(
+    currentFood.serving_size,
+    currentFood.serving_amount,
+    currentFood.water_footprint
+  );
+
   return (
     <div className={styles.individualResultsCard}>
       <div className={styles.imageAndFoodName}>
@@ -316,12 +338,10 @@ function FoodResult({
         <div className={styles.footprintBox}>
           <p className={styles.footprintText}>Water Footprint </p>
           <p className={styles.waterFootprintText}>
-            {servingSizeConversion(
-              currentFood.serving_size,
-              currentFood.serving_amount,
-              currentFood.water_footprint
-            )}{" "}
-            gallon(s)
+            {waterData.gallons} gallon(s)
+          </p>
+          <p className={styles.comparisonText}>
+            {waterData.easy_comparison}
           </p>
           <p className={styles.footprintText}>Carbon Footprint</p>
           <p

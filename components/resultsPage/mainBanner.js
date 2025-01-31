@@ -30,7 +30,7 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
         food.serving_size,
         food.serving_amount,
         food.water_footprint
-      );
+      ).gallons;
     });
     let roundedVal = Math.round(totalGallons * 100) / 100;
     return roundedVal;
