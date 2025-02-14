@@ -13,10 +13,18 @@ function TopBar() {
   const router = useRouter();
   const calculatorFunctions = useCalculatorUpdate();
 
-  // const handleInformationClick = () => {
-  //   // Use the router to navigate to the information page or handle it as needed
-  //   router.push("/information");
-  // };
+  const handleHowToClick = () => {
+    // Use the router to navigate to the information page or handle it as needed
+    router.push("/howToPage");
+  };
+
+  const handleDictionaryClick = () => {
+    router.push("/dictionaryPage");
+  };
+
+  const handleCalculatorClick = () => {
+    router.push("/mainFoodPage");
+  }
 
   const handleHomeClick = () => {
     // Clear the calculator state when the home button is clicked
@@ -48,10 +56,23 @@ function TopBar() {
       <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
       <div className={styles.navBarOptions}>
         <a href="#">Game</a>
-        <a href="#">How To</a>
-        <a href="#">Dictionary</a>
+        {router.pathname !== "/howToPage" && (
+          <div className={styles.linkbutton} onClick={handleHowToClick}>
+            <b>How To</b>
+          </div>
+        )}
+        {router.pathname !== "/dictionaryPage" && (
+          <div className={styles.linkbutton} onClick={handleDictionaryClick}>
+            <b>Dictionary</b>
+          </div>
+        )}
+        {router.pathname !== "/mainFoodPage" && (
+          <div className={styles.linkbutton} onClick={handleCalculatorClick}>
+            <b>Calculator</b>
+          </div>
+        )}
         {router.pathname !== "/" && (
-          <div className={styles.homebutton} onClick={handleHomeClick}>
+          <div className={styles.linkbutton} onClick={handleHomeClick}>
             <b>Home</b>
           </div>
         )}

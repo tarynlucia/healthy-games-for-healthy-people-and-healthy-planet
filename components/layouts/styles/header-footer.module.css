@@ -60,11 +60,11 @@
   text-decoration: underline;
 }
 
-.homebutton {
+.linkbutton {
   padding-left: 60px;
 }
 
-.homebutton b:hover {
+.linkbutton b:hover {
   color: black;
   font-weight: bold;
   text-decoration: underline;
