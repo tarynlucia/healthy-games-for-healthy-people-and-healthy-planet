@@ -50,3 +50,24 @@
 .resetButton:hover {
   background-color: #d32f2f;
 }
+
+.backgroundframe {
+  position: absolute;
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+  flex-shrink: 0;
+  font-size: 70px;
+  margin-bottom: 30px;
+}
+
+.backgroundimageIcon {
+  width: 100%;
+  height: 1080px;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.CalculatorSideBar {
+  position: fixed;
+}

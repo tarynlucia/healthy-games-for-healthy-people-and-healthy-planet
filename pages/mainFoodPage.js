@@ -7,6 +7,7 @@ import ColorDropDown from "../components/mainFoodPage/colorDropDown";
 import CalculatorSideBar from "../components/mainFoodPage/calculatorSideBar";
 import FoodCards from "../components/mainFoodPage/foodCards";
 import SearchBar from "../components/mainFoodPage/search";
+import Image from "next/image";
 
 import styles from "./styles/mainFoodPage.module.css";
 
@@ -128,6 +129,15 @@ const MainFoodCardsPage = () => {
   return (
     <Layout>
       <div className={styles.mainFoodCardsPage}>
+      <div className={styles.backgroundframe}>
+        <Image
+          className={styles.backgroundimageIcon}
+          alt="Background Image"
+          src="/outsideLong.png"
+          width={1920}
+          height={1080}
+        />
+        </div>
         <CalculatorSideBar onCalcClick={onCalculatorClick} />
         <div className={styles.rightOfSidebar}>
           <div className={styles.dropDownSearchContainer}>

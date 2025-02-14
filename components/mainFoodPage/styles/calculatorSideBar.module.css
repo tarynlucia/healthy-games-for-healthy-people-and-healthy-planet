@@ -12,7 +12,7 @@
   font-size: var(--font-size-xl);
   color: var(--color-black);
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-
+  z-index: 10;
 }
 
 .myCalculatorHeader {
