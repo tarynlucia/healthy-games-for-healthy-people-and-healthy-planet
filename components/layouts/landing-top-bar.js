@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useCalculatorUpdate } from "../../context/calculatorContext";
-import styles from "./styles/header-footer.module.css";
+import styles from "./styles/landing-header-footer.module.css";
 
 import Image from "next/image";
 
@@ -39,7 +39,7 @@ function TopBar() {
           width={480}
           height={10}
           alt=""
-          src="/OSU_logo.png"
+          src="/OSU_logo_landing.png"
         />
       </a>
       <link rel="preconnect" href="https://fonts.googleapis.com"></link>
@@ -47,9 +47,6 @@ function TopBar() {
       <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
       <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
       <div className={styles.navBarOptions}>
-        <a href="#">Game</a>
-        <a href="#">How To</a>
-        <a href="#">Dictionary</a>
         {router.pathname !== "/" && (
           <div className={styles.homebutton} onClick={handleHomeClick}>
             <b>Home</b>
