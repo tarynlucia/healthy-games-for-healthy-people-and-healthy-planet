@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+.container {
+    height: 100vh;
+    background-image: url("/outsideLong.png"); /* Set the background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modeBox {
+  width: 750px; /* Decreased size by 1/4 */
+  height: 525px; /* Decreased size by 1/4 */
+  border-radius: 40px;
+  border: 8px solid #ffd400;
+  background-color: #fff3d2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.modeBox h2 {
+  margin: 0;
+  font-size: 60px; /* Reduced size for less chunkiness */
+  font-weight: bold;
+  font-family: 'Nerko One', sans-serif;
+  line-height: 1.2; /* Adjust line height for spacing */
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap; /* Allow wrapping for better spacing */
+  gap: 20px; /* Space between buttons */
+}
+
+.modeButton {
+  width: 170px;
+  height: 90px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack the label below the button */
+}
+
+.modeButton:hover {
+  background-color: #ffd400;
+}
+
+.carbonButton {
+  background-color: #388e3c; /* Green for Carbon */
+}
+
+.waterButton {
+  background-color: #2196f3; /* Blue for Water */
+}
+
+.buttonLabel {
+  margin-top: 10px; /* Space between button and label */
+  font-size: 18px;
+  font-weight: normal;
+  color: #fff;
+}
