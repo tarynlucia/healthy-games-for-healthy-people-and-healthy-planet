@@ -6,6 +6,7 @@ import {
   useCalculatorUpdate,
 } from "../../context/calculatorContext";
 import Image from "next/image";
+import { useState } from "react";
 
 /*************************************************************************
  * Component: CalculatorSideBar
@@ -16,6 +17,21 @@ import Image from "next/image";
 export default function CalculatorSideBar({ onCalcClick }) {
   const foods = useCalculator();
   const calculatorFunctions = useCalculatorUpdate();
+
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleClearButton = () => {
+    setShowConfirmation(true);
+  };
+
+  const handleCancelClear = () => {
+    setShowConfirmation(false);
+  };
+
+  const handleConfirmClear = () => {
+    calculatorFunctions.onClearCalculator();
+    setShowConfirmation(false);
+  };
 
   return (
     <div className={styles.calculatorsidebarframe}>
@@ -58,10 +74,29 @@ export default function CalculatorSideBar({ onCalcClick }) {
             Calculate
           </div>
         )}
-        <div className={styles.clearCalcButton} onClick={calculatorFunctions.onClearCalculator}>
-          Clear
-        </div>
+        {foods.length > 0 && (
+          <div className={styles.clearCalcButton} onClick={handleClearButton}>
+            Clear
+          </div>
+        )}
       </div>
+
+      {showConfirmation && (
+        <div className={styles.overlayContainer}>
+          <div className={styles.overlay} onClick={handleCancelClear}></div>
+          <div className={styles.clearConfirmationBox}>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></link>
+            <i className="fa-solid fa-triangle-exclamation"></i>
+            <h2>Are you sure?</h2>
+            <h3>You won’t be able to get your current calculation back if you clear. Would you like to clear your calculation?</h3>
+            <div className={styles.buttons}>
+              <button className={styles.yesButton} onClick={handleConfirmClear}>Yes</button>
+              <button className={styles.noButton} onClick={handleCancelClear}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

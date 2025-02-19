@@ -161,6 +161,118 @@
   background-color: #54A4B4;
 }
 
-.compareButton{
+.compareButton {
   background-color: #D7EFF5;
+}
+
+.calculateButton:hover {
+  background-color: #f195c1;
+}
+
+.clearCalcButton:hover {
+  background-color: #f195c1;
+}
+
+.compareButton:hover {
+  background-color: #f195c1;
+}
+
+.overlayContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0.5, 0.5, 0.5, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.clearConfirmationBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  max-width: 380px;
+  width: 100%;
+  border-radius: 24px;
+  background-color: white;
+  border: 15px solid #54A4B4;
+  padding: 30px 20px;
+  z-index: 100;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 6px gray;
+}
+
+.clearConfirmationBox i {
+  font-size: 70px;
+  color: #54A4B4;
+}
+
+.clearConfirmationBox h2 {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+
+.clearConfirmationBox h3 {
+  font-size: 16px;
+  margin-top: -5px;
+  margin-bottom: 0px;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adds spacing between buttons */
+  margin-top: 25px;
+}
+
+.yesButton, .noButton {
+  height: 40px; /* Increase height for better clickability */
+  width: 100px; /* Set a fixed width to keep them equal */
+  padding: 6px 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 2px 2px 6px gray;
+  cursor: pointer;
+}
+
+.yesButton {
+  background-color: #54A4B4;
+  color: white;
+}
+
+.noButton {
+  background-color: #2f5d66;
+  color: white;
+}
+
+.yesButton:hover, .noButton:hover {
+  background-color: #f195c1;
 }
