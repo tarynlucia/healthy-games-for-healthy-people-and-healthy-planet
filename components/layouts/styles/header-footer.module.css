@@ -62,13 +62,22 @@
 
 .linkbutton {
   padding-left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
-.linkbutton b:hover {
+.linkbutton:hover {
   color: black;
   font-weight: bold;
-  text-decoration: underline;
 }
+
+.linkbutton i {
+  display: inline-block; /* Ensures the icon is properly aligned */
+  font-size: 18px; /* Adjust icon size if needed */
+}
+
 
 /*CONTENT IN BETWEEN*/
 .contentInBetween {

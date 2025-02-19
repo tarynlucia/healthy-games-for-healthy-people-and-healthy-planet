@@ -88,7 +88,7 @@ export default function CalculatorSideBar({ onCalcClick }) {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></link>
             <i className="fa-solid fa-triangle-exclamation"></i>
             <h2>Are you sure?</h2>
-            <h3>You won’t be able to get your current calculation back if you clear. Would you like to clear your calculation?</h3>
+            <h3>If you clear your calculator, you will loose all your added food! Would you like to clear your calculation?</h3>
             <div className={styles.buttons}>
               <button className={styles.yesButton} onClick={handleConfirmClear}>Yes</button>
               <button className={styles.noButton} onClick={handleCancelClear}>No</button>

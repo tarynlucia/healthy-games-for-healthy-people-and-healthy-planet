@@ -55,14 +55,20 @@ function TopBar() {
       <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
       <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
       <div className={styles.navBarOptions}>
-        <a href="#">Game</a>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></link>
+        <div className={styles.linkbutton}>
+          <i class="fa-solid fa-gamepad"></i>
+          <b>Game</b>
+        </div>
         {router.pathname !== "/howToPage" && (
           <div className={styles.linkbutton} onClick={handleHowToClick}>
+            <i class="fa-solid fa-circle-question"></i>
             <b>How To</b>
           </div>
         )}
         {router.pathname !== "/dictionaryPage" && (
           <div className={styles.linkbutton} onClick={handleDictionaryClick}>
+            <i class="fa-solid fa-book"></i>
             <b>Dictionary</b>
           </div>
         )}
@@ -73,6 +79,7 @@ function TopBar() {
         )}
         {router.pathname !== "/" && (
           <div className={styles.linkbutton} onClick={handleHomeClick}>
+            <i class="fa-solid fa-house"></i>
             <b>Home</b>
           </div>
         )}
