@@ -14,7 +14,7 @@ import { useState } from "react";
  * that displays the foods that the user has selected for their
  * calculation. It has buttons to clear the calculator and to calculate
  *************************************************************************/
-export default function CalculatorSideBar({ onCalcClick }) {
+export default function CalculatorSideBar({ onCalcClick, onCompareClick }) {
   const foods = useCalculator();
   const calculatorFunctions = useCalculatorUpdate();
 
@@ -65,7 +65,7 @@ export default function CalculatorSideBar({ onCalcClick }) {
       </div>
       <div className={styles.bottomButtonsContainer}>
         {foods.length > 1 && (
-          <div className={styles.compareButton} onClick={calculatorFunctions.onCompare}>
+          <div className={styles.compareButton} onClick={onCompareClick}>
             Compare 
           </div>
         )}

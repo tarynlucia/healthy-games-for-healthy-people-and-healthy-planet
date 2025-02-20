@@ -7,6 +7,7 @@ import ColorDropDown from "../components/mainFoodPage/colorDropDown";
 import CalculatorSideBar from "../components/mainFoodPage/calculatorSideBar";
 import FoodCards from "../components/mainFoodPage/foodCards";
 import SearchBar from "../components/mainFoodPage/search";
+import CompareWindow from "../components/mainFoodPage/compareWindow";
 import Image from "next/image";
 
 import styles from "./styles/mainFoodPage.module.css";
@@ -31,6 +32,8 @@ const MainFoodCardsPage = () => {
   const [searchInput, setSearchInput] = useState("");
 
   const [filteredFoodCards, setFilteredFoodCards] = useState([]);
+
+  const [showCompare, setShowCompare] = useState(false);
 
   const onCalculatorClick = useCallback(() => {
     router.push("/resultsPage");
@@ -126,6 +129,14 @@ const MainFoodCardsPage = () => {
     //fetchData(); // Refetch data to ensure you have the latest
   };
 
+  const onCompareClick = () => {
+    setShowCompare(true);
+  };
+
+  const onCloseCompare = () => {
+    setShowCompare(false);
+  };
+
   return (
     <Layout>
       <div className={styles.mainFoodCardsPage}>
@@ -138,8 +149,9 @@ const MainFoodCardsPage = () => {
           height={1080}
         />
         </div>
-        <CalculatorSideBar onCalcClick={onCalculatorClick} />
+        <CalculatorSideBar onCalcClick={onCalculatorClick} onCompareClick={onCompareClick} />
         <div className={styles.rightOfSidebar}>
+          {showCompare && <CompareWindow onClose={onCloseCompare} />}
           <div className={styles.dropDownSearchContainer}>
             <ColorDropDown
               colors={colorArray}
