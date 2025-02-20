@@ -40,7 +40,7 @@ const GameRankingPage = () => {
     router.push("/gameModePage"); // Redirect to gameModePage
   };
 
-  // Function to convert seconds to HH:MM:SS format
+  // Function to format timer (seconds) into HH:MM:SS format
   const formatTime = (seconds) => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -108,25 +108,35 @@ const GameRankingPage = () => {
       </div>
 
       <div className={styles.slotsContainer}>
-        {slots.map((slot, index) => (
-          <div
-            key={index}
-            className={styles.slot}
-            onDrop={(e) => handleDrop(e, index)} // Handle the drop event
-            onDragOver={handleDragOver} // Allow the item to be dragged over the slot
-          >
-            <div className={styles.slotNumber}>{index + 1}</div>
-            {slot ? (
-              <img
-                src={`/${randomFoods.find((food) => food.id === slot)?.image}`} // Use the foodId to get the image
-                alt={`Food ${slot}`}
-                className={styles.slotImage}
-              />
-            ) : (
-              <p className={styles.emptySlot}>Empty</p>
-            )}
-          </div>
-        ))}
+        {slots.map((slot, index) => {
+  console.log('Slot:', slot); // Log the slot value
+
+  return (
+    <div
+      key={index}
+      className={styles.slot}
+      onDrop={(e) => handleDrop(e, index)} // Handle the drop event
+      onDragOver={handleDragOver} // Allow the item to be dragged over the slot
+    >
+      <div className={styles.slotNumber}>{index+1}</div>
+      {slot ? (() => {
+  const foodItem = randomFoods.find((food) => food.id === parseInt(slot));
+  return (
+    <img
+      src={`/${foodItem?.image}`}
+      alt={`Food ${foodItem?.id}`}
+      className={styles.slotImage}
+    />
+  );
+})() : (
+  <p className={styles.emptySlot}>Empty</p>
+)}
+
+    </div>
+  );
+  
+})}
+
       </div>
 
       {/* Add the Back button */}
