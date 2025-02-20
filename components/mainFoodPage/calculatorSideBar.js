@@ -14,7 +14,7 @@ import { useState } from "react";
  * that displays the foods that the user has selected for their
  * calculation. It has buttons to clear the calculator and to calculate
  *************************************************************************/
-export default function CalculatorSideBar({ onCalcClick, onCompareClick }) {
+export default function CalculatorSideBar({ onCalcClick, onCompareClick, onClose }) {
   const foods = useCalculator();
   const calculatorFunctions = useCalculatorUpdate();
 
@@ -64,7 +64,7 @@ export default function CalculatorSideBar({ onCalcClick, onCompareClick }) {
         )}
       </div>
       <div className={styles.bottomButtonsContainer}>
-        {foods.length > 1 && (
+        {foods.length > 1 && foods.length < 5 && (
           <div className={styles.compareButton} onClick={onCompareClick}>
             Compare 
           </div>
@@ -90,7 +90,13 @@ export default function CalculatorSideBar({ onCalcClick, onCompareClick }) {
             <h2>Are you sure?</h2>
             <h3>If you clear your calculator, you will loose all your added food! Would you like to clear your calculation?</h3>
             <div className={styles.buttons}>
-              <button className={styles.yesButton} onClick={handleConfirmClear}>Yes</button>
+              <button className={styles.yesButton} 
+                onClick={() => {
+                  handleConfirmClear();
+                  onClose();
+                }}>
+                Yes
+              </button>
               <button className={styles.noButton} onClick={handleCancelClear}>No</button>
             </div>
           </div>

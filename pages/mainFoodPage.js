@@ -149,7 +149,7 @@ const MainFoodCardsPage = () => {
           height={1080}
         />
         </div>
-        <CalculatorSideBar onCalcClick={onCalculatorClick} onCompareClick={onCompareClick} />
+        <CalculatorSideBar onCalcClick={onCalculatorClick} onCompareClick={onCompareClick} onClose={onCloseCompare} />
         <div className={styles.rightOfSidebar}>
           {showCompare && <CompareWindow onClose={onCloseCompare} />}
           <div className={styles.dropDownSearchContainer}>

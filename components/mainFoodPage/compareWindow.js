@@ -6,6 +6,7 @@ import {
   useCalculatorUpdate,
 } from "../../context/calculatorContext";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 /*************************************************************************
  * Component: CalculatorSideBar
@@ -15,19 +16,38 @@ import Image from "next/image";
  *************************************************************************/
 export default function CompareWindow ({ onClose }) {
   const foods = useCalculator();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (foods.length < 1) {
+      handleClose();
+    }
+  }, [foods.length]); // Runs when foods.length changes
+
+  useEffect(() => {
+    setIsVisible(true); // Small delay to trigger animation
+  }, []); // auto runs with every render/change
+
+  const handleClose = () => {
+    setIsVisible(false);
+    setTimeout(onClose, 800);
+  };
 
   return (
-    <div className={styles.compareWindowFrame}>
+    <div className={`${styles.compareWindowFrame} ${isVisible ? styles.slideIn : styles.slideOut}`}>
       <div className={styles.compareWindowHeader}>
         <b>Compare</b>
-        <button className={styles.closeButton} onClick={onClose}>
+        <button className={styles.closeButton} onClick={handleClose}>
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div className={styles.itemsInCompareFrame}>
         <ul className={styles.foodsInCalculator}>
           {foods.map((food) => (
-            <CompareFoodItem key={food.id} foodItem={food} />
+            <CompareFoodItem 
+              key={food.id}
+              foodItem={food}
+            />
           ))}
         </ul>
       </div>
@@ -42,17 +62,40 @@ export default function CompareWindow ({ onClose }) {
  * It displays the name and an image of the food.
  *************************************************************************/
 function CompareFoodItem({ foodItem }) {
-  const calculatorFunctions = useCalculatorUpdate();
   return (
     <li key={foodItem.id}>
-      <div>
+      <div className={styles.foodItem}>
         <Image
           src={`/${foodItem.imagePath}`}
           alt={foodItem.name}
           width={100}
           height={100}
         />
-        <p>{foodItem.name}</p>
+        <h2 className={styles.name}>{foodItem.name}</h2>
+        <div className={styles.information}>
+          <div className={styles.group}>
+            <h3>Food Group:</h3>
+            <b>placeholder</b>
+          </div>
+
+          <h3 className={styles.nutrition}>Nutritional Value:</h3>
+          <b>stars placeholder</b>
+
+          <div className={styles.water}>
+            <h3>Water Footprint:</h3>
+            <b>#</b>
+          </div>
+          <b>real live conversion placeholder</b>
+
+          <div className={styles.carbon}>
+            <h3>Carbon Footprint:</h3>
+            <b># (rank)</b>
+          </div>
+          <b>real live conversion placeholder</b>
+
+          <h3 className={styles.facts}>Facts</h3>
+          <b>Information</b>
+        </div>
       </div>
     </li>
   );

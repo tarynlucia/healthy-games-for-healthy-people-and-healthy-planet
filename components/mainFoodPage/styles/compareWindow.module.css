@@ -1,109 +1,127 @@
-/* Main overlay that covers the entire screen */
 .compareWindowFrame {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: 800px;
-    height: auto;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 5;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Overlay that darkens the background behind the popup */
-  .compareWindowOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
-  
-  /* Header styling for the compare window */
-  .compareWindowHeader {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 2px solid #ddd;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Close button in the header */
-  .closeButton {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .closeButton:hover {
-    color: #000;
-  }
-  
-  /* List container for compared items */
-  .itemsInCompareFrame {
-    width: 100%;
-    max-height: 400px;
-    overflow-y: auto;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  /* Individual food items inside the comparison window */
-  .foodsInCalculator {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .foodsInCalculator li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 150px;
-    text-align: center;
-  }
-  
-  .foodsInCalculator img {
-    border-radius: 8px;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .compareWindowFrame {
-      width: 90%;
-      max-width: 600px;
-    }
-  
-    .foodsInCalculator li {
-      width: 120px;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+
+  position: absolute;
+  top: 138px;
+  left: -52%;
+  width: 70%;
+  height: calc(100vh - 200px);
+  background: white;
+  box-shadow: 2px 2px 6px gray;
+  z-index: 5;
+  padding: 20px;
+
+  transition: transform 1.5s ease-in-out;
+}
+
+.slideIn {
+  transform: translateX(100%);
+}
+
+.slideOut {
+  transform: translateX(-100%);
+}
+
+.compareWindowHeader {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease-in-out;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+.itemsInCompareFrame {
+  width: 95%;
+  max-height: 460px;
+  overflow-y: auto;
+  padding: 10px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.foodsInCalculator {
+  list-style-type: none;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.foodsInCalculator li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: lightgrey;
+  padding: 16px 10px 0px 10px;
+  margin: 0px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 195px;
+  height: calc(100vh - 305px);
+  text-align: center;
+}
+
+.information {
+  width: 185px;
+  height: calc(75vh - 317px);
+  overflow-y: auto;
+  /* background-color: aquamarine; */
+}
+
+.foodsInCalculator img {
+  border-radius: 8px;
+  width: 180px;
+  height: 110px;
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.name {
+  font-size: 22px;
+  /* background-color:aqua; */
+}
+
+.group, .water, .carbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.foodsInCalculator h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.foodsInCalculator b {
+  font-size: 15px;
+  display: inline-block;
+  font-weight: normal;
+}
+

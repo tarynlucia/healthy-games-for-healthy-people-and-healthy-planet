@@ -2,8 +2,8 @@
 .calculatorsidebarframe {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  border-style: solid solid solid none;
+  /* border: 1px solid black; */
+  /* border-style: solid solid solid none; */
   /* border-radius: 10px; */
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
