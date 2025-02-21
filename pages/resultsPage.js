@@ -127,7 +127,7 @@ const ResultsPage = () => {
     setInformationCards(updatedCards);
   };
 
-  function servingSizeConversion(servingSize, servingAmount, waterFootprint) {
+  function servingSizeConversion(servingSize, servingAmount, waterFootprint, carbonFootprint) {
     let finalVal = 0;
     //this switch case finds how big the servingsize is in comparison to a half cup
     switch (servingSize) {
@@ -153,26 +153,38 @@ const ResultsPage = () => {
         finalVal = 1;
     }
     finalVal *= servingAmount;
-    let roundedVal = Math.round(finalVal * waterFootprint * 100) / 100;
+    let roundedWaterVal = Math.round(finalVal * waterFootprint * 100) / 100;
+    let roundedCarbonVal = Math.round(finalVal * carbonFootprint * 100) / 100;
 
-    let easy_comparison = "";
+    let easy_water_comparison = "";
+    let easy_carbon_comparison = "";
 
-    if (roundedVal < 60) {
-      easy_comparison = "That's like flushing a toilet " + Math.round(roundedVal / 1.6) + " times!";
+
+    easy_water_comparison = "That's like showering for " + Math.round(roundedWaterVal / 2.5) + " minutes!";
+    easy_carbon_comparison = "That's like driving " + Math.round(roundedCarbonVal / 0.0757576) + " feet!";
+    return { gallons: roundedWaterVal, easy_water_comparison: easy_water_comparison, carbon: roundedCarbonVal, easy_carbon_comparison: easy_carbon_comparison };
+
+
+
+    // Older comparisons/real-world metrics below. May incorporate in the future. 
+    if (roundedWaterVal < 60) {
+      easy_water_comparison = "That's like flushing a toilet " + Math.round(roundedWaterVal / 1.6) + " times!";
     }
-    else if (roundedVal < 3600) {
-      easy_comparison = "That's like filling up " + Math.round(roundedVal / 60) + " bathtubs!";
+    else if (roundedWaterVal < 3600) {
+      easy_water_comparison = "That's like filling up " + Math.round(roundedWaterVal / 60) + " bathtubs!";
     }
-    else if (roundedVal < 18000) {
-      easy_comparison = "That's like showering for " + Math.round(roundedVal / 3600) + " whole days!";
+    else if (roundedWaterVal < 18000) {
+      easy_water_comparison = "That's like showering for " + Math.round(roundedWaterVal / 3600) + " whole days!";
     }
     else {
-      easy_comparison = "That's like filling up " + Math.round(roundedVal / 18000) + " swimming pools! ";
+      easy_water_comparison = "That's like filling up " + Math.round(roundedWaterVal / 18000) + " swimming pools! ";
     }
 
-    easy_comparison = "That's like flushing a toilet " + Math.round(roundedVal / 1.6) + " times!";
+    easy_water_comparison = "That's like flushing a toilet " + Math.round(roundedWaterVal / 1.6) + " times!";
 
-    return { gallons: roundedVal, easy_comparison: easy_comparison };
+
+
+    return { gallons: roundedWaterVal, easy_water_comparison: easy_water_comparison };
   }
 
   // Define some sample colors
@@ -305,10 +317,11 @@ function FoodResult({
     }
   }
 
-  const waterData = servingSizeConversion(
+  const water_carbon_Data = servingSizeConversion(
     currentFood.serving_size,
     currentFood.serving_amount,
-    currentFood.water_footprint
+    currentFood.water_footprint,
+    currentFood.carbon_footprint
   );
 
   return (
@@ -341,10 +354,10 @@ function FoodResult({
           <div className={styles.footprintBox}>
             <p className={styles.footprintText}>Water Footprint </p>
             <p className={styles.waterFootprintText}>
-              {waterData.gallons} gallon(s)
+              {water_carbon_Data.gallons} gallon(s)
             </p>
             <p className={styles.comparisonText}>
-              {waterData.easy_comparison}
+              {water_carbon_Data.easy_water_comparison}
             </p>
           </div>
           <div className={styles.footprintBox}>
@@ -353,8 +366,12 @@ function FoodResult({
               className={styles.carbonFootprintText}
               style={ChooseColor(currentFood.carbon_footprint_rating)}
             >
-              {currentFood.carbon_footprint_rating}
+              {water_carbon_Data.carbon} grams CO₂e
             </p>
+            <p className={styles.comparisonText}>
+              {water_carbon_Data.easy_carbon_comparison}
+            </p>
+
           </div>
         </div>
       </div>
