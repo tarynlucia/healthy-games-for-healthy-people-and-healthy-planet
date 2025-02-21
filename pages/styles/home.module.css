@@ -601,3 +601,27 @@
   color: black;
   font-size: 40px;
 }
+
+.miniGameFrame {
+  position: absolute;
+  bottom: -450px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  z-index: 10;
+  font-family: Calibri;
+  color: black;
+  font-size: 40px;
+}
+
+.miniGameIcon {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

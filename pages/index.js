@@ -19,6 +19,10 @@ const Home = () => {
     router.push("/mainFoodPage");
   }, [router]);
 
+  const onMiniGameClick = useCallback(() => {
+    router.push("/game");
+  }, [router]);
+
   return (
     <Layout>
       <div className={styles.home}>
@@ -99,6 +103,17 @@ const Home = () => {
               />
               <b className={styles.calculator}>Calculator</b>
             </div>
+          </div>
+        </div>
+        <div className={styles.miniGameFrame} onClick={onMiniGameClick}>
+          <div className={styles.calculatorbutton}>
+            <Image
+              className={styles.miniGameIcon}
+              alt="Mini-Game"
+              src="/game.png"
+              width={190}
+              height={190}
+            />
           </div>
         </div>
       </div>
