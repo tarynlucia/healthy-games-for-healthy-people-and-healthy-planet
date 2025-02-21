@@ -170,6 +170,8 @@ const ResultsPage = () => {
       easy_comparison = "That's like filling up " + Math.round(roundedVal / 18000) + " swimming pools! ";
     }
 
+    easy_comparison = "That's like flushing a toilet " + Math.round(roundedVal / 1.6) + " times!";
+
     return { gallons: roundedVal, easy_comparison: easy_comparison };
   }
 
@@ -335,21 +337,25 @@ function FoodResult({
             />
           </div>
         </div>
-        <div className={styles.footprintBox}>
-          <p className={styles.footprintText}>Water Footprint </p>
-          <p className={styles.waterFootprintText}>
-            {waterData.gallons} gallon(s)
-          </p>
-          <p className={styles.comparisonText}>
-            {waterData.easy_comparison}
-          </p>
-          <p className={styles.footprintText}>Carbon Footprint</p>
-          <p
-            className={styles.carbonFootprintText}
-            style={ChooseColor(currentFood.carbon_footprint_rating)}
-          >
-            {currentFood.carbon_footprint_rating}
-          </p>
+        <div className={styles.footprintContainer}>
+          <div className={styles.footprintBox}>
+            <p className={styles.footprintText}>Water Footprint </p>
+            <p className={styles.waterFootprintText}>
+              {waterData.gallons} gallon(s)
+            </p>
+            <p className={styles.comparisonText}>
+              {waterData.easy_comparison}
+            </p>
+          </div>
+          <div className={styles.footprintBox}>
+            <p className={styles.footprintText}>Carbon Footprint</p>
+            <p
+              className={styles.carbonFootprintText}
+              style={ChooseColor(currentFood.carbon_footprint_rating)}
+            >
+              {currentFood.carbon_footprint_rating}
+            </p>
+          </div>
         </div>
       </div>
       <div className={styles.nutritionAndFunFacts}>

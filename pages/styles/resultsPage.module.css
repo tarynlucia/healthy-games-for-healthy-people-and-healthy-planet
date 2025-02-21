@@ -163,14 +163,49 @@
   /* Ensures text doesn’t expand the box */
 }
 
-.footprintBox {
-  width: 100%;
+.footprintContainer {
+
   border-radius: 10px;
   border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  overflow: hidden;
+  /* Arrange Water & Carbon footprint side by side */
+  justify-content: space-between;
+  /* Space them evenly */
+  align-items: flex-start;
+  /* Align to the top */
+  width: 100%;
+  gap: 20px;
+  /* Adjust spacing between the two boxes */
+
+  border-radius: 10px;
+  border: 2px solid black;
+  height: 200px;
+  margin-bottom: 20px;
+
+}
+
+.footprintBox {
+  width: 100%;
   height: 200px;
   text-align: center;
   display: flex;
   overflow: hidden;
+
+
+  flex: 1;
+  /* Make sure both take equal space */
+  max-width: 50%;
+  /* Prevent them from taking up too much space */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* Stack content inside each box */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
 }
 
 .footprintText {
@@ -179,9 +214,10 @@
   padding-left: 7px;
   padding-right: 2px;
   margin-top: 7px;
-  font-size: 25px;
+  font-size: 20px;
   font-size: clamp(18px, 2vw, 25px);
   text-decoration: underline;
+
 }
 
 .footprintBoxBold {
@@ -195,6 +231,22 @@
   font-size: 20px;
   font-size: clamp(14px, 1.5vw, 20px);
   display: flex;
+
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
+  margin-top: 2px;
+  /* Reduce spacing above */
+  margin-bottom: 2px;
+  /* Reduce spacing below */
+}
+
+.comparisonText {
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
+  margin-top: 6px;
+  /* Reduce spacing above */
+  margin-bottom: 2px;
+  /* Reduce spacing below */
 }
 
 .carbonFootprintText {
@@ -202,6 +254,13 @@
   font-family: 'Open Sans', sans-serif !important;
   font-size: 20px;
   font-size: clamp(14px, 1.5vw, 20px);
+
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
+  margin-top: 2px;
+  /* Reduce spacing above */
+  margin-bottom: 2px;
+  /* Reduce spacing below */
 }
 
 .nutritionAndFunFacts {
@@ -258,6 +317,13 @@
   padding-left: 7px;
   padding-right: 2px;
   margin-top: 5px;
+
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
+  margin-top: 2px;
+  /* Reduce spacing above */
+  margin-bottom: 2px;
+  /* Reduce spacing below */
 }
 
 .individualResultsCard img {
