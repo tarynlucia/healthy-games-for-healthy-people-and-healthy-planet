@@ -28,7 +28,7 @@ const GameRankingPage = () => {
     return () => clearInterval(timerInterval);
   }, []);
 
-  // Function to handle reshuffling the foods
+  // Function to reshuffle the foods
   const reshuffleFoods = () => {
     setRandomFoods(getRandomFoods()); // Update with a new random selection
     setSlots([null, null, null, null]); // Reset the slots
@@ -38,6 +38,18 @@ const GameRankingPage = () => {
   // Function to handle back button click
   const onBackClick = () => {
     router.push("/gameModePage"); // Redirect to gameModePage
+  };
+
+  const endGame = () => {
+    const isWin = calculateWinCondition();
+    // Navigate to the result page with the win/lose result
+    router.push({
+      pathname: '/gameResult',
+      query: { isWin: isWin ? 'true' : 'false' }
+    });
+  };
+  const calculateWinCondition = () => {
+    return Math.random() > 0.5; // Random win/lose outcome
   };
 
   // Function to format timer (seconds) into HH:MM:SS format
@@ -86,10 +98,10 @@ const GameRankingPage = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>Random Foods</h1>
-      
+
       {/* Timer display */}
       <div className={styles.timer}>Timer: {formatTime(timer)}</div>
-      
+
       <div className={styles.foodsContainer}>
         {randomFoods.map((food) => (
           <div
@@ -109,38 +121,37 @@ const GameRankingPage = () => {
 
       <div className={styles.slotsContainer}>
         {slots.map((slot, index) => {
-  console.log('Slot:', slot); // Log the slot value
-
-  return (
-    <div
-      key={index}
-      className={styles.slot}
-      onDrop={(e) => handleDrop(e, index)} // Handle the drop event
-      onDragOver={handleDragOver} // Allow the item to be dragged over the slot
-    >
-      <div className={styles.slotNumber}>{index+1}</div>
-      {slot ? (() => {
-  const foodItem = randomFoods.find((food) => food.id === parseInt(slot));
-  return (
-    <img
-      src={`/${foodItem?.image}`}
-      alt={`Food ${foodItem?.id}`}
-      className={styles.slotImage}
-    />
-  );
-})() : (
-  <p className={styles.emptySlot}>Empty</p>
-)}
-
-    </div>
-  );
-  
-})}
-
+          return (
+            <div
+              key={index}
+              className={styles.slot}
+              onDrop={(e) => handleDrop(e, index)} // Handle the drop event
+              onDragOver={handleDragOver} // Allow the item to be dragged over the slot
+            >
+              <div className={styles.slotNumber}>{index + 1}</div>
+              {slot ? (() => {
+                const foodItem = randomFoods.find((food) => food.id === parseInt(slot));
+                return (
+                  <img
+                    src={`/${foodItem?.image}`}
+                    alt={`Food ${foodItem?.id}`}
+                    className={styles.slotImage}
+                  />
+                );
+              })() : (
+                <p className={styles.emptySlot}>Empty</p>
+              )}
+            </div>
+          );
+        })}
       </div>
+
+      {/* Submit button shown immediately when the game starts */}
+      <button onClick={endGame} className={styles.submitButton}>Submit</button>
 
       {/* Add the Back button */}
       <button onClick={onBackClick} className={styles.backButton}>Back</button>
+
       {/* Add the reshuffle button */}
       <button onClick={reshuffleFoods} className={styles.reshuffleButton}>Reshuffle</button>
     </div>
