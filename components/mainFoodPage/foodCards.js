@@ -48,31 +48,58 @@ function FoodCard({ id, name }) {
 
   return (
     <div className={styles.foodcard}>
-      <Image
-        className={styles.foodcardimage}
-        src={`/${imagePath}`}
-        alt={name}
-        width={470}
-        height={520}
-      />
-      <p>{name}</p>
-      {calculatorUpdateFunctions.isInCalculator(id) ? (
-        <div
-          className={styles.removeFoodButton}
-          onClick={() => calculatorUpdateFunctions.onRemoveFromCalculator(id)}
-        >
-          <p className={styles.plusSign}>-</p>
+      <div className={styles.foodcardInner}>
+        <div className={styles.foodcardFront}>
+          <Image
+            className={styles.foodcardimage}
+            src={`/${imagePath}`}
+            alt={name}
+            width={470}
+            height={520}
+          />
+          <p className={styles.foodcardName}>{name}</p>
+          {calculatorUpdateFunctions.isInCalculator(id) ? (
+            <div
+              className={styles.removeFoodButton}
+              onClick={() => calculatorUpdateFunctions.onRemoveFromCalculator(id)}
+            >
+              <p className={styles.minusSign}>-</p>
+            </div>
+          ) : (
+            <div
+              className={styles.addFoodButton}
+              onClick={() =>
+                calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath })
+              }
+            >   
+              <p className={styles.plusSign}>+</p>
+            </div>
+          )}
         </div>
-      ) : (
-        <div
-          className={styles.addFoodButton}
-          onClick={() =>
-            calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath })
-          }
-        >
-          <p className={styles.plusSign}>+</p>
+
+        <div className={styles.foodcardBack}>
+          <p>Calories: 150</p>
+          <p>Protein: 10g</p>
+          <p className={styles.foodcardName}>{name}</p>
+          {calculatorUpdateFunctions.isInCalculator(id) ? (
+            <div
+              className={styles.removeFoodButton}
+              onClick={() => calculatorUpdateFunctions.onRemoveFromCalculator(id)}
+            >
+              <p className={styles.minusSign}>-</p>
+            </div>
+          ) : (
+            <div
+              className={styles.addFoodButton}
+              onClick={() =>
+                calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath })
+              }
+            >   
+              <p className={styles.plusSign}>+</p>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }
