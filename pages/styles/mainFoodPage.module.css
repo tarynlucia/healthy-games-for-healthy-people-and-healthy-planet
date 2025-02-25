@@ -1,7 +1,7 @@
 /*styles for food page frame (in between header and footer*/
 .mainFoodCardsPage {
   width: 100%;
-  min-height: calc(100vh - 123px);
+  height: calc(100vh - 165px);
   margin-bottom: 50px;
   display: flex;
   justify-content: flex-start;
@@ -25,7 +25,6 @@
   padding: 10px;
   display: flex;
   height: 50px;
-  width: calc(100% - 20px);
   width: calc(100% - 20px);
   z-index: 3000;
 }

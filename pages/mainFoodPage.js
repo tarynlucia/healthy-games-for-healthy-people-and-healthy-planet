@@ -9,6 +9,7 @@ import FoodCards from "../components/mainFoodPage/foodCards";
 import SearchBar from "../components/mainFoodPage/search";
 import CompareWindow from "../components/mainFoodPage/compareWindow";
 import Image from "next/image";
+import RightSideBar from "../components/mainFoodPage/rightSideBar";
 
 import styles from "./styles/mainFoodPage.module.css";
 
@@ -170,6 +171,7 @@ const MainFoodCardsPage = () => {
             selectedColorId={colorFilterId}
           />
         </div>
+        <RightSideBar onCalcClick={onCalculatorClick} />
       </div>
     </Layout>
   );
