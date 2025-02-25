@@ -26,7 +26,7 @@
   display: flex;
   height: 50px;
   width: calc(100% - 20px);
-  z-index: 3000;
+  z-index: 2;
 }
 
 /*RESET BUTTON: GERALD MAY BE DELETING THIS*/
@@ -38,7 +38,6 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  z-index: 1;
 }
 
 .resetButton {
