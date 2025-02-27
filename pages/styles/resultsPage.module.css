@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
 .resultsContainer {
   width: 100%;
   min-height: calc(100vh - 123px);
@@ -75,6 +77,97 @@
   padding: 10px 20px;
   border-radius: 10px;
   transition: background-color 0.3s ease-in-out;
+}
+
+/*STYLES FOR DROPDOWN BUTTON AND CONTENT*/
+.dropdownButton {
+  width: 98%;
+  /* Make the button as wide as the food result container */
+  height: 110px;
+  margin: 0 auto;
+  background-color: #212529;
+  border: 1px solid #212529;
+  border-radius: 10px;
+  padding: 10px 0;
+  font-size: 70px;
+  font-family: 'Nerko One', cursive;
+  /* Apply Nerko One font */
+  color: rgb(255, 255, 255);
+  /* White text */
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  /* Space between button and other content */
+}
+
+.dropdownSection {
+  width: 95%;
+  height: 350px;
+  margin: 0 auto;
+  background-color: #212529;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  /* Centers the dropdown content */
+  align-items: center;
+}
+
+.dropdownContent {
+  display: flex;
+  justify-content: center;
+  /* Centers columns horizontally */
+  align-items: center;
+  /* Aligns items vertically */
+  gap: 10px;
+  /* Space between columns */
+  width: 100%;
+  /* Ensures full width */
+  flex-wrap: wrap;
+  /* Wraps columns if the screen is too small */
+  padding: 10px;
+  /* Adds some padding inside the dropdown */
+  border-radius: 10px;
+  /* Soft rounded edges */
+}
+
+.dropdownColumn {
+  flex: 0 0 22.5%;
+  /* Makes all columns equal width, adjusting to 4 per row */
+  text-align: center;
+  border-radius: 10px;
+  /* Rounded edges */
+  background-color: white;
+  /* Ensures white background */
+  font-size: 18px;
+  /* Adjust text size */
+  font-weight: bold;
+  /* Makes text stand out */
+  min-height: 300px;
+  /* Ensures height consistency */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  font-size: 30px;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.collapsed {
+  transform: rotate(180deg);
+  /* Rotates the arrow to point upwards */
+}
+
+.hidden {
+  display: none;
 }
 
 /*STYLES FOR LIST OF FOOD RESULTS*/

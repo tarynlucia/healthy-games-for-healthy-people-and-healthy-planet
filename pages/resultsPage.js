@@ -159,6 +159,68 @@ const ResultsPage = () => {
     let easy_water_comparison = "";
     let easy_carbon_comparison = "";
 
+    return roundedWaterVal;
+
+    /*
+
+    easy_water_comparison = "That's like showering for " + Math.round(roundedWaterVal / 2.5) + " minutes!";
+    easy_carbon_comparison = "That's like driving " + Math.round(roundedCarbonVal / 0.0757576) + " feet!";
+    return { gallons: roundedWaterVal, easy_water_comparison: easy_water_comparison, carbon: roundedCarbonVal, easy_carbon_comparison: easy_carbon_comparison };
+
+    */
+
+    // Older comparisons/real-world metrics below. May incorporate in the future. 
+    if (roundedWaterVal < 60) {
+      easy_water_comparison = "That's like flushing a toilet " + Math.round(roundedWaterVal / 1.6) + " times!";
+    }
+    else if (roundedWaterVal < 3600) {
+      easy_water_comparison = "That's like filling up " + Math.round(roundedWaterVal / 60) + " bathtubs!";
+    }
+    else if (roundedWaterVal < 18000) {
+      easy_water_comparison = "That's like showering for " + Math.round(roundedWaterVal / 3600) + " whole days!";
+    }
+    else {
+      easy_water_comparison = "That's like filling up " + Math.round(roundedWaterVal / 18000) + " swimming pools! ";
+    }
+
+    easy_water_comparison = "That's like flushing a toilet " + Math.round(roundedWaterVal / 1.6) + " times!";
+
+
+
+    return { gallons: roundedWaterVal, easy_water_comparison: easy_water_comparison };
+  }
+
+  function each_servingSizeConversion(servingSize, servingAmount, waterFootprint, carbonFootprint) {
+    let finalVal = 0;
+    //this switch case finds how big the servingsize is in comparison to a half cup
+    switch (servingSize) {
+      case "half_teaspoon":
+        finalVal = 1 / 48;
+        break;
+      case "teaspoon":
+        finalVal = 1 / 24;
+        break;
+      case "tablespoon":
+        finalVal = 1 / 8;
+        break;
+      case "third_cup":
+        finalVal = 2 / 3;
+        break;
+      case "half_cup":
+        finalVal = 1;
+        break;
+      case "cup":
+        finalVal = 2;
+        break;
+      default:
+        finalVal = 1;
+    }
+    finalVal *= servingAmount;
+    let roundedWaterVal = Math.round(finalVal * waterFootprint * 100) / 100;
+    let roundedCarbonVal = Math.round(finalVal * carbonFootprint * 100) / 100;
+
+    let easy_water_comparison = "";
+    let easy_carbon_comparison = "";
 
     easy_water_comparison = "That's like showering for " + Math.round(roundedWaterVal / 2.5) + " minutes!";
     easy_carbon_comparison = "That's like driving " + Math.round(roundedCarbonVal / 0.0757576) + " feet!";
@@ -271,21 +333,23 @@ const ResultsPage = () => {
           ))}
         </div>
         {/*THIS IS TO GO THROUGH EACH CALCULATED FOOD AND DISPLAY IT IN THE FOODRESULT COMPONENT*/}
+
+        {/* <ColorDisplay colors={colors} values={values} /> */}
+        <MainBanner
+          foods={informationCards}
+          numOfStars={totalStars}
+          servingSizeConversion={servingSizeConversion}
+          maxStars={informationCards.length * 5}
+        />
+
         <div className={styles.individualResultsContainer}>
-          {/* <ColorDisplay colors={colors} values={values} /> */}
-          <MainBanner
-            foods={informationCards}
-            numOfStars={totalStars}
-            servingSizeConversion={servingSizeConversion}
-            maxStars={informationCards.length * 5}
-          />
           {informationCards.map((card) => (
             <FoodResult
               key={card.id}
               currentFood={card}
               updateServingSize={updateServingSize}
               updateServingAmount={updateServingAmount}
-              servingSizeConversion={servingSizeConversion}
+              each_servingSizeConversion={each_servingSizeConversion}
             />
           ))}
         </div>
@@ -298,7 +362,7 @@ function FoodResult({
   currentFood,
   updateServingSize,
   updateServingAmount,
-  servingSizeConversion,
+  each_servingSizeConversion,
 }) {
   //this function returns how many half cups the amount is that the user inputs
 
@@ -317,7 +381,7 @@ function FoodResult({
     }
   }
 
-  const water_carbon_Data = servingSizeConversion(
+  const water_carbon_Data = each_servingSizeConversion(
     currentFood.serving_size,
     currentFood.serving_amount,
     currentFood.water_footprint,
