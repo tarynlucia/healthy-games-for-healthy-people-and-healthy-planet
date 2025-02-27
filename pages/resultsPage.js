@@ -277,7 +277,7 @@ const ResultsPage = () => {
             </div>
           </div>
         </div>
-        {/* Color bar legend */}
+        {/* Color bar legend 
         <div className={styles.legend}>
           <p className={styles.legendText}>Star Ratings:</p>
           <div className={styles.legendItems}>
@@ -318,8 +318,8 @@ const ResultsPage = () => {
             </div>
           </div>
         </div>
-
-        {/* Color bar */}
+*/}
+        {/* Color bar 
         <div className={styles.colorDisplay}>
           {values.map((value, index) => (
             <div
@@ -332,6 +332,8 @@ const ResultsPage = () => {
             ></div>
           ))}
         </div>
+        */}
+
         {/*THIS IS TO GO THROUGH EACH CALCULATED FOOD AND DISPLAY IT IN THE FOODRESULT COMPONENT*/}
 
         {/* <ColorDisplay colors={colors} values={values} /> */}
