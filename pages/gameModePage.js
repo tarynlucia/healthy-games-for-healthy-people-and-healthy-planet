@@ -19,7 +19,7 @@ const GameModePage = () => {
     <Layout>
       <div className={styles.container}>
         <div className={styles.modeBox}>
-          <h2>Choose a mode:</h2>
+          <h2>Choose A Mode:</h2>
           <div className={styles.buttonContainer}>
             <button
               className={`${styles.modeButton} ${styles.carbonButton}`}

@@ -5,35 +5,37 @@
     background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     padding: 20px;
-  }
-  
-  .header {
+}
+
+.header {
     margin-top: 50px;
-  }
-  
-  .mainContent {
+}
+
+.mainContent {
     text-align: center;
-  }
-  
-  .titleBox {
+    margin-top: 20px; /* Adjusted to give space under the header */
+}
+
+.titleBox {
     background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
     border-radius: 25px;
-    padding: 20px;
-    margin: 20px;
+    border: 3px solid #FFD400;
+    padding: 40px;
+    margin: 10px;
     width: 80%;
     max-width: 500px;
-  }
-  
-  .titleBox h2 {
-    font-size: 36px;
+    margin-top: 20px; /* Adjust this margin to lift it higher */
+}
+
+.titleBox h2 {
+    font-size: 60px;
     color: #333;
     margin: 0;
-  }
-  
-  .startButton {
+}
+
+.startButton {
     background-color: #ff7f50; /* Orange color */
     color: white;
     border: none;
@@ -41,21 +43,24 @@
     padding: 15px 40px;
     font-size: 24px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 10px; /* Adjust margin-top for the button */
     transition: background-color 0.3s ease;
-  }
-  
-  .startButton:hover {
+}
+
+.startButton:hover {
     background-color: #ff6347; /* Darker orange */
-  }
-  
-  .footer {
+}
+
+.startButton:active {
+    background-color: rgb(227, 178, 88); /* Change to yellow when clicked */
+}
+
+.footer {
     text-align: center;
     color: white;
     margin-bottom: 30px;
-  }
-  
-  .footer p {
+}
+
+.footer p {
     font-size: 14px;
-  }
-  
+}

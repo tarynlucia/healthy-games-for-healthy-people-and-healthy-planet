@@ -5,9 +5,9 @@ import styles from "./styles/gameIntroPage.module.css";
 const GameIntroPage = () => {
   const router = useRouter();
 
-  // Redirect to the next page when the button is clicked
   const onStartGameClick = () => {
-    router.push("/gameModePage"); // Redirect to the actual game page
+    const button = document.querySelector(`.${styles.startButton}`);
+      router.push("/gameModePage"); // Redirect to the actual game page
   };
 
   return (
@@ -18,7 +18,7 @@ const GameIntroPage = () => {
         
         <div className={styles.mainContent}>
           <div className={styles.titleBox}>
-            <h2>Foorpint Test Game</h2>
+            <h2>Footpint Test Game</h2>
           </div>
           
           <button className={styles.startButton} onClick={onStartGameClick}>
