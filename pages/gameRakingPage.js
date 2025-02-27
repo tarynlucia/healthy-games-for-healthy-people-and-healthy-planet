@@ -35,6 +35,18 @@ const GameRankingPage = () => {
     router.push("/gameModePage");
   };
 
+  const endGame = () => {
+    const isWin = calculateWinCondition();
+    // Navigate to the result page with the win/lose result
+    router.push({
+      pathname: '/gameResult',
+      query: { isWin: isWin ? 'true' : 'false' }
+    });
+  };
+  const calculateWinCondition = () => {
+    return Math.random() > 0.5; // Random win/lose outcome
+  };
+
   const formatTime = (seconds) => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -131,6 +143,7 @@ const GameRankingPage = () => {
           ))}
         </div>
 
+        <button onClick={endGame} className={styles.submitButton}>Submit</button>
         <button onClick={onBackClick} className={styles.backButton}>Back</button>
         <button onClick={reshuffleFoods} className={styles.reshuffleButton}>Reshuffle</button>
       </div>
