@@ -74,8 +74,12 @@ const ResultsPage = () => {
         (total, info) => total + info.stars,
         0
       );
-
-      setTotalStars(allStars);
+      
+      // Calculate the average and ensure it's capped at 5
+      const averageStars = Math.min(allStars / completeInfo.length, 5);
+      
+      // Set the average stars to the state
+      setTotalStars(averageStars);
 
       //make a mapping between id and image paths to be able to add image paths to the foods field
       //this could be fixed later by adding image paths to the database

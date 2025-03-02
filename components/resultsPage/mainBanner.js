@@ -11,8 +11,9 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
     setIsDropdownCollapsed(!isDropdownCollapsed);
   };
 
-  const maxStars = foods.length * 5;
+  const maxStars = 5;
   const starPercentage = (numOfStars / maxStars) * 100;
+  /*
   let color;
   if (starPercentage <= 19) {
     color = "red";
@@ -25,7 +26,7 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
   } else {
     color = "green";
   }
-
+*/
   const totalStarsText = `${Math.floor(numOfStars)}/${maxStars} Stars`;
 
   function TotalWaterFootprint() {
