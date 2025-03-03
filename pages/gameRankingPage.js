@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../components/layouts/layout'; // Import Layout component
+import Layout from '../components/layouts/layout';
 import styles from './styles/gameRankingPage.module.css';
-import foods from '../data/food_images'; // Import food data
+import foods from '../data/food_images';
 
 const GameRankingPage = () => {
   const [randomFoods, setRandomFoods] = useState([]);
   const [slots, setSlots] = useState([null, null, null, null]);
   const [timer, setTimer] = useState(0);
+  const [incorrectChoices, setIncorrectChoices] = useState([]); // Track incorrect selections
+  const [validationMessage, setValidationMessage] = useState(""); // To show validation message if slots aren't filled
   const router = useRouter();
+  const { mode } = router.query; // Retrieve the mode from the query parameters
 
   useEffect(() => {
     setRandomFoods(getRandomFoods());
@@ -29,6 +32,8 @@ const GameRankingPage = () => {
     setRandomFoods(getRandomFoods());
     setSlots([null, null, null, null]);
     setTimer(0);
+    setIncorrectChoices([]); // Reset incorrect choices when reshuffling
+    setValidationMessage(""); // Clear validation message when reshuffling
   };
 
   const onBackClick = () => {
@@ -36,15 +41,41 @@ const GameRankingPage = () => {
   };
 
   const endGame = () => {
-    const isWin = calculateWinCondition();
-    // Navigate to the result page with the win/lose result
-    router.push({
-      pathname: '/gameResult',
-      query: { isWin: isWin ? 'true' : 'false' }
-    });
+    // Check if any slots are empty
+    if (slots.some(slot => slot === null)) {
+      setValidationMessage("Please fill all slots before submitting!"); // Show validation message
+      return; // Prevent further actions if slots are not filled
+    }
+
+    setValidationMessage(""); // Clear the validation message if all slots are filled
+    const { isWin, incorrectFoods } = calculateWinCondition();
+    if (isWin) {
+      router.push({
+        pathname: '/gameResult',
+        query: { isWin: 'true' }
+      });
+    } else {
+      setIncorrectChoices(incorrectFoods); // Display the incorrect foods on the page
+    }
   };
+
+  // Calculate the win condition and return incorrect foods if any
   const calculateWinCondition = () => {
-    return Math.random() > 0.5; // Random win/lose outcome
+    const sortedFoods = [...randomFoods].sort((a, b) => {
+      return mode === 'Carbon'
+        ? a.carbonFootprint - b.carbonFootprint
+        : a.waterFootprint - b.waterFootprint;
+    });
+
+    // Check if the slots array is in the same order as the sortedFoods array
+    const selectedFoods = slots.map((slot) => randomFoods.find(food => food.id === parseInt(slot)));
+    
+    const incorrectFoods = selectedFoods.filter((food, index) => food?.id !== sortedFoods[index]?.id);
+    
+    return {
+      isWin: incorrectFoods.length === 0, // If no incorrect foods, user won
+      incorrectFoods: incorrectFoods.map(food => food.name) // Return names of incorrect foods
+    };
   };
 
   const formatTime = (seconds) => {
@@ -58,31 +89,24 @@ const GameRankingPage = () => {
 
   const handleDrop = (e, index) => {
     e.preventDefault();
-    const foodId = e.dataTransfer.getData("foodId"); // Get the foodId from the drag event
+    const foodId = e.dataTransfer.getData("foodId");
 
-    // Create a copy of the current slots
     const newSlots = [...slots];
-
-    // Find the index of the food in the current slots, if it exists
     const foodIndex = newSlots.findIndex((slot) => slot === foodId);
     if (foodIndex !== -1) {
-      // If the food is already in a slot, remove it from that slot
       newSlots[foodIndex] = null;
     }
 
-    // Assign the new foodId to the target slot
     newSlots[index] = foodId;
-    setSlots(newSlots); // Update the slots state
+    setSlots(newSlots);
   };
 
-  // Handle the drag over event (needed for drop to work)
   const handleDragOver = (e) => {
     e.preventDefault();
   };
 
-  // Handle the drag start event for food items
   const handleDragStart = (e, foodId) => {
-    e.dataTransfer.setData("foodId", foodId); // Store the foodId in the dataTransfer object
+    e.dataTransfer.setData("foodId", foodId);
   };
 
   return (
@@ -90,8 +114,8 @@ const GameRankingPage = () => {
       <div className={styles.container}>
         <h1 className={styles.heading}>Your Food Items</h1>
         <div className={styles.timer}>Timer: {formatTime(timer)}</div>
+        <h2 className={styles.heading}>Rank foods from lowest to highest starting at 1</h2>
 
-        {/* Display Random Foods with Name Tags */}
         <div className={styles.foodsContainer}>
           {randomFoods.map((food) => (
             <div
@@ -100,13 +124,12 @@ const GameRankingPage = () => {
               draggable
               onDragStart={(e) => handleDragStart(e, food.id)}
             >
-              <div className={styles.foodNameTag}>{food.name}</div> {/* Name Always Visible */}
+              <div className={styles.foodNameTag}>{food.name}</div>
               <img src={`/${food.image}`} alt={food.name} className={styles.foodImage} />
             </div>
           ))}
         </div>
 
-        {/* Slots */}
         <div className={styles.slotsContainer}>
           {slots.map((slot, index) => (
             <div
@@ -115,18 +138,11 @@ const GameRankingPage = () => {
               onDrop={(e) => handleDrop(e, index)}
               onDragOver={handleDragOver}
             >
-              <div
-                className={styles.slotNumber}
-                data-rank={index + 1} // Add the data-rank attribute dynamically
-              >
+              <div className={styles.slotNumber} data-rank={index + 1}>
                 {index + 1}
               </div>
               {slot ? (
-                <div
-                  className={styles.slotContent} // Add a class for styling
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, slot)}
-                >
+                <div className={styles.slotContent} draggable onDragStart={(e) => handleDragStart(e, slot)}>
                   <div className={styles.foodNameTag}>
                     {randomFoods.find((food) => food.id === parseInt(slot))?.name}
                   </div>
@@ -146,6 +162,23 @@ const GameRankingPage = () => {
         <button onClick={endGame} className={styles.submitButton}>Submit</button>
         <button onClick={onBackClick} className={styles.backButton}>Back</button>
         <button onClick={reshuffleFoods} className={styles.reshuffleButton}>Reshuffle</button>
+
+        {/* Display incorrect food items if there are any */}
+        {incorrectChoices.length > 0 && (
+          <div className={styles.incorrectFeedback}>
+            <h3>Try Changing These Items :)</h3>
+            <ul>
+              {incorrectChoices.map((food, index) => (
+                <li key={index}>{food}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Display the validation message if slots aren't filled */}
+        {validationMessage && (
+          <div className={styles.validationMessage}>{validationMessage}</div>
+        )}
       </div>
     </Layout>
   );
