@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 
 .container {
+    position: relative;
     height: 100vh;
     background-image: url("/outsideLong.png"); /* Set the background image */
     background-size: cover;
@@ -19,11 +20,29 @@
     margin-bottom: 10px; /* Space between title and timer */
 }
 
+.h2 {
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+}
+
 .timer {
     margin-bottom: 30px; /* Space between timer and food items */
     font-size: 1.2em;
 }
 
+/* Highlight text color for "water" and "carbon" */
+.waterColor {
+    color: blue;
+  }
+  
+  .carbonColor {
+    color: green;
+  }
+  
 .foodsContainer {
     display: flex;
     gap: 20px; /* Increased space between food items */
@@ -37,16 +56,23 @@
     width: 150px;
     height: 150px;
     display: flex;
-    flex-direction: column; /* Stack image and text */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid #FFD400;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque white for a card effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft gray shadow */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition effect */
 }
+
+.foodItem:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Slightly darker shadow on hover */
+}
+
+
 
 .foodImage {
     width: 100%;
@@ -69,6 +95,23 @@
     z-index: 10;
 }
 
+.modeBox {
+    width: 600px;
+    height: auto;
+    border-radius: 40px;
+    border: 8px solid #FFD400;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    margin-top: -10px; /* Adjust spacing */
+}
+
+
+
 /* Slot container */
 .slotsContainer {
     display: flex;
@@ -80,7 +123,7 @@
 .slot {
     width: 120px;
     height: 120px;
-    border: 2px dashed #ccc;
+    border: 2px dashed #a7a7a7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +140,7 @@
     right: -10px; /* Place outside the right corner of the slot */
     font-weight: bold;
     font-size: 18px;
-    color: rgb(68, 67, 67);
+    color: rgb(2, 2, 2);
     padding: 6px 12px;
     border-radius: 5px;
     z-index: 20;
@@ -133,28 +176,44 @@
     font-style: italic;
 }
 
-/* Button styles */
-.backButton, .reshuffleButton {
+/* Back button */
+.backButton {
+    position: absolute;
+    top: 120px; /* Adjust the distance from the top */
+    left: 130px; /* Adjust the distance from the left */
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: 2em;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    margin-top: 20px;
-}
-
-.backButton {
     background-color: #d62aa2;
     color: white;
+    z-index: 10; /* Ensure it appears above other content */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.backButton:hover {
+    background-color: #973675;
+}
+
+/* Reshuffle button */
 .reshuffleButton {
+    position: absolute;
+    top: 220px; /* Same as back button to align them */
+    left: 105px; /* Adjust this to your preference */
+    padding: 10px 20px;
+    font-size: 2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
     background-color: #ffa500;
-    border: 1px solid #cc7a00;
+    color: white;
+    z-index: 10;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.backButton:hover, .reshuffleButton:hover {
-    background-color: #e0e0e0;
+.reshuffleButton:hover {
+    background-color: #bd7c33;
 }
 
 .slotContent {
@@ -174,29 +233,28 @@
     object-fit: cover; /* Ensure the image covers the slot without distortion */
 }
 
-.backButton:hover, .reshuffleButton:hover {
-  background-color: #e0e0e0;
-}
 
 .submitButton {
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  background-color: #28a745;
-  color: white;
-  z-index: 10; /* Ensure it appears above other content */
+    position: absolute;
+    top: 120px; /* Adjust the distance from the top */
+    right: 130px; /* Adjust the distance from the right */
+    padding: 10px 20px;
+    font-size: 2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    z-index: 10; /* Ensure it appears above other content */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* 4px offset, 4px offset, 10px blur, 30% black */
 }
-
 
 .submitButton:hover {
   background-color: #218838;
 }
 
 .validationMessage {
-    color: red;
+    color: rgb(116, 0, 0);
     font-size: 16px;
     margin-top: 20px;
     text-align: center;
