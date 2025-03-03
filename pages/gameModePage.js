@@ -8,12 +8,12 @@ const GameModePage = () => {
 
   // Function to handle the mode selection
   const handleModeSelection = (mode) => {
-    // Store the selected mode (you can handle this as needed)
-    // For example, send it to your backend or just use it for navigation
     console.log("Selected Mode:", mode);
-    // Navigate to the ranking game page
-    router.push("/gameRakingPage"); // Adjust to your actual ranking game page path
-  };
+    router.push({
+      pathname: "/gameRankingPage",
+      query: { mode: mode }  // Pass the mode as a query parameter
+    });
+  };  
 
   return (
     <Layout>
