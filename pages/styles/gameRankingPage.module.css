@@ -1,0 +1,262 @@
+/* Container styling */
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+.container {
+    position: relative;
+    height: 100vh;
+    background-image: url("/outsideLong.png"); /* Set the background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.heading {
+    font-size: 2em;
+    margin-top: 20px; /* Adjusted margin-top to move it closer to the top */
+    margin-bottom: 10px; /* Space between title and timer */
+}
+
+.h2 {
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+}
+
+.timer {
+    margin-bottom: 30px; /* Space between timer and food items */
+    font-size: 1.2em;
+}
+
+/* Highlight text color for "water" and "carbon" */
+.waterColor {
+    color: blue;
+  }
+  
+  .carbonColor {
+    color: green;
+  }
+  
+.foodsContainer {
+    display: flex;
+    gap: 20px; /* Increased space between food items */
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin-bottom: 30px; /* Added margin at the bottom to create space between food items and slots */
+}
+
+.foodItem {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque white for a card effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft gray shadow */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+.foodItem:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Slightly darker shadow on hover */
+}
+
+
+
+.foodImage {
+    width: 100%;
+    height: 100%;
+    
+    /* Ensure the image fills the box completely */
+}
+
+.foodNameTag {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+    z-index: 10;
+}
+
+.modeBox {
+    width: 600px;
+    height: auto;
+    border-radius: 40px;
+    border: 8px solid #FFD400;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    margin-top: -10px; /* Adjust spacing */
+}
+
+
+
+/* Slot container */
+.slotsContainer {
+    display: flex;
+    gap: 25px; /* Increased gap between slots */
+    margin-top: 80px; /* Increased space between slots and timer */
+    justify-content: center;
+}
+
+.slot {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #a7a7a7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #f9f9f9;
+    text-align: center;
+    pointer-events: auto; /* Ensure slot is interactive */
+  
+}
+
+.slotNumber {
+    position: absolute;
+    top: -20px; /* Adjust to position above the slot */
+    right: -10px; /* Place outside the right corner of the slot */
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(2, 2, 2);
+    padding: 6px 12px;
+    border-radius: 5px;
+    z-index: 20;
+}
+
+/* Custom colors for slot numbers based on rank */
+.slotNumber[data-rank="1"] {
+    background-color: #ffe355; /* Gold */
+}
+
+.slotNumber[data-rank="2"] {
+    background-color: #a6d0de; /* Blue-Silver */
+}
+
+.slotNumber[data-rank="3"] {
+    background-color: #df8b36; /* Bronze */
+}
+
+.slotNumber[data-rank="4"] {
+    background-color: #da9cda; /* Purple */
+}
+
+.slotImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   
+}
+
+.emptySlot {
+    color: #888;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Back button */
+.backButton {
+    position: absolute;
+    top: 120px; /* Adjust the distance from the top */
+    left: 130px; /* Adjust the distance from the left */
+    padding: 10px 20px;
+    font-size: 2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #d62aa2;
+    color: white;
+    z-index: 10; /* Ensure it appears above other content */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.backButton:hover {
+    background-color: #973675;
+}
+
+/* Reshuffle button */
+.reshuffleButton {
+    position: absolute;
+    top: 220px; /* Same as back button to align them */
+    left: 105px; /* Adjust this to your preference */
+    padding: 10px 20px;
+    font-size: 2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffa500;
+    color: white;
+    z-index: 10;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.reshuffleButton:hover {
+    background-color: #bd7c33;
+}
+
+.slotContent {
+    width: 100%; /* Ensure the content takes up the full width of the slot */
+    height: 100%; /* Ensure the content takes up the full height of the slot */
+    display: flex;
+    flex-direction: column; /* Stack the name tag and image vertically */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent content from bleeding out */
+    position: relative; /* Needed for absolute positioning of the name tag */
+}
+
+.slotImage {
+    width: 100%; /* Ensure the image fits within the slot */
+    height: 100%; /* Ensure the image fits within the slot */
+    object-fit: cover; /* Ensure the image covers the slot without distortion */
+}
+
+
+.submitButton {
+    position: absolute;
+    top: 120px; /* Adjust the distance from the top */
+    right: 130px; /* Adjust the distance from the right */
+    padding: 10px 20px;
+    font-size: 2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    z-index: 10; /* Ensure it appears above other content */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* 4px offset, 4px offset, 10px blur, 30% black */
+}
+
+.submitButton:hover {
+  background-color: #218838;
+}
+
+.validationMessage {
+    color: rgb(116, 0, 0);
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
