@@ -47,7 +47,7 @@ const ResultsPage = () => {
   const fetchData = async () => {
     try {
       //function in database to fetch foods with color information
-      const { data, error } = await supabase.rpc("newgetdetailedinformation");
+      const { data, error } = await supabase.rpc("test_allinfo");
 
       if (error) {
         throw error;
@@ -62,6 +62,7 @@ const ResultsPage = () => {
         water_footprint: food.water_footprint,
         facts: food.facts,
         stars: food.nutrition_stars,
+        food_group: food.food_group,
         serving_size: "half_cup",
         serving_amount: 1,
       }));

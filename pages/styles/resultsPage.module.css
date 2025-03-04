@@ -85,8 +85,8 @@
   /* Make the button as wide as the food result container */
   height: 110px;
   margin: 0 auto;
-  background-color: #212529;
-  border: 1px solid #212529;
+  background-color: #1a6985;
+  border: 1px solid #1a6985;
   border-radius: 10px;
   padding: 10px 0;
   font-size: 70px;
@@ -108,7 +108,7 @@
   width: 95%;
   height: 350px;
   margin: 0 auto;
-  background-color: #212529;
+  background-color: #1a6985;
   padding: 20px;
   margin-top: 10px;
   border-radius: 10px;

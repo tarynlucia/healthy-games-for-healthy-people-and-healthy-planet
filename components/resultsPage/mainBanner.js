@@ -82,10 +82,10 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
       {/* Dropdown Content */}
       <div className={`${styles.dropdownSection} ${isDropdownCollapsed ? styles.hidden : ""}`}>
         <div className={styles.dropdownContent}>
-          <div className={styles.dropdownColumn}>Diversity: {TotalDiversity()} group</div>
-          <div className={styles.dropdownColumn}>Water Footprint 💧: {TotalWaterFootprint()} gallons</div>
-          <div className={styles.dropdownColumn}>Carbon Footprint: {TotalCarbonFootprint()} gallons</div>
-          <div className={styles.dropdownColumn}>Nutrition ⭐: {totalStarsText}</div>
+          <div className={styles.dropdownColumn}>Diversity🥗: {TotalDiversity()} group(s)</div>
+          <div className={styles.dropdownColumn}>Water Footprint💧: {TotalWaterFootprint()} gallons</div>
+          <div className={styles.dropdownColumn}>Carbon Footprint💨: {TotalCarbonFootprint()} gallons</div>
+          <div className={styles.dropdownColumn}>Nutrition⭐: {totalStarsText}</div>
         </div>
       </div>
     </div>
