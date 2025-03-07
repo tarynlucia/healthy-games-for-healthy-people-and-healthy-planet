@@ -19,7 +19,7 @@ export default function RightSideBar({ onCalcClick }) {
 
   return (
     <div className={styles.calculatorsidebarframe}>
-      <div className={styles.myCalculatorHeader}>
+      <div className={styles.headers}>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
@@ -90,7 +90,7 @@ export default function RightSideBar({ onCalcClick }) {
             alt={""}
             width={200}
             height={200}
-          />  
+        />  
         </div>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
