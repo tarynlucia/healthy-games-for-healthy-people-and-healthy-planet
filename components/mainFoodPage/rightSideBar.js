@@ -20,6 +20,10 @@ export default function RightSideBar({ onCalcClick }) {
   return (
     <div className={styles.calculatorsidebarframe}>
       <div className={styles.myCalculatorHeader}>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+        <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
         <Image
           className={styles.myPlateIcon}
           src="/myPlate.png"
@@ -27,27 +31,67 @@ export default function RightSideBar({ onCalcClick }) {
           width={200}
           height={200}
         />
+        <div className={styles.titleName}>
+          Food Groups
+          <Image
+            className={styles.information}
+            src="/information.png"
+            alt={""}
+            width={200}
+            height={200}
+          />  
+        </div>
         <Image
           className={styles.waterIcon}
-          src="/water.png"
+          src="/waterbottle5.png"
           alt={""}
           width={200}
           height={200}
         />
+        <div className={styles.titleName}>
+          Water Footprint
+          <Image
+            className={styles.information}
+            src="/information.png"
+            alt={""}
+            width={200}
+            height={200}
+          />  
+        </div>
         <Image
           className={styles.carbonIcon}
-          src="/gas.png"
+          src="/gas-06.png"
           alt={""}
           width={200}
           height={200}
         />
+        <div className={styles.titleName}>
+          Carbon Footprint
+          <Image
+            className={styles.information}
+            src="/information.png"
+            alt={""}
+            width={200}
+            height={200}
+          />  
+        </div>
         <Image
           className={styles.starsIcon}
-          src="/stars.png"
+          src="/stars-11.png"
           alt={""}
           width={200}
           height={200}
         />
+        <div className={styles.titleName}>
+          Rating
+          <Image
+            className={styles.information}
+            src="/information.png"
+            alt={""}
+            width={200}
+            height={200}
+          />  
+        </div>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
