@@ -29,12 +29,45 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  font-family: "Nerko One", cursive;
 }
 
 .myPlateIcon {
-  width: 210px;
-  height: 140px;
+  width: 40%;
+  height: auto;
   object-fit: cover;
+}
+
+.waterIcon {
+  width: 12%;
+  height: auto;
+  object-fit: cover;
+}
+
+.carbonIcon {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+}
+
+.starsIcon {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  margin-top: -40px;
+  margin-bottom: -50px;
+}
+
+.titleName {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.information{
+  height: 10px;
+  width: 10px;
+  margin-left: 10px;
 }
 
 .myCalculatorTitle {
