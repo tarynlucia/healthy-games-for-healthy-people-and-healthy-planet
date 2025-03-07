@@ -100,36 +100,3 @@ export default function RightSideBar({ onCalcClick }) {
     </div>
   );
 }
-
-/*************************************************************************
- * Component: CalculatorFoodItem
- * Description: This component displays an individual calculator item.
- * It has a trash can button so it can be removed from the calculator.
- * It displays the name and an image of the food.
- *************************************************************************/
-function CalculatorFoodItem({ foodItem }) {
-  const calculatorFunctions = useCalculatorUpdate();
-  return (
-    <li key={foodItem.id}>
-      <div>
-        <Image
-          src={`/${foodItem.imagePath}`}
-          alt={foodItem.name}
-          width={100}
-          height={100}
-        />
-        <p>{foodItem.name}</p>
-        <button
-          onClick={() =>
-            calculatorFunctions.onRemoveFromCalculator(foodItem.id)
-          }
-        >
-          <FontAwesomeIcon
-            icon={faTrashCan}
-            className={styles.removeButtonTrashIcon}
-          />
-        </button>
-      </div>
-    </li>
-  );
-}
