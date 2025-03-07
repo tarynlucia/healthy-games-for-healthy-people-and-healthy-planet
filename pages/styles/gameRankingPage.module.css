@@ -15,18 +15,19 @@
 }
 
 .heading {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-top: 20px; /* Adjusted margin-top to move it closer to the top */
-    margin-bottom: 10px; /* Space between title and timer */
+    margin-bottom: 5px; /* Space between title and timer */
 }
 
 .h2 {
     font-size: 1em;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    font-size: 23px;
     text-align: center;
-    color: #333;
+    color: #000000;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .timer {
@@ -37,10 +38,12 @@
 /* Highlight text color for "water" and "carbon" */
 .waterColor {
     color: blue;
+    font-size: 30px;
   }
   
   .carbonColor {
     color: green;
+    font-size: 30px;
   }
   
 .foodsContainer {
@@ -260,3 +263,61 @@
     text-align: center;
   }
   
+  .alertBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1000; /* Ensure it appears on top */
+  }
+  
+  .alertBox button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .alertBox button:hover {
+    background-color: #0056b3;
+  }
+
+  .incorrectSlot {
+    border: 2px solid red;
+    background-color: rgba(255, 0, 0, 0.1); /* Slight red background */
+  }
+  
+  .highlightBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1000; /* Ensure it appears on top */
+  }
+  
+  .highlightBox button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ff2600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .highlightox button:hover {
+    background-color: #b32700;
+  }
