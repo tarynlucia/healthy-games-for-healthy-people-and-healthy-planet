@@ -4,7 +4,7 @@ import styles from "./styles/gameResult.module.css";
 
 export default function GameResultPage() {
   const router = useRouter();
-  const { isWin } = router.query; // Retrieve the win/lose result from the query string
+  const { isWin, timeTaken } = router.query; // Retrieve the win/lose result from the query string
   const [gameResult, setGameResult] = useState(null); // Track game result state
 
   useEffect(() => {
@@ -30,6 +30,9 @@ export default function GameResultPage() {
   return (
     <div className={styles.gameContainer}>
       <h1>Game Result</h1>
+        {isWin === 'true' && timeTaken && (
+            <p className={styles.timeTaken}>Time Taken: {timeTaken} seconds</p>
+          )}
       <div className={styles.resultContainer}>
         <h2>{gameResult}</h2> {/* Display the result */}
         <div className={styles.buttonContainer}>

@@ -57,7 +57,7 @@ const GameRankingPage = () => {
     if (isWin) {
       router.push({
         pathname: '/gameResult',
-        query: { isWin: 'true' }
+        query: { isWin: 'true', timeTaken: timer.toString() }
       });
     } else {
       setIncorrectChoices(incorrectIndices); // Set indices of incorrect slots
