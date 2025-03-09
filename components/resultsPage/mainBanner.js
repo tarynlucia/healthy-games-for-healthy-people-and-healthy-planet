@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import ColorMeter from "./colorMeter";
 import Image from "next/image";
 
-import styles from "./styles/mainBanner.module.css";
+import styles from "../../pages/styles/resultsPage.module.css";
 
 const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
-  const maxStars = foods.length * 5;
+  const [isDropdownCollapsed, setIsDropdownCollapsed] = useState(true);
 
+  const toggleDropdown = () => {
+    setIsDropdownCollapsed(!isDropdownCollapsed);
+  };
+
+  const maxStars = 5;
   const starPercentage = (numOfStars / maxStars) * 100;
+  /*
   let color;
   if (starPercentage <= 19) {
     color = "red";
@@ -20,7 +26,7 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
   } else {
     color = "green";
   }
-
+*/
   const totalStarsText = `${Math.floor(numOfStars)}/${maxStars} Stars`;
 
   function TotalWaterFootprint() {
@@ -32,40 +38,54 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
         food.water_footprint
       );
     });
-    let roundedVal = Math.round(totalGallons * 100) / 100;
-    return roundedVal;
+    let roundedWater = Math.round(totalGallons * 100) / 100;
+    return roundedWater;
+  }
+  function TotalCarbonFootprint() {
+    let totalCarbon = 0;
+    foods.forEach((food) => {
+      totalCarbon  += servingSizeConversion(
+        food.serving_size,
+        food.serving_amount,
+        food.carbon_footprint
+      );
+    });
+    let roundedCarbon = Math.round(totalCarbon * 100) / 100;
+    return roundedCarbon;
   }
 
+  function TotalDiversity() {
+    let uniqueGroups = new Set();
+    let totalGroups = 0;
+    foods.forEach((food) => {
+      console.log("Food", food);
+      console.log("Food Group:", food.food_group);
+        // If the food group is not already added, add it and increment the counter
+        if (!uniqueGroups.has(food.food_group)) {
+          uniqueGroups.add(food.food_group);
+          totalGroups += 1;
+        }
+      
+    });
+  
+    return totalGroups; // Return the count of unique food groups
+}
+
   return (
-    <div className={styles.mainBanner}>
-      <div className={styles.imageColumn}>
-        {foods.map((food) => (
-          <Image
-            key={food.id}
-            className={styles.foodImage}
-            src={`/${food.imagePath}`}
-            alt={food.name}
-            width={470}
-            height={520}
-          />
-        ))}
-      </div>
-      <div>
-        <div>
-          <ColorMeter colors={[color]} value={starPercentage} />
-        </div>
-      </div>
-      <div className={styles.contentBottom}>
-        <h2 className={styles.currentFoodName}>Your Meal</h2>
-        <div className={styles.totalWater}>
-          <div className={styles.waterFootprintTitle}>Water Footprint 💧</div>
-          <h1>{TotalWaterFootprint()} gallons</h1>
-        </div>
-        <div className={styles.totalStars}>
-          <div className={styles.largeStar}>Nutrition ⭐</div>
-          <h1>
-            {Math.floor(numOfStars)} / {maxStars} stars!
-          </h1>
+    <div>
+      <button className={styles.dropdownButton} onClick={toggleDropdown}>
+        Your Meal
+        <span className={`${styles.arrow} ${isDropdownCollapsed ? "" : styles.collapsed}`}>
+          ▼
+        </span>
+      </button>
+      {/* Dropdown Content */}
+      <div className={`${styles.dropdownSection} ${isDropdownCollapsed ? styles.hidden : ""}`}>
+        <div className={styles.dropdownContent}>
+          <div className={styles.dropdownColumn}>Diversity 🥗: {TotalDiversity()} group(s)</div>
+          <div className={styles.dropdownColumn}>Water Footprint 💧: {TotalWaterFootprint()} gallons</div>
+          <div className={styles.dropdownColumn}>Carbon Footprint 💨: {TotalCarbonFootprint()} gallons</div>
+          <div className={styles.dropdownColumn}>Nutrition ⭐: {totalStarsText}</div>
         </div>
       </div>
     </div>
@@ -73,3 +93,4 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
 };
 
 export default MainBanner;
+

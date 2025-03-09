@@ -1,35 +1,99 @@
 .amountBoxSelectBtn {
-  width: 85px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   border: 2px solid black;
+  font-size: 15px;
   border-radius: 4px;
+  /* OLDER BACKGROUND background-color: rgba(0, 0, 0, 0.2); */
+  background-color: #c2effa;
+  transition: background-color 0.3s ease-in-out;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif !important;
 }
+
+.amountBoxSelectBtn:hover {
+  cursor: pointer;
+  /* OLDER BACKGROUND: background-color: rgba(0, 0, 0, 0.5); */
+  background-color: #0288d1;
+}
+
 .modalBackground {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black background */
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .modalContent {
+
   z-index: 10000;
   width: auto;
   height: auto;
   padding: 50px;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  background-color: #c2effa;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-color: black;
+  border: 5px solid;
 }
+
 .servingSizeBtnsContainer {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  min-height: 220px;
+  min-width: 960px;
+  align-items: center;
 }
+
 .servingSizeBtn {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 19px;
   width: 150px;
   height: 200px;
+  border-radius: 15px;
+  margin: 2px;
+  background-color: #8de1f6;
+  transition: background-color 0.3s ease-in-out;
+  transition: height 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+  transition: font-size 0.2s ease-in-out;
+}
+
+.servingSizeBtn:hover {
+  font-size: 23px;
+  cursor: pointer;
+  margin: 0px;
+  width: 170px;
+  height: 210px;
+  background-color: #39cff5;
+  color: white;
+}
+
+.modalCloseBtn {
+  background-color: #8de1f6;
+  transition: background-color 0.3s ease-in-out;
+  transition: font-size 0.2s ease-in-out;
+  font-size: 20px;
+
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.modalCloseBtn:hover {
+  background-color: #0288d1;
+  font-size: 22px;
+  /* Darker blue */
+  color: white;
+  cursor: pointer;
 }
 
 /*INPUT BOX STYLES*/
@@ -38,4 +102,15 @@
   height: 30px;
   border: 2px solid black;
   border-radius: 4px;
+  /* OLDER BACKGROUND background-color: rgba(0, 0, 0, 0.2); */
+  background-color: #c2effa;
+  transition: background-color 0.3s ease-in-out;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.inputBox:hover {
+  cursor: pointer;
+  /* OLDER BACKGROUND: background-color: rgba(0, 0, 0, 0.5); */
+  background-color: #0288d1;
 }

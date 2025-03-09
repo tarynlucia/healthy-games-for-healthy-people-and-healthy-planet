@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
 .resultsContainer {
   width: 100%;
   min-height: calc(100vh - 123px);
-  background-color: rgb(228, 228, 228);
+  background-image: url("/outsideLong.png");
+  /* Add background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding-bottom: 50px;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
 }
 
 /*STYLES FOR TOP BAR WITH BACK BUTTON AND NEW CALCULATION BUTTON*/
@@ -15,6 +22,7 @@
 
   padding: 2% 0% 1% 0%;
 }
+
 .topBtnsBar {
   display: flex;
   align-items: center;
@@ -27,6 +35,9 @@
   padding: 2%;
 
   background-color: #c2effa;
+  transition: background-color 0.3s ease-in-out;
+  transition: font-size 0.2s ease-in-out;
+  font-size: 20px;
 
   border: 1px solid rgba(0, 0, 0, 0.38);
   border-radius: 10px;
@@ -34,18 +45,129 @@
 
   cursor: pointer;
 }
+
+.topBtnsBar:hover {
+  background-color: #0288d1;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
 .topBtnBarSubDiv {
   display: flex;
 }
 
 .backBtn {
-  text-align: center;
-  font-weight: 300;
-  font-size: 24px;
+  background-color: #c2effa;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
 }
+
+.backBtn:hover {
+  background-color: #0288d1;
+  color: white;
+  cursor: pointer;
+}
+
 .newCalculationBtn {
-  font-weight: 300;
-  font-size: 24px;
+  background-color: #c2effa;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/*STYLES FOR DROPDOWN BUTTON AND CONTENT*/
+.dropdownButton {
+  width: 98%;
+  /* Make the button as wide as the food result container */
+  height: 110px;
+  margin: 0 auto;
+  background-color: #1a6985;
+  border: 1px solid #1a6985;
+  border-radius: 10px;
+  padding: 10px 0;
+  font-size: 70px;
+  font-family: 'Nerko One', cursive;
+  /* Apply Nerko One font */
+  color: rgb(255, 255, 255);
+  /* White text */
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  /* Space between button and other content */
+}
+
+.dropdownSection {
+  width: 95%;
+  height: 350px;
+  margin: 0 auto;
+  background-color: #1a6985;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  /* Centers the dropdown content */
+  align-items: center;
+}
+
+.dropdownContent {
+  display: flex;
+  justify-content: center;
+  /* Centers columns horizontally */
+  align-items: center;
+  /* Aligns items vertically */
+  gap: 10px;
+  /* Space between columns */
+  width: 100%;
+  /* Ensures full width */
+  flex-wrap: wrap;
+  /* Wraps columns if the screen is too small */
+  padding: 10px;
+  /* Adds some padding inside the dropdown */
+  border-radius: 10px;
+  /* Soft rounded edges */
+}
+
+.dropdownColumn {
+  flex: 0 0 22.5%;
+  /* Makes all columns equal width, adjusting to 4 per row */
+  text-align: center;
+  border-radius: 10px;
+  /* Rounded edges */
+  background-color: white;
+  /* Ensures white background */
+  font-size: 18px;
+  /* Adjust text size */
+  font-weight: bold;
+  /* Makes text stand out */
+  min-height: 300px;
+  /* Ensures height consistency */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  font-size: 30px;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.collapsed {
+  transform: rotate(180deg);
+  /* Rotates the arrow to point upwards */
+}
+
+.hidden {
+  display: none;
 }
 
 /*STYLES FOR LIST OF FOOD RESULTS*/
@@ -69,20 +191,28 @@
   display: flex;
   flex-direction: row;
   gap: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .AmountAndFootprint {
   width: 50%;
+  flex: 1;
+  min-width: 0;
 }
 
+
 .amountBox {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 38px;
   width: 100%;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 3px solid black;
   height: 121px;
   margin-bottom: 10px;
+
+  overflow: hidden;
+
 
   display: flex;
   flex-direction: column;
@@ -93,28 +223,92 @@
 }
 
 .amountInput {
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 10px;
+  flex-wrap: nowrap;
+  /* Prevents the serving size box from dropping */
+  overflow: hidden;
+  /* Ensures nothing spills */
+}
+
+
+.amountInput input {
+  flex: 1;
+  /* Ensures both elements scale together */
+  min-width: 50px;
+  /* Prevents them from getting too small */
+  max-width: 80px;
+  /* Ensures they don’t grow too big */
+  height: 40px;
+  width: 80px;
+  text-align: center;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  /* Prevents padding from increasing size */
+  overflow: hidden;
+  /* Ensures text doesn’t expand the box */
+}
+
+.footprintContainer {
+
+  border-radius: 10px;
+  border: 3px solid black;
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
+  height: auto;
+  overflow: hidden;
+  /* Arrange Water & Carbon footprint side by side */
+  justify-content: space-between;
+  /* Space them evenly */
+  align-items: flex-start;
+  /* Align to the top */
+  width: 100%;
+  gap: 20px;
+  /* Adjust spacing between the two boxes */
+
+  border-radius: 10px;
+  height: 200px;
+  margin-bottom: 20px;
 }
 
 .footprintBox {
   width: 100%;
-  border-radius: 10px;
-  border: 2px solid black;
   height: 200px;
   text-align: center;
+  display: flex;
+  overflow: hidden;
+
+
+  flex: 1;
+  /* Make sure both take equal space */
+  max-width: 50%;
+  /* Prevent them from taking up too much space */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* Stack content inside each box */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
 }
 
 .footprintText {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   padding-left: 7px;
   padding-right: 2px;
   margin-top: 7px;
-  font-size: 25px;
+  font-size: 20px;
+  font-size: clamp(18px, 2vw, 25px);
+  /* text-decoration: underline; */
+
 }
 
 .footprintBoxBold {
@@ -122,43 +316,77 @@
 }
 
 .waterFootprintText {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   color: rgb(40, 136, 196);
   font-size: 20px;
+  font-size: clamp(14px, 1.5vw, 20px);
+  display: flex;
+
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
+  margin-top: 2px;
+  /* Reduce spacing above */
+  margin-bottom: 2px;
+  /* Reduce spacing below */
+}
+
+.comparisonText {
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
+  margin-top: 6px;
+  /* Reduce spacing above */
+  margin-bottom: 2px;
+  /* Reduce spacing below */
 }
 
 .carbonFootprintText {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 20px;
+  font-size: clamp(14px, 1.5vw, 20px);
+
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
+  margin-top: 2px;
+  /* Reduce spacing above */
+  margin-bottom: 2px;
+  /* Reduce spacing below */
 }
 
 .nutritionAndFunFacts {
   width: 50%;
+  flex: 1;
+  min-width: 0;
 }
 
 .nutritionBox {
   width: 100%;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 3px solid black;
   height: 121px;
   margin-bottom: 10px;
   text-align: center;
-  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding-top: 9px;
+
+  overflow: hidden;
+  flex-shrink: 1;
 }
 
 .nutritionBoxTitle {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 38px;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   height: 50px;
   width: 100%;
   margin: 0;
   padding: 0;
   padding-bottom: 5px;
+  font-size: clamp(14px, 3vw, 38px);
 }
 
 .nutrtionStarsImg {
@@ -170,7 +398,7 @@
 .funFactBox {
   width: 100%;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 3px solid black;
   height: 200px;
   white-space: pre-line;
   overflow: auto;
@@ -180,6 +408,13 @@
   padding-left: 7px;
   padding-right: 2px;
   margin-top: 5px;
+
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
+  margin-top: 2px;
+  /* Reduce spacing above */
+  margin-bottom: 2px;
+  /* Reduce spacing below */
 }
 
 .individualResultsCard img {
@@ -188,9 +423,11 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
 .imageAndFoodName {
   max-width: 300px;
 }
+
 .currentFoodName {
   color: grey;
 }
@@ -203,19 +440,22 @@
 
 .legend {
   margin-top: 20px;
-  text-align: center; /* Center the text */
+  text-align: center;
+  /* Center the text */
 }
 
 .legendText {
-  font-weight: bold;  
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-weight: bold;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 36px;
 }
 
 .legendItems {
   display: flex;
-  font-weight: bold;  
-  justify-content: center; /* Center the items horizontally */
+  font-weight: bold;
+  justify-content: center;
+  /* Center the items horizontally */
   margin-top: 10px;
 }
 
@@ -232,13 +472,15 @@
 }
 
 .legendDescription {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
+  font-family: 'Open Sans', sans-serif !important;
   font-size: 16px;
 }
 
 .colorDisplay {
   width: 75%;
-  margin: 20px auto; /* Center horizontally */
+  margin: 20px auto;
+  /* Center horizontally */
   display: flex;
   height: 20px;
   border-radius: 5px;
@@ -249,4 +491,3 @@
 .colorSegment {
   height: 100%;
 }
-

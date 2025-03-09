@@ -17,6 +17,7 @@ const GameRankingPage = () => {
   const { mode } = router.query; // Extract mode from query parameter
 
   useEffect(() => {
+
     setRandomFoods(getRandomFoods()); // Set random foods on component mount
 
     const timerInterval = setInterval(() => {
@@ -95,6 +96,7 @@ const GameRankingPage = () => {
   };
 
   const formatTime = (seconds) => {
+
     const hours = Math.floor(seconds / 3600); // Calculate hours
     const minutes = Math.floor((seconds % 3600) / 60); // Calculate minutes
     const remainingSeconds = seconds % 60; // Calculate remaining seconds
@@ -105,20 +107,24 @@ const GameRankingPage = () => {
 
   const handleDrop = (e, index) => {
     e.preventDefault();
+
     const foodId = e.dataTransfer.getData("foodId"); // Get food ID from drag event
 
     const newSlots = [...slots];
 
     const foodIndex = newSlots.findIndex((slot) => slot === foodId);
     if (foodIndex !== -1) {
+
       newSlots[foodIndex] = null; // Remove food from previously filled slot if dropped again
     }
 
     newSlots[index] = foodId; // Fill the dropped slot with the food ID
+
     setSlots(newSlots);
   };
 
   const handleDragOver = (e) => {
+
     e.preventDefault(); // Allow food items to be dropped
   };
 

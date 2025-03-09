@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styles from "./styles/gameResult.module.css";
 
 export default function GameResultPage() {
+  
   const router = useRouter();
   const { isWin, timeTaken } = router.query; // Retrieve the win/lose result from the query string
   const [gameResult, setGameResult] = useState(null); // Track game result state

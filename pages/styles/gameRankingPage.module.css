@@ -30,6 +30,15 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+.h2 {
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+}
+
 .timer {
     margin-bottom: 30px; /* Space between timer and food items */
     font-size: 1.2em;
@@ -193,6 +202,7 @@
     color: white;
     z-index: 10; /* Ensure it appears above other content */
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+
 }
 
 .backButton:hover {
