@@ -18,7 +18,7 @@ const GameIntroPage = () => {
         
         <div className={styles.mainContent}>
           <div className={styles.titleBox}>
-            <h2>Footpint Test Game</h2>
+            <h2>Footprint Test Game</h2>
           </div>
           
           <button className={styles.startButton} onClick={onStartGameClick}>
