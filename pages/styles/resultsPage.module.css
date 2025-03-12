@@ -318,13 +318,12 @@
 .waterFootprintText {
   /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
   font-family: 'Open Sans', sans-serif !important;
-  color: rgb(40, 136, 196);
+  color: rgb(32, 32, 150);
   font-size: 20px;
   font-size: clamp(14px, 1.5vw, 20px);
-  display: flex;
-
+  font-weight: bold;
   font-size: clamp(12px, 1.2vw, 16px);
-  /* Smaller text */
+  display: flex;
   margin-top: 2px;
   /* Reduce spacing above */
   margin-bottom: 2px;
@@ -345,6 +344,8 @@
   font-family: 'Open Sans', sans-serif !important;
   font-size: 20px;
   font-size: clamp(14px, 1.5vw, 20px);
+  font-weight: bold;
+  color: rgb(21, 100, 13) !important;
 
   font-size: clamp(12px, 1.2vw, 16px);
   /* Smaller text */

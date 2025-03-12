@@ -75,10 +75,10 @@ const ResultsPage = () => {
         (total, info) => total + info.stars,
         0
       );
-      
+
       // Calculate the average and ensure it's capped at 5
       const averageStars = Math.min(allStars / completeInfo.length, 5);
-      
+
       // Set the average stars to the state
       setTotalStars(averageStars);
 
@@ -227,8 +227,19 @@ const ResultsPage = () => {
     let easy_water_comparison = "";
     let easy_carbon_comparison = "";
 
-    easy_water_comparison = "That's like showering for " + Math.round(roundedWaterVal / 2.5) + " minutes!";
-    easy_carbon_comparison = "That's like driving " + Math.round(roundedCarbonVal / 0.0757576) + " feet!";
+    // easy_water_comparison = "That's like showering for " + Math.round(roundedWaterVal / 2.5) + " minutes!";
+    if (Math.round(roundedWaterVal / 60) == 1) {
+      easy_water_comparison = "That's like filling up " + Math.round(roundedWaterVal / 60) + " bathtub!";
+    }
+    else {
+      easy_water_comparison = "That's like filling up " + Math.round(roundedWaterVal / 60) + " bathtubs!";
+    }
+    if (Math.round(roundedCarbonVal / 567) == 1) {
+      easy_carbon_comparison = "That's like being on the school bus for " + Math.round(roundedCarbonVal / 567) + " minute!";
+    }
+    else {
+      easy_carbon_comparison = "That's like being on the school bus for " + Math.round(roundedCarbonVal / 567) + " minutes!";
+    }
     return { gallons: roundedWaterVal, easy_water_comparison: easy_water_comparison, carbon: roundedCarbonVal, easy_carbon_comparison: easy_carbon_comparison };
 
 
