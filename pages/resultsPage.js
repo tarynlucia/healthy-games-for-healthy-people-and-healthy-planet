@@ -243,6 +243,17 @@ const ResultsPage = () => {
     return { gallons: roundedWaterVal, easy_water_comparison: easy_water_comparison, carbon: roundedCarbonVal, easy_carbon_comparison: easy_carbon_comparison };
 
 
+    // Alternative conversion, using balloons full of CO2 as a metric. 
+
+    if (Math.round(roundedCarbonVal / 30) == 1) {
+      easy_carbon_comparison = "That's like filling up " + Math.round(roundedCarbonVal / 30) + " balloon with CO₂!";
+    }
+    else {
+      easy_carbon_comparison = "That's like filling up " + Math.round(roundedCarbonVal / 30) + " balloons with CO₂!";
+    }
+    return { gallons: roundedWaterVal, easy_water_comparison: easy_water_comparison, carbon: roundedCarbonVal, easy_carbon_comparison: easy_carbon_comparison };
+
+
 
     // Older comparisons/real-world metrics below. May incorporate in the future. 
     if (roundedWaterVal < 60) {
