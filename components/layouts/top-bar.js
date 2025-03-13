@@ -26,8 +26,7 @@ function TopBar() {
     router.push("/mainFoodPage");
   }
 
-  const onGameIntroClick = () => {
-    // Navigate to gameModePage.js
+  const gameClick = () => {
     router.push("/gameIntroPage");
   }
 
@@ -61,12 +60,10 @@ function TopBar() {
       <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
       <div className={styles.navBarOptions}>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></link>
-        {router.pathname !== "/gameIntroPage" && (
-          <div className={styles.linkbutton} onCLick={onGameIntroClick}>
-            <i class="fa-solid fa-gamepad"></i>
-            <b>Game</b>
-          </div>
-        )}
+        <div className={styles.linkbutton} onClick={gameClick}>
+          <i class="fa-solid fa-gamepad"></i>
+          <b>Game</b>
+        </div>
         {router.pathname !== "/howToPage" && (
           <div className={styles.linkbutton} onClick={handleHowToClick}>
             <i class="fa-solid fa-circle-question"></i>
