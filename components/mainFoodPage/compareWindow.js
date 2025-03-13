@@ -1,33 +1,32 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import styles from "./styles/compareWindow.module.css";
-import {
-  useCalculator,
-  useCalculatorUpdate,
-} from "../../context/calculatorContext";
+import { useCalculator } from "../../context/calculatorContext";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 /*************************************************************************
- * Component: CalculatorSideBar
- * Description: This component displays the calculator, which is a sidebar
- * that displays the foods that the user has selected for their
- * calculation. It has buttons to clear the calculator and to calculate
+ * Component: CompareWindow
+ * Description: This component displays a comparison window for selected food items.
  *************************************************************************/
-export default function CompareWindow ({ onClose }) {
-  const foods = useCalculator();
+export default function CompareWindow({ onClose }) {
+// export default function CompareWindow({ foods, onClose }) {
+  const foods = useCalculator(); // Get selected foods from context
   const [isVisible, setIsVisible] = useState(false);
 
+  // Auto-close if no foods are selected
   useEffect(() => {
     if (foods.length < 1) {
       handleClose();
     }
-  }, [foods.length]); // Runs when foods.length changes
+  }, [foods.length]);
 
+  // Trigger slide-in animation
   useEffect(() => {
-    setIsVisible(true); // Small delay to trigger animation
-  }, []); // auto runs with every render/change
+    setIsVisible(true);
+  }, []);
 
+  // Handle closing the window
   const handleClose = () => {
     setIsVisible(false);
     setTimeout(onClose, 800);
@@ -38,24 +37,13 @@ export default function CompareWindow ({ onClose }) {
       <div className={styles.compareWindowHeader}>
         <b>Compare</b>
         <button className={styles.closeButton} onClick={handleClose}>
-          <i class="fa-solid fa-xmark"></i>
+          <i className="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div className={styles.itemsInCompareFrame}>
         <ul className={styles.foodsInCalculator}>
           {foods.map((food) => (
-            <CompareFoodItem 
-              key={food.id}
-              foodItem={food}
-
-              id={food.id}
-              name={food.name}
-              carbon_footprint={food.carbon_footprint}
-              carbon_footprint_rating={food.carbon_footprint_rating}
-              water_footprint={food.water_footprint}
-              stars={food.stars}
-              food_group={food.food_group}
-            />
+            <CompareFoodItem key={food.id} foodItem={food} />
           ))}
         </ul>
       </div>
@@ -65,11 +53,9 @@ export default function CompareWindow ({ onClose }) {
 
 /*************************************************************************
  * Component: CompareFoodItem
- * Description: This component displays an individual calculator item.
- * It has a trash can button so it can be removed from the calculator.
- * It displays the name and an image of the food.
+ * Description: This component displays an individual food item in the comparison window.
  *************************************************************************/
-function CompareFoodItem({ foodItem, carbon_footprint, carbon_footprint_rating, water_footprint, stars, food_group }) {
+function CompareFoodItem({ foodItem }) {
   return (
     <li key={foodItem.id}>
       <div className={styles.foodItem}>
@@ -83,26 +69,24 @@ function CompareFoodItem({ foodItem, carbon_footprint, carbon_footprint_rating, 
         <div className={styles.information}>
           <div className={styles.group}>
             <h3>Food Group:</h3>
-            <b>{food_group}</b>
+            <b>{foodItem.food_group}</b>
           </div>
 
           <h3 className={styles.nutrition}>Nutritional Value:</h3>
-          <b>{stars}</b>
+          <b>{foodItem.stars}</b>
 
           <div className={styles.water}>
-            <h3>Water:</h3>
-            <b>{water_footprint} - {water_footprint}</b>
+            <h3>Water Footprint:</h3>
+            <b>{foodItem.water_footprint} gallons</b>
           </div>
-          <b>real live conversion placeholder</b>
 
           <div className={styles.carbon}>
-            <h3>Carbon:</h3>
-            <b>{carbon_footprint} - {carbon_footprint_rating}</b>
+            <h3>Carbon Footprint:</h3>
+            <b>{foodItem.carbon_footprint} ({foodItem.carbon_footprint_rating})</b>
           </div>
-          <b>real live conversion placeholder</b>
 
           <h3 className={styles.facts}>Facts</h3>
-          <b>Information</b>
+          <b>{foodItem.facts}</b>
         </div>
       </div>
     </li>
