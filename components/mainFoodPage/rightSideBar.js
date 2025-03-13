@@ -16,6 +16,46 @@ import Image from "next/image";
 export default function RightSideBar({ onCalcClick }) {
   const foods = useCalculator();
   const calculatorFunctions = useCalculatorUpdate();
+  const water_footprint = foods.reduce((total, food) => total + parseFloat(food.water), 0);  // Calculate water footprint dynamically
+  const carbon_footprint = foods.reduce((total, food) => total + parseFloat(food.carbon), 0);
+  const stars_rating = foods.reduce((total, food) => total + parseFloat(food.stars), 0);
+
+  // Determine which water image to display based on the water footprint value
+  const getWaterImage = (water) => {
+    if (water < 20) {
+      return "/waterbottle.png";  // Low water footprint image
+    } else if (water >= 20 && water < 50) {
+      return "/waterbottle2.png";  // Medium water footprint image
+    } else if (water >= 50 && water < 100) {
+      return "/waterbottle3.png";  // High water footprint image (medium-high)
+    } else {
+      return "/waterbottle1.png";  // Very high water footprint image
+    }
+  };
+
+  const getCarbonImage = (carbon) => {
+    if (carbon < 20) {
+      return "/gas-01.png";  // Low water footprint image
+    } else if (carbon >= 20 && carbon < 50) {
+      return "/waterbottle2.png";  // Medium water footprint image
+    } else if (carbon >= 50 && carbon < 100) {
+      return "/waterbottle3.png";  // High water footprint image (medium-high)
+    } else {
+      return "/gas-03.png";  // Very high water footprint image
+    }
+  };
+
+  const getStarsImage = (star) => {
+    if (star < 20) {
+      return "/stars-01.png";  // Low water footprint image
+    } else if (star >= 20 && star < 50) {
+      return "/waterbottle2.png";  // Medium water footprint image
+    } else if (star >= 50 && star < 100) {
+      return "/waterbottle3.png";  // High water footprint image (medium-high)
+    } else {
+      return "/stars-11.png";  // Very high water footprint image
+    }
+  };
 
   return (
     <div className={styles.calculatorsidebarframe}>
@@ -46,7 +86,7 @@ export default function RightSideBar({ onCalcClick }) {
         </div>
         <Image
           className={styles.waterIcon}
-          src="/waterbottle5.png"
+          src={getWaterImage(water_footprint)}
           alt={""}
           width={200}
           height={200}
@@ -66,7 +106,7 @@ export default function RightSideBar({ onCalcClick }) {
         </div>
         <Image
           className={styles.carbonIcon}
-          src="/gas-06.png"
+          src={getCarbonImage(carbon_footprint)}
           alt={""}
           width={200}
           height={200}
@@ -86,7 +126,7 @@ export default function RightSideBar({ onCalcClick }) {
         </div>
         <Image
           className={styles.starsIcon}
-          src="/stars-11.png"
+          src={getStarsImage(stars_rating)}
           alt={""}
           width={200}
           height={200}
