@@ -33,13 +33,16 @@ export default function RightSideBar({ onCalcClick }) {
         />
         <div className={styles.titleName}>
           Food Groups
-          <Image
-            className={styles.information}
-            src="/information.png"
-            alt={""}
-            width={200}
-            height={200}
-          />  
+          <div className={styles.tooltipContainer}>
+            <Image
+              className={styles.information}
+              src="/information.png"
+              alt={""}
+              width={200}
+              height={200}
+            />  
+            <span className={styles.tooltipText}>Ideally, include all 5 food groups in your meals.</span>
+          </div>
         </div>
         <Image
           className={styles.waterIcon}
@@ -50,13 +53,16 @@ export default function RightSideBar({ onCalcClick }) {
         />
         <div className={styles.titleName}>
           Water Footprint
-          <Image
-            className={styles.information}
-            src="/information.png"
-            alt={""}
-            width={200}
-            height={200}
-          />  
+          <div className={styles.tooltipContainer}>
+            <Image
+              className={styles.information}
+              src="/information.png"
+              alt={""}
+              width={200}
+              height={200}
+            />  
+            <span className={styles.tooltipText}>Ideally, have a water footprint less than 50 gallons.</span>
+          </div>
         </div>
         <Image
           className={styles.carbonIcon}
@@ -67,13 +73,16 @@ export default function RightSideBar({ onCalcClick }) {
         />
         <div className={styles.titleName}>
           Carbon Footprint
-          <Image
-            className={styles.information}
-            src="/information.png"
-            alt={""}
-            width={200}
-            height={200}
-          />  
+          <div className={styles.tooltipContainer}>
+            <Image
+              className={styles.information}
+              src="/information.png"
+              alt={""}
+              width={200}
+              height={200}
+            />  
+            <span className={styles.tooltipText}>Ideally, have a carbon footprint less than 50 gallons.</span>
+            </div>
         </div>
         <Image
           className={styles.starsIcon}
@@ -84,13 +93,16 @@ export default function RightSideBar({ onCalcClick }) {
         />
         <div className={styles.titleName}>
           Rating
-          <Image
-            className={styles.information}
-            src="/information.png"
-            alt={""}
-            width={200}
-            height={200}
-        />  
+          <div className={styles.tooltipContainer}>
+            <Image
+              className={styles.information}
+              src="/information.png"
+              alt={""}
+              width={200}
+              height={200}
+            />  
+            <span className={styles.tooltipText}>Ideally, have a rating of 5 stars.</span>
+          </div>
         </div>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>

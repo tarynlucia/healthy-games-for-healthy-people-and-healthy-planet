@@ -11,7 +11,10 @@
   padding-left: 20px;
   padding-right: 20px;
   font-weight: bold;
-  margin-left: 15%;
+  margin-left: 20%;
+  
+  /* hide drop down */
+  visibility: hidden;
 }
 
 .colorDropDown {

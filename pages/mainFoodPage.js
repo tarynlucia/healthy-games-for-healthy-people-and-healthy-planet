@@ -165,11 +165,13 @@ const MainFoodCardsPage = () => {
               Reset
             </button> */}
           </div>
-          <FoodCards
-            foods={foodCards}
-            filteredFoodCards={filteredFoodCards}
-            selectedColorId={colorFilterId}
-          />
+          <div className={styles.foodCardsContainer}>
+            <FoodCards
+              foods={foodCards}
+              filteredFoodCards={filteredFoodCards}
+              selectedColorId={colorFilterId}
+            />
+          </div>
         </div>
         <RightSideBar onCalcClick={onCalculatorClick} />
       </div>
