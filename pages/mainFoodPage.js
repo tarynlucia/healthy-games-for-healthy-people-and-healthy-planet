@@ -158,7 +158,8 @@ const MainFoodCardsPage = () => {
         </div>
         <CalculatorSideBar onCalcClick={onCalculatorClick} onCompareClick={onCompareClick} onClose={onCloseCompare} />
         <div className={styles.rightOfSidebar}>
-          {showCompare && <CompareWindow onClose={onCloseCompare} />}
+          {/* {showCompare && <CompareWindow onClose={onCloseCompare} />} */}
+          {showCompare && <CompareWindow foods={foodCards} onClose={onCloseCompare} />}
           <div className={styles.dropDownSearchContainer}>
             <ColorDropDown
               colors={colorArray}
