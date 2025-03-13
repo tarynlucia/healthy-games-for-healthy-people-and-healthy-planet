@@ -25,7 +25,15 @@ export default function FoodCards({
       {cardsToRender.map(
         (food) =>
           (selectedColorId == -1 || selectedColorId === food.color_id) && (
-            <FoodCard key={food.id} id={food.id} name={food.name} />
+            <FoodCard
+              key={food.id}
+              id={food.id}
+              name={food.name}
+              carbon_footprint={food.carbon_footprint}
+              carbon_footprint_rating={food.carbon_footprint_rating}
+              water_footprint={food.water_footprint}
+              stars={food.stars}
+            />
           )
       )}
     </div>
@@ -38,7 +46,7 @@ export default function FoodCards({
  * uses the CalculatorContext to allow the food to be added and removed
  * from the calculator.
  *************************************************************************/
-function FoodCard({ id, name }) {
+function FoodCard({ id, name, carbon_footprint, carbon_footprint_rating, water_footprint, stars }) {
   //get calculator functions from context
   const calculatorUpdateFunctions = useCalculatorUpdate();
   const food = foodImages.find((foodItem) => foodItem.id === id);
@@ -78,8 +86,10 @@ function FoodCard({ id, name }) {
         </div>
 
         <div className={styles.foodcardBack}>
-          <p>{name}</p>
-          <p>{food.carbon_footprint}</p>
+          <p>Carbon: {carbon_footprint} - {carbon_footprint_rating}</p>
+          <p>Water: {water_footprint} - {water_footprint}</p>
+          <p>{stars}</p>
+
           <p className={styles.foodcardName}>{name}</p>
           {calculatorUpdateFunctions.isInCalculator(id) ? (
             <div

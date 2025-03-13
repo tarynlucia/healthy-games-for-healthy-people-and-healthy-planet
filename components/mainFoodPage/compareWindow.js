@@ -47,6 +47,14 @@ export default function CompareWindow ({ onClose }) {
             <CompareFoodItem 
               key={food.id}
               foodItem={food}
+
+              id={food.id}
+              name={food.name}
+              carbon_footprint={food.carbon_footprint}
+              carbon_footprint_rating={food.carbon_footprint_rating}
+              water_footprint={food.water_footprint}
+              stars={food.stars}
+              food_group={food.food_group}
             />
           ))}
         </ul>
@@ -61,7 +69,7 @@ export default function CompareWindow ({ onClose }) {
  * It has a trash can button so it can be removed from the calculator.
  * It displays the name and an image of the food.
  *************************************************************************/
-function CompareFoodItem({ foodItem }) {
+function CompareFoodItem({ foodItem, carbon_footprint, carbon_footprint_rating, water_footprint, stars, food_group }) {
   return (
     <li key={foodItem.id}>
       <div className={styles.foodItem}>
@@ -75,21 +83,21 @@ function CompareFoodItem({ foodItem }) {
         <div className={styles.information}>
           <div className={styles.group}>
             <h3>Food Group:</h3>
-            <b>placeholder</b>
+            <b>{food_group}</b>
           </div>
 
           <h3 className={styles.nutrition}>Nutritional Value:</h3>
-          <b>stars placeholder</b>
+          <b>{stars}</b>
 
           <div className={styles.water}>
-            <h3>Water Footprint:</h3>
-            <b>#</b>
+            <h3>Water:</h3>
+            <b>{water_footprint} - {water_footprint}</b>
           </div>
           <b>real live conversion placeholder</b>
 
           <div className={styles.carbon}>
-            <h3>Carbon Footprint:</h3>
-            <b># (rank)</b>
+            <h3>Carbon:</h3>
+            <b>{carbon_footprint} - {carbon_footprint_rating}</b>
           </div>
           <b>real live conversion placeholder</b>
 
