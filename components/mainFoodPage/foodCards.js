@@ -78,8 +78,8 @@ function FoodCard({ id, name }) {
         </div>
 
         <div className={styles.foodcardBack}>
-          <p>Calories: 150</p>
-          <p>Protein: 10g</p>
+          <p>{name}</p>
+          <p>{food.carbon_footprint}</p>
           <p className={styles.foodcardName}>{name}</p>
           {calculatorUpdateFunctions.isInCalculator(id) ? (
             <div
