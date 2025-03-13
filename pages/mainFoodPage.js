@@ -44,7 +44,7 @@ const MainFoodCardsPage = () => {
   const fetchData = async () => {
     try {
       //function in database to fetch foods with color information
-      const { data, error } = await supabase.rpc("getfoodcardinformation");
+      const { data, error } = await supabase.rpc("test_allinfo");
 
       if (error) {
         throw error;
@@ -57,8 +57,14 @@ const MainFoodCardsPage = () => {
       const foodsArray = data.map((food) => ({
         id: food.id,
         name: food.food_name,
-        color_name: food.color_name,
-        color_id: food.color_id,
+        carbon_footprint: food.carbon_footprint,
+        carbon_footprint_rating: food.carbon_footprint_rating,
+        water_footprint: food.water_footprint,
+        facts: food.facts,
+        stars: food.nutrition_stars,
+        food_group: food.food_group,
+        serving_size: "half_cup",
+        serving_amount: 1,
       }));
       setFoodCards(foodsArray);
       console.log("Main Food Cards Page -> Food Data:", foodsArray);
