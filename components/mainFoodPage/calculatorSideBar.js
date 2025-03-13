@@ -6,6 +6,7 @@ import {
   useCalculatorUpdate,
 } from "../../context/calculatorContext";
 import Image from "next/image";
+import { useState } from "react";
 
 /*************************************************************************
  * Component: CalculatorSideBar
@@ -13,26 +14,46 @@ import Image from "next/image";
  * that displays the foods that the user has selected for their
  * calculation. It has buttons to clear the calculator and to calculate
  *************************************************************************/
-export default function CalculatorSideBar({ onCalcClick }) {
+export default function CalculatorSideBar({ onCalcClick, onCompareClick, onClose }) {
   const foods = useCalculator();
   const calculatorFunctions = useCalculatorUpdate();
+
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleClearButton = () => {
+    setShowConfirmation(true);
+  };
+
+  const handleCancelClear = () => {
+    setShowConfirmation(false);
+  };
+
+  const handleConfirmClear = () => {
+    calculatorFunctions.onClearCalculator();
+    setShowConfirmation(false);
+  };
 
   return (
     <div className={styles.calculatorsidebarframe}>
       <div className={styles.myCalculatorHeader}>
         <Image
           className={styles.calculatoricon}
-          src="/calculatorIcon.png"
+          src="/calculatorMascot.png"
           alt={""}
-          width={100}
-          height={100}
+          width={200}
+          height={200}
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+        <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
         <b className={styles.myCalculatorTitle}>My Calculator</b>
       </div>
       <div className={styles.itemsInCalculatorFrame}>
         {foods.length === 0 ? (
           <div className={styles.nothingInCalculator}>
             <p>You currently have nothing in your calculator!</p>
+            <p>Hover over a food card to add it to the calculator</p>
           </div>
         ) : (
           <ul className={styles.foodsInCalculator}>
@@ -43,18 +64,45 @@ export default function CalculatorSideBar({ onCalcClick }) {
         )}
       </div>
       <div className={styles.bottomButtonsContainer}>
-        {foods.length > 0 && (
-          <div className={styles.calculateButton} onClick={onCalcClick}>
-            calculate
+        {foods.length > 1 && foods.length < 5 && (
+          <div className={styles.compareButton} onClick={onCompareClick}>
+            Compare 
           </div>
         )}
-        <div
-          className={styles.clearCalcButton}
-          onClick={calculatorFunctions.onClearCalculator}
-        >
-          clear calculation
-        </div>
+        {foods.length > 0 && (
+          <div className={styles.calculateButton} onClick={onCalcClick}>
+            Calculate
+          </div>
+        )}
+        {foods.length > 0 && (
+          <div className={styles.clearCalcButton} onClick={handleClearButton}>
+            Clear
+          </div>
+        )}
       </div>
+
+      {showConfirmation && (
+        <div className={styles.overlayContainer}>
+          <div className={styles.overlay} onClick={handleCancelClear}></div>
+          <div className={styles.clearConfirmationBox}>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></link>
+            <i className="fa-solid fa-triangle-exclamation"></i>
+            <h2>Are you sure?</h2>
+            <h3>If you clear your calculator, you will loose all your added food! Would you like to clear your calculation?</h3>
+            <div className={styles.buttons}>
+              <button className={styles.yesButton} 
+                onClick={() => {
+                  handleConfirmClear();
+                  onClose();
+                }}>
+                Yes
+              </button>
+              <button className={styles.noButton} onClick={handleCancelClear}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

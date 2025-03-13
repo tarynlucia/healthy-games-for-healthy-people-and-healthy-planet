@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout from "../components/layouts/layout";
+import Layout from "../components/layouts/landing-layout";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";

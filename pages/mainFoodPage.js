@@ -7,43 +7,64 @@ import ColorDropDown from "../components/mainFoodPage/colorDropDown";
 import CalculatorSideBar from "../components/mainFoodPage/calculatorSideBar";
 import FoodCards from "../components/mainFoodPage/foodCards";
 import SearchBar from "../components/mainFoodPage/search";
+import CompareWindow from "../components/mainFoodPage/compareWindow";
+import Image from "next/image";
+import RightSideBar from "../components/mainFoodPage/rightSideBar";
 
 import styles from "./styles/mainFoodPage.module.css";
 
+/*************************************************************************
+ * Component: MainFoodCardsPage
+ * Description: This component is responsible for displaying the main
+ * food cards page. It displays the calculator, all of the foods in the
+ * database, and allows for filtering options (color and name)
+ *************************************************************************/
 const MainFoodCardsPage = () => {
   const router = useRouter();
 
   const [foodCards, setFoodCards] = useState([]);
+
   const [colorArray, setColorArray] = useState([]);
+
   const [colorFilter, setColorFilter] = useState("all");
+
   const [colorFilterId, setColorFilterId] = useState(-1);
+
   const [searchInput, setSearchInput] = useState("");
+
   const [filteredFoodCards, setFilteredFoodCards] = useState([]);
+
+  const [showCompare, setShowCompare] = useState(false);
 
   const onCalculatorClick = useCallback(() => {
     router.push("/resultsPage");
   }, [router]);
 
-  const onGameIntroClick = useCallback(() => {
-    // Navigate to gameModePage.js
-    router.push("/gameIntroPage");
-  }, [router]);
-
+  //function to fetch foods with color information
   const fetchData = async () => {
     try {
-      const { data, error } = await supabase.rpc("getfoodcardinformation");
+      //function in database to fetch foods with color information
+      const { data, error } = await supabase.rpc("test_allinfo");
 
       if (error) {
         throw error;
       }
 
+      // Sort the data alphabetically by food_name
       const sortedData = data.sort((a, b) => a.food_name.localeCompare(b.food_name));
 
+      //map each food to its own object
       const foodsArray = data.map((food) => ({
         id: food.id,
         name: food.food_name,
-        color_name: food.color_name,
-        color_id: food.color_id,
+        carbon_footprint: food.carbon_footprint,
+        carbon_footprint_rating: food.carbon_footprint_rating,
+        water_footprint: food.water_footprint,
+        facts: food.facts,
+        stars: food.nutrition_stars,
+        food_group: food.food_group,
+        serving_size: "half_cup",
+        serving_amount: 1,
       }));
       setFoodCards(foodsArray);
       console.log("Main Food Cards Page -> Food Data:", foodsArray);
@@ -56,15 +77,18 @@ const MainFoodCardsPage = () => {
     fetchData();
   }, []);
 
+  //function to fetch color data
   useEffect(() => {
     const fetchColorData = async () => {
       try {
+        //grab colors table from database
         const { data, error } = await supabase.from("colors").select("*");
 
         if (error) {
           throw error;
         }
 
+        //map each color to a color object
         const colorArray = data.map((color) => ({
           id: color.color_id,
           name: color.color,
@@ -85,32 +109,57 @@ const MainFoodCardsPage = () => {
 
   const handleSearch = useCallback(
     (input) => {
+      // Update search input state
       setSearchInput(input);
 
+      // Filter food cards based on search input
       const filteredFoods = foodCards.filter((food) => {
-        const nameMatches = food.name.toLowerCase().includes(input.toLowerCase());
-        return nameMatches;
+        const nameMatches = food.name
+          .toLowerCase()
+          .includes(input.toLowerCase());
+        // const colorMatches = colorFilter === "all" || food.color === colorFilter;
+        return nameMatches; // && colorMatches;
       });
-
+      // Update filtered food cards
       setFilteredFoodCards(filteredFoods);
     },
     [foodCards]
   );
 
   const resetFilter = () => {
-    setSearchInput("");
-    setFilteredFoodCards([]);
+    setSearchInput(""); // Reset search input
+    setFilteredFoodCards([]); // Reset filtered food cards
   };
 
   const handleReset = () => {
-    setSearchInput("");
+    setSearchInput(""); // Reset search input
+    //fetchData(); // Refetch data to ensure you have the latest
+  };
+
+  const onCompareClick = () => {
+    setShowCompare(true);
+  };
+
+  const onCloseCompare = () => {
+    setShowCompare(false);
   };
 
   return (
     <Layout>
       <div className={styles.mainFoodCardsPage}>
-        <CalculatorSideBar onCalcClick={onCalculatorClick} />
+      <div className={styles.backgroundframe}>
+        <Image
+          className={styles.backgroundimageIcon}
+          alt="Background Image"
+          src="/outsideLong.png"
+          width={1920}
+          height={1080}
+        />
+        </div>
+        <CalculatorSideBar onCalcClick={onCalculatorClick} onCompareClick={onCompareClick} onClose={onCloseCompare} />
         <div className={styles.rightOfSidebar}>
+          {/* {showCompare && <CompareWindow onClose={onCloseCompare} />} */}
+          {showCompare && <CompareWindow foods={foodCards} onClose={onCloseCompare} />}
           <div className={styles.dropDownSearchContainer}>
             <ColorDropDown
               colors={colorArray}
@@ -118,17 +167,20 @@ const MainFoodCardsPage = () => {
               selectedColor={colorFilter}
             />
             <SearchBar handleSearch={handleSearch} handleReset={handleReset} />
+            {/* Reset button to clear the input field */}
+            {/* <button className={styles.resetButton} onClick={resetFilter}>
+              Reset
+            </button> */}
           </div>
-          <FoodCards
-            foods={foodCards}
-            filteredFoodCards={filteredFoodCards}
-            selectedColorId={colorFilterId}
-          />
-          {/* Add the button here */}
-          <button className={styles.navigateButton} onClick={onGameIntroClick}>
-            Go to Game Mode
-          </button>
+          <div className={styles.foodCardsContainer}>
+            <FoodCards
+              foods={foodCards}
+              filteredFoodCards={filteredFoodCards}
+              selectedColorId={colorFilterId}
+            />
+          </div>
         </div>
+        <RightSideBar onCalcClick={onCalculatorClick} />
       </div>
     </Layout>
   );
