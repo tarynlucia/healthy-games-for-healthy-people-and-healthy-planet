@@ -286,6 +286,7 @@
   overflow: hidden;
 
 
+
   flex: 1;
   /* Make sure both take equal space */
   max-width: 50%;
@@ -296,7 +297,7 @@
   /* Stack content inside each box */
   align-items: center;
   justify-content: flex-start;
-  padding: 10px;
+  padding-bottom: 10px;
 }
 
 .footprintText {
