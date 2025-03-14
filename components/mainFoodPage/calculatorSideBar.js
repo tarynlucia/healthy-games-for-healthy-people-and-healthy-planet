@@ -64,11 +64,11 @@ export default function CalculatorSideBar({ onCalcClick, onCompareClick, onClose
         )}
       </div>
       <div className={styles.bottomButtonsContainer}>
-        {foods.length > 1 && foods.length < 5 && (
+        { /*foods.length > 1 && foods.length < 5 && (
           <div className={styles.compareButton} onClick={onCompareClick}>
             Compare 
           </div>
-        )}
+        ) */}
         {foods.length > 0 && (
           <div className={styles.calculateButton} onClick={onCalcClick}>
             Calculate
@@ -90,7 +90,7 @@ export default function CalculatorSideBar({ onCalcClick, onCompareClick, onClose
             <h2>Are you sure?</h2>
             <h3>If you clear your calculator, you will loose all your added food! Would you like to clear your calculation?</h3>
             <div className={styles.buttons}>
-              <button className={styles.yesButton} 
+              <button className={styles.yesButton}
                 onClick={() => {
                   handleConfirmClear();
                   onClose();
