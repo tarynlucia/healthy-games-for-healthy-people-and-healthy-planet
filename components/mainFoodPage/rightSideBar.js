@@ -16,46 +16,89 @@ import Image from "next/image";
 export default function RightSideBar({ onCalcClick }) {
   const foods = useCalculator();
   const calculatorFunctions = useCalculatorUpdate();
-  const water_footprint = foods.reduce((total, food) => total + parseFloat(food.water), 0);  // Calculate water footprint dynamically
-  const carbon_footprint = foods.reduce((total, food) => total + parseFloat(food.carbon), 0);
-  const stars_rating = foods.reduce((total, food) => total + parseFloat(food.stars), 0);
-
+  const water_footprint = foods.reduce((total, food) => {
+    console.log("food.water:", food.water, "parsed:", parseFloat(food.water));
+    return total + (parseFloat(food.water) || 0);
+  }, 0);
+  
+  const carbon_footprint = foods.reduce((total, food) => {
+    console.log("food.carbon:", food.carbon, "parsed:", parseFloat(food.carbon));
+    return total + (parseFloat(food.carbon) || 0);
+  }, 0);
+  
+  const stars_rating = foods.reduce((total, food) => {
+    console.log("food.stars:", food.stars, "parsed:", parseFloat(food.stars));
+    return total + (parseFloat(food.stars) || 0);
+  }, 0);
+  
+  
   // Determine which water image to display based on the water footprint value
   const getWaterImage = (water) => {
     if (water < 20) {
-      return "/waterbottle.png";  // Low water footprint image
-    } else if (water >= 20 && water < 50) {
-      return "/waterbottle2.png";  // Medium water footprint image
-    } else if (water >= 50 && water < 100) {
-      return "/waterbottle3.png";  // High water footprint image (medium-high)
+      return "/waterbottle.png";  
+    } else if (water < 50) {
+      return "/waterbottle1.png"; 
+    } else if (water < 100) {
+      return "/waterbottle2.png"; 
+    } else if (water < 200) {
+      return "/waterbottle3.png"; 
+    } else if (water < 300) {
+      return "/waterbottle4.png";  
     } else {
-      return "/waterbottle1.png";  // Very high water footprint image
+      return "/waterbottle5.png";  
     }
   };
 
   const getCarbonImage = (carbon) => {
     if (carbon < 20) {
-      return "/gas-01.png";  // Low water footprint image
-    } else if (carbon >= 20 && carbon < 50) {
-      return "/waterbottle2.png";  // Medium water footprint image
-    } else if (carbon >= 50 && carbon < 100) {
-      return "/waterbottle3.png";  // High water footprint image (medium-high)
+      return "/gas-01.png";  
+    } else if (carbon < 50) {
+      return "/gas-02.png"; 
+    } else if (carbon < 100) {
+      return "/gas-03.png";  
+    } else if (carbon < 200) {
+      return "/gas-04.png";  
+    } else if (carbon < 300) {
+      return "/gas-05.png";  
     } else {
-      return "/gas-03.png";  // Very high water footprint image
+      return "/gas-06.png";  
     }
   };
 
-  const getStarsImage = (star) => {
-    if (star < 20) {
-      return "/stars-01.png";  // Low water footprint image
-    } else if (star >= 20 && star < 50) {
-      return "/waterbottle2.png";  // Medium water footprint image
-    } else if (star >= 50 && star < 100) {
-      return "/waterbottle3.png";  // High water footprint image (medium-high)
+  const getStarsImage = (stars_rating, foodsLength) => {
+    if (foodsLength === 0) return "/stars-01.png"; // prevent division by zero
+  
+    const normalizedStar = stars_rating / foodsLength;
+  
+    if (normalizedStar <= 0.5) {
+      return "/stars-02.png"; // 0 stars
+    } else if (normalizedStar <= 1) {
+      return "/stars-03.png"; // 0.5 stars
+    } else if (normalizedStar <= 1.5) {
+      return "/stars-04.png"; // 1 star
+    } else if (normalizedStar <= 2) {
+      return "/stars-05.png"; // 1.5 stars
+    } else if (normalizedStar <= 2.5) {
+      return "/stars-06.png"; // 2 stars
+    } else if (normalizedStar <= 3) {
+      return "/stars-07.png"; // 2.5 stars
+    } else if (normalizedStar <= 3.5) {
+      return "/stars-08.png"; // 3 stars
+    } else if (normalizedStar <= 4) {
+      return "/stars-09.png"; // 3.5 stars
+    } else if (normalizedStar <= 4.5) {
+      return "/stars-10.png"; // 4 stars
     } else {
-      return "/stars-11.png";  // Very high water footprint image
+      return "/stars-11.png"; // 5 stars
     }
   };
+  
+  console.log("Foods array:", foods);
+
+  console.log("Water Footprint:", water_footprint);
+  console.log("Carbon Footprint:", carbon_footprint);
+  console.log("Stars Rating:", stars_rating);
+
 
   return (
     <div className={styles.calculatorsidebarframe}>
@@ -126,7 +169,7 @@ export default function RightSideBar({ onCalcClick }) {
         </div>
         <Image
           className={styles.starsIcon}
-          src={getStarsImage(stars_rating)}
+          src={getStarsImage(stars_rating, foods.length)}
           alt={""}
           width={200}
           height={200}
