@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "../../pages/styles/resultsPage.module.css";
 
 const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
-  const [isDropdownCollapsed, setIsDropdownCollapsed] = useState(true);
+  const [isDropdownCollapsed, setIsDropdownCollapsed] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownCollapsed(!isDropdownCollapsed);
@@ -70,6 +70,52 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
   
     return totalGroups; // Return the count of unique food groups
 }
+function getEnvironmentalImpact() {
+  let totalWater = 0;
+  let totalCarbon = 0;
+
+  foods.forEach((food) => {
+    totalWater += servingSizeConversion(
+      food.serving_size,
+      food.serving_amount,
+      food.water_footprint
+    );
+
+    totalCarbon += servingSizeConversion(
+      food.serving_size,
+      food.serving_amount,
+      food.carbon_footprint
+    );
+  });
+
+  let roundedWaterVal = Math.round(totalWater * 100) / 100;
+  let roundedCarbonVal = Math.round(totalCarbon * 100) / 100;
+
+  // Water comparison
+  let easy_water_comparison = "";
+  if (Math.round(roundedWaterVal / 60) === 1) {
+    easy_water_comparison = "(That's like filling up 1 bathtub!)";
+  } else {
+    easy_water_comparison = `(That's like filling up ${Math.round(roundedWaterVal / 60)} bathtubs!)`;
+  }
+
+  // Carbon comparison
+  let easy_carbon_comparison = "";
+  if (Math.round(roundedCarbonVal / 567) === 1) {
+    easy_carbon_comparison = "(That's like being on the school bus for 1 minute!)";
+  } else {
+    easy_carbon_comparison = `(That's like being on the school bus for ${Math.round(roundedCarbonVal / 567)} minutes!)`;
+  }
+
+  return {
+    water: roundedWaterVal,
+    waterText: easy_water_comparison,
+    carbon: roundedCarbonVal,
+    carbonText: easy_carbon_comparison
+  };
+}
+
+const { water, waterText, carbon, carbonText } = getEnvironmentalImpact();
 
   return (
     <div>
@@ -83,8 +129,12 @@ const MainBanner = ({ foods, numOfStars, servingSizeConversion }) => {
       <div className={`${styles.dropdownSection} ${isDropdownCollapsed ? styles.hidden : ""}`}>
         <div className={styles.dropdownContent}>
           <div className={styles.dropdownColumn}>Diversity 🥗: {TotalDiversity()} group(s)</div>
-          <div className={styles.dropdownColumn}>Water Footprint 💧: {TotalWaterFootprint()} gallons</div>
-          <div className={styles.dropdownColumn}>Carbon Footprint 💨: {TotalCarbonFootprint()} gallons</div>
+          <div className={styles.dropdownColumn}><div>Water Footprint 💧: {water} gallons</div>
+          <div style={{ fontWeight: "normal", fontSize: "16px" }}>{waterText}</div>
+          </div>
+          <div className={styles.dropdownColumn}>Carbon Footprint 💨: {carbon} kg<br />
+          <span style={{ fontWeight: "normal", fontSize: "16px" }}>{carbonText}</span>
+          </div>
           <div className={styles.dropdownColumn}>Nutrition ⭐: {totalStarsText}</div>
         </div>
       </div>

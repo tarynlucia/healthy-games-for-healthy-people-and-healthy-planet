@@ -137,23 +137,20 @@
 }
 
 .dropdownColumn {
-  flex: 0 0 22.5%;
-  /* Makes all columns equal width, adjusting to 4 per row */
-  text-align: center;
-  border-radius: 10px;
-  /* Rounded edges */
-  background-color: white;
-  /* Ensures white background */
-  font-size: 18px;
-  /* Adjust text size */
-  font-weight: bold;
-  /* Makes text stand out */
-  min-height: 300px;
-  /* Ensures height consistency */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+flex: 0 0 22.5%;
+text-align: center;
+border-radius: 10px;
+background-color: white;
+font-size: 18px;
+font-weight: bold;
+min-height: 300px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 15px; 
 }
+
 
 .arrow {
   font-size: 30px;
