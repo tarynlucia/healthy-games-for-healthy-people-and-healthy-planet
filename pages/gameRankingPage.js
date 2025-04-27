@@ -171,6 +171,8 @@ const GameRankingPage = () => {
           <div className={styles.slotsContainer}>
             {slots.map((slot, index) => {
               const isIncorrect = incorrectChoices.includes(index); // Check if the slot contains an incorrect food item
+              const isFirst = index === 0;
+              const isLast = index === slots.length - 1;
 
               return (
                 <div
@@ -179,6 +181,9 @@ const GameRankingPage = () => {
                   onDrop={(e) => handleDrop(e, index)} // Handle drop event
                   onDragOver={handleDragOver} // Handle drag over event
                 >
+                  {isFirst && <div className={styles.lowestLabel}>Lowest</div>}
+                  {isLast && <div className={styles.highestLabel}>Highest</div>}
+
                   <div className={styles.slotNumber} data-rank={index + 1}>
                     {index + 1}
                   </div>
@@ -194,7 +199,8 @@ const GameRankingPage = () => {
                       />
                     </div>
                   ) : (
-                    <p className={styles.emptySlot}>Empty</p>
+                   // <p className={styles.emptySlot}>Empty</p>
+                  null
                   )}
                 </div>
               );

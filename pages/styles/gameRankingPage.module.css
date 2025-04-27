@@ -331,3 +331,18 @@
   .highlightox button:hover {
     background-color: #b32700;
   }
+
+  .lowestLabel {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 4px;
+  }
+  
+  .highestLabel {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 4px;
+  }
+  
