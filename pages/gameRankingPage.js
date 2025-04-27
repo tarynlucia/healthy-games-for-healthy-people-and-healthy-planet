@@ -1,3 +1,21 @@
+/**
+ * GameRankingPage Component
+ * 
+ * This page allows users to rank four randomly selected food items 
+ * from lowest to highest based on either their carbon footprint or 
+ * water footprint, depending on the selected game mode.
+ * 
+ * Key Features:
+ * - Randomly selects and displays four food items.
+ * - Users drag and drop foods into ranking slots.
+ * - A timer tracks how long the user takes.
+ * - Validates if the ranking is correct based on the selected footprint.
+ * - Highlights incorrect choices if the user submits an incorrect ranking.
+ * - Allows reshuffling foods and retrying the ranking.
+ * - Navigates to a game result page upon successful ranking.
+ * 
+ */
+
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/layouts/layout'; // Import Layout component
@@ -145,14 +163,12 @@ const GameRankingPage = () => {
   return (
     <Layout>
       <div className={styles.container}>
-        <h1 className={styles.heading}>Rank Smallest to Largest</h1>
-        <h2 className={styles.h2}>
-          Based on
+        <h1 className={styles.h2}>
+          Rank their
           <span className={modeClass}> {mode ? mode : "selected"} </span>
           footprint!
-        </h2>
+        </h1>
         <div className={styles.timer}>Timer: {formatTime(timer)}</div>
-
         <div className={styles.modeBox}>
           <div className={styles.foodsContainer}>
             {randomFoods.map((food) => (
@@ -181,8 +197,8 @@ const GameRankingPage = () => {
                   onDrop={(e) => handleDrop(e, index)} // Handle drop event
                   onDragOver={handleDragOver} // Handle drag over event
                 >
-                  {isFirst && <div className={styles.lowestLabel}>Lowest</div>}
-                  {isLast && <div className={styles.highestLabel}>Highest</div>}
+                  {isFirst && <div className={styles.lowestLabel}>Low</div>}
+                  {isLast && <div className={styles.highestLabel}>High</div>}
 
                   <div className={styles.slotNumber} data-rank={index + 1}>
                     {index + 1}
@@ -199,7 +215,6 @@ const GameRankingPage = () => {
                       />
                     </div>
                   ) : (
-                   // <p className={styles.emptySlot}>Empty</p>
                   null
                   )}
                 </div>

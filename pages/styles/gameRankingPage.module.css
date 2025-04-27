@@ -21,16 +21,15 @@
 }
 
 .h2 {
-    font-size: 1em;
-    margin-top: 8px;
-    margin-bottom: 25px;
-    font-size: 23px;
+    font-size: 2em;
+    margin-top: 20px; /* Adjusted margin-top to move it closer to the top */
+    margin-bottom: 5px; /* Space between title and timer */
     text-align: center;
     color: #000000;
     font-family: 'Quicksand', sans-serif;
 }
 
-.h2 {
+.h3 {
     font-size: 1em;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -47,12 +46,12 @@
 /* Highlight text color for "water" and "carbon" */
 .waterColor {
     color: blue;
-    font-size: 30px;
+    font-size: 50px;
   }
   
   .carbonColor {
     color: green;
-    font-size: 30px;
+    font-size: 50px;
   }
   
 .foodsContainer {
@@ -333,14 +332,14 @@
   }
 
   .lowestLabel {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: green;
     margin-bottom: 4px;
   }
   
   .highestLabel {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: red;
     margin-bottom: 4px;

@@ -1,3 +1,14 @@
+/**
+ * GameIntroPage Component
+ * 
+ * This page serves as the introduction to the Footprint Test Game.
+ * 
+ * Key Features:
+ * - Displays the game title and a "Start Game" button.
+ * - On clicking "Start Game," navigates the user to the GameModePage
+ * 
+ */
+
 import { useRouter } from "next/router";
 import Layout from "../components/layouts/layout"; // Assuming you still want to include the Layout component
 import styles from "./styles/gameIntroPage.module.css";

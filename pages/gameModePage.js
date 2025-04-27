@@ -1,3 +1,16 @@
+/**
+ * GameModePage Component
+ * 
+ * This page allows users to select a game mode: 
+ * either "Carbon" or "Water" footprint ranking.
+ * 
+ * Key Features:
+ * - Displays two buttons for mode selection.
+ * - On selection, navigates to the GameRankingPage 
+ *   and passes the chosen mode as a query parameter.
+ * 
+ */
+
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/layouts/layout";
