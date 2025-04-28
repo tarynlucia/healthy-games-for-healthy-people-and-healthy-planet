@@ -100,8 +100,15 @@
   display: inline-block;
 }
 
+
+.inputBox:hover {
+  cursor: pointer;
+  background-color: #0288d1;
+}
+
 .inputBox {
-  width: 90px;
+  width: 100px;
+  /* Maintain the increased width */
   height: 30px;
   border: 2px solid black;
   border-radius: 4px;
@@ -109,11 +116,18 @@
   transition: background-color 0.3s ease-in-out;
   text-align: center;
   font-family: 'Open Sans', sans-serif !important;
+  font-size: 11px;
+  /* Further reduce font size to 11px */
+  padding: 0 2px;
+  /* Minimal padding */
 }
 
-.inputBox:hover {
-  cursor: pointer;
-  background-color: #0288d1;
+/* Make the placeholder even smaller and more visible */
+.inputBox::placeholder {
+  font-size: 10px;
+  /* Very small font for placeholder */
+  opacity: 0.9;
+  /* Make it more visible */
 }
 
 .inputError {

@@ -64,7 +64,7 @@ export default function ServingAmountSelection({ curFood, updateServingAmount })
         className={`${styles.inputBox} ${error ? styles.inputError : ""}`}
         type="text"
         value={inputValue}
-        placeholder="Type a number"
+        placeholder="Type a Number"
         onChange={handleInputChange}
         onBlur={handleSelectionChange}
         onKeyUp={(e) => {
