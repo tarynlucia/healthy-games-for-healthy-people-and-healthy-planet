@@ -1,51 +1,82 @@
 import { useState } from "react";
 import styles from "./styles/amountSelection.module.css";
 
-export default function ServingAmountSelection({
-  curFood,
-  updateServingAmount,
-}) {
-  const [inputValue, setInputValue] = useState(
-    curFood.serving_amount.toString()
-  );
+export default function ServingAmountSelection({ curFood, updateServingAmount }) {
+  const [inputValue, setInputValue] = useState(curFood.serving_amount.toString());
+  const [error, setError] = useState("");
 
-  //change what is displayed in input box as user types
   const handleInputChange = (e) => {
     const newValue = e.target.value.trim();
+
+    // Always update inputValue to reflect what's in the input
     setInputValue(newValue);
+
+    if (newValue === "") {
+      setError("");
+      return;
+    }
+
+    const validNumberRegex = /^\d*\.?\d*$/;
+
+    if (validNumberRegex.test(newValue)) {
+      setError("");
+    } else {
+      // For consecutive invalid inputs, we need to "reset" the error to trigger the animation
+      setError(""); // First clear the error
+      setTimeout(() => {
+        setError("Oops! Only numbers are allowed."); // Then set it again
+      }, 10); // Small timeout to ensure React renders the change
+    }
   };
 
-  //this is called when the user presses enter or clicks out of the box
   const handleSelectionChange = (e) => {
     if (e.key === "Enter" || e.type === "blur") {
       const newValue = e.target.value.trim();
-      //if they typed nothing, set value to default of 1 serving
-      if (newValue == "") {
+
+      if (newValue === "") {
         setInputValue("1");
         updateServingAmount(curFood.id, 1);
+        setError("");
         return;
       }
-      //update serving amount to input number rounded to the 100ths place
+
       const floatValue = parseFloat(newValue);
       if (!isNaN(floatValue) && floatValue >= 0) {
-        let roundedVal = Math.round(floatValue * 100) / 100;
+        const roundedVal = Math.round(floatValue * 100) / 100;
         updateServingAmount(curFood.id, roundedVal);
-        setInputValue(roundedVal);
+        setInputValue(roundedVal.toString());
+        setError("");
+      } else {
+        setError("Please enter a valid positive number.");
       }
     }
   };
 
+  // Update this part in your component
   return (
-    <div>
+    <div className={styles.inputWrapper}>
+      {error && (
+        <div className={styles.errorPopup}>
+          ! {error}
+        </div>
+      )}
       <input
-        className={styles.inputBox}
+        className={`${styles.inputBox} ${error ? styles.inputError : ""}`}
         type="text"
         value={inputValue}
         placeholder="Type a number"
         onChange={handleInputChange}
         onBlur={handleSelectionChange}
-        onKeyDown={handleSelectionChange}
+        onKeyUp={(e) => {
+          if (e.key === "Enter") {
+            handleSelectionChange(e);
+          }
+        }}
+      // Only clear error on focus if you want to remove the message immediately
+      // If you want the animation to complete, remove this line
+      // onFocus={() => setError("")}
       />
     </div>
   );
+
 }
