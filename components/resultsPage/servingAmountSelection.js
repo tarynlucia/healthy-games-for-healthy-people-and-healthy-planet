@@ -8,7 +8,6 @@ export default function ServingAmountSelection({ curFood, updateServingAmount })
   const handleInputChange = (e) => {
     const newValue = e.target.value.trim();
 
-    // Always update inputValue to reflect what's in the input
     setInputValue(newValue);
 
     if (newValue === "") {
@@ -21,11 +20,10 @@ export default function ServingAmountSelection({ curFood, updateServingAmount })
     if (validNumberRegex.test(newValue)) {
       setError("");
     } else {
-      // For consecutive invalid inputs, we need to "reset" the error to trigger the animation
-      setError(""); // First clear the error
+      setError("");
       setTimeout(() => {
-        setError("Oops! Only numbers are allowed."); // Then set it again
-      }, 10); // Small timeout to ensure React renders the change
+        setError("Oops! Only numbers are allowed.");
+      }, 10);
     }
   };
 
@@ -52,12 +50,11 @@ export default function ServingAmountSelection({ curFood, updateServingAmount })
     }
   };
 
-  // Update this part in your component
   return (
     <div className={styles.inputWrapper}>
       {error && (
         <div className={styles.errorPopup}>
-          ! {error}
+          {error}
         </div>
       )}
       <input
@@ -72,9 +69,6 @@ export default function ServingAmountSelection({ curFood, updateServingAmount })
             handleSelectionChange(e);
           }
         }}
-      // Only clear error on focus if you want to remove the message immediately
-      // If you want the animation to complete, remove this line
-      // onFocus={() => setError("")}
       />
     </div>
   );
