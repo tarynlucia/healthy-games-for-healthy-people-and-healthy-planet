@@ -1,8 +1,10 @@
 
 ## Games for Healthy People and Healthy Planet [Food Calculator]
-Project timeline/status: This project is in its second year as a capstone, building on work from the previous team. This year’s contributions included implementing usability improvements, developing a comparison feature, creating an interactive game, and adding explanatory content for environmental footprints. This year we also conducted prtotype testing with the target audience. 
 
-Team members and roles: 
+## Project timeline/status: 
+This project is in its second year as a capstone, building on work from the previous team. This year’s contributions included implementing usability improvements, developing a comparison feature, creating an interactive game, and adding explanatory content for environmental footprints. This year we also conducted prtotype testing with the target audience. 
+
+## Team members and roles: 
 Aaron Underhill - Front end, communications 
 Abdulrahman Samargandi - Front end, responsible for dealing with project deadlines
 Anastasiia Ragozina - Front end, facilitator
@@ -10,10 +12,10 @@ Charissa Mia Wai Jun Kau - Front end, notetaker
 Taryn Eng - Front end, notetaker
 Yaire Aguilar Carrion - Front end, facilitator
 
-Problem statement: 
+## Problem statement: 
 Most existing websites  focus only on the nutritional value of food, overlooking its environmental impact. The Food Hero Calculator fills this gap by combining nutrition facts with carbon and water footprint data to generate a single, easy-to-understand summary. 
 
-Target audience:
+## Target audience:
 Children aged 7-9 years
 
 Value Proposition
