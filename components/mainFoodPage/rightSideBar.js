@@ -11,8 +11,8 @@ export default function RightSideBar({ onCalcClick }) {
   const foods = useCalculator();
   const calculatorFunctions = useCalculatorUpdate();
 
-  const water_footprint = foods.reduce((total, food) => total + (parseFloat(food.water) || 0), 0);
-  const carbon_footprint = foods.reduce((total, food) => total + (parseFloat(food.carbon) || 0), 0);
+  const water_footprint = foods.reduce((total, food) => total + (parseFloat(food.water_footprint) || 0), 0);
+  const carbon_footprint = foods.reduce((total, food) => total + (parseFloat(food.carbon_footprint) || 0), 0);
   const stars_rating = foods.reduce((total, food) => total + (parseFloat(food.stars) || 0), 0);
 
   const getWaterImage = (water) => {

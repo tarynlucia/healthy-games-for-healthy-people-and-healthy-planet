@@ -7,8 +7,8 @@
 
   position: absolute;
   top: 138px;
-  left: -49%;
-  width: 65%;
+  left: -54%;
+  width: 70%;
   height: calc(100vh - 200px);
   background: white;
   box-shadow: 2px 2px 6px gray;
@@ -91,7 +91,9 @@
   width: 185px;
   height: calc(75vh - 317px);
   overflow-y: auto;
-  /* background-color: aquamarine; */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .foodsInCalculator img {
@@ -107,10 +109,10 @@
   /* background-color:aqua; */
 }
 
-.group, .water, .carbon {
+.group, .water, .carbon, .nutrition {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 8px;
 }
 

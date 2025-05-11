@@ -72,8 +72,10 @@ function CompareFoodItem({ foodItem }) {
             <b>{foodItem.food_group}</b>
           </div>
 
-          <h3 className={styles.nutrition}>Nutritional Value:</h3>
-          <b>{foodItem.stars}</b>
+          <div className={styles.nutrition}>
+            <h3 className={styles.nutrition}>Nutritional Value:</h3>
+            <b>{foodItem.stars}</b>
+          </div>
 
           <div className={styles.water}>
             <h3>Water Footprint:</h3>
@@ -82,7 +84,7 @@ function CompareFoodItem({ foodItem }) {
 
           <div className={styles.carbon}>
             <h3>Carbon Footprint:</h3>
-            <b>{foodItem.carbon_footprint} ({foodItem.carbon_footprint_rating})</b>
+            <b>{foodItem.carbon_footprint} CO2e ({foodItem.carbon_footprint_rating})</b>
           </div>
 
           <h3 className={styles.facts}>Facts</h3>

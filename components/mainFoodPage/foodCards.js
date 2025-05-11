@@ -26,13 +26,8 @@ export default function FoodCards({
         (food) =>
           (selectedColorId == -1 || selectedColorId === food.color_id) && (
             <FoodCard 
-              key={food.id} 
-              id={food.id} 
-              name={food.name} 
-              food_group={food.food_group} 
-              water_footprint={food.water_footprint}
-              carbon_footprint={food.carbon_footprint} 
-              stars={food.stars}
+              key={food.id}
+              food={food}
             />
           )
       )}
@@ -46,13 +41,13 @@ export default function FoodCards({
  * uses the CalculatorContext to allow the food to be added and removed
  * from the calculator.
  *************************************************************************/
-function FoodCard({ id, name, food_group, water_footprint, carbon_footprint, stars }) {
-  //get calculator functions from context
+function FoodCard({ food }) {
   const calculatorUpdateFunctions = useCalculatorUpdate();
-  const food = foodImages.find((foodItem) => foodItem.id === id);
+  const imageData = foodImages.find((img) => img.id === food.id);
+  const imagePath = imageData?.image || "defaultImage.jpg"; // fallback just in case
 
   if (!food) return null;
-  const imagePath = food.image;
+  // const imagePath = food.image;
 
   return (
     <div className={styles.foodcard}>
@@ -61,15 +56,15 @@ function FoodCard({ id, name, food_group, water_footprint, carbon_footprint, sta
           <Image
             className={styles.foodcardimage}
             src={`/${imagePath}`}
-            alt={name}
+            alt={food.name}
             width={470}
             height={520}
           />
-          <p className={styles.foodcardName}>{name}</p>
-          {calculatorUpdateFunctions.isInCalculator(id) ? (
+          <p className={styles.foodcardName}>{food.name}</p>
+          {calculatorUpdateFunctions.isInCalculator(food.id) ? (
             <div
               className={styles.removeFoodButton}
-              onClick={() => calculatorUpdateFunctions.onRemoveFromCalculator(id)}
+              onClick={() => calculatorUpdateFunctions.onRemoveFromCalculator(food.id)}
             >
               <p className={styles.minusSign}>-</p>
             </div>
@@ -77,8 +72,11 @@ function FoodCard({ id, name, food_group, water_footprint, carbon_footprint, sta
             <div
               className={styles.addFoodButton}
               onClick={() =>
-                calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath, water:water_footprint, carbon:carbon_footprint, stars })
-              }
+                calculatorUpdateFunctions.onAddToCalculator({
+                  ...food,
+                  imagePath,
+                })
+              }              
             >   
               <p className={styles.plusSign}>+</p>
             </div>
@@ -87,18 +85,18 @@ function FoodCard({ id, name, food_group, water_footprint, carbon_footprint, sta
 
         <div className={styles.foodcardBack}>
           <div className={styles.backInfo}>
-            <div>Food Group: {food_group}</div>
+            <div>Food Group: {food.food_group}</div>
             <div>Water Footprint:</div> 
-            <div>{water_footprint} gallons</div>
+            <div>{food.water_footprint} gallons</div>
             <div>Carbon Footprint:</div>
-            <div>{carbon_footprint} CO2e</div>
-            <div>Rating: {stars}/5</div>
+            <div>{food.carbon_footprint} CO2e</div>
+            <div>Rating: {food.stars}/5</div>
           </div>
-          <p className={styles.foodcardName}>{name}</p>
-          {calculatorUpdateFunctions.isInCalculator(id) ? (
+          <p className={styles.foodcardName}>{food.name}</p>
+          {calculatorUpdateFunctions.isInCalculator(food.id) ? (
             <div
               className={styles.removeFoodButton}
-              onClick={() => calculatorUpdateFunctions.onRemoveFromCalculator(id)}
+              onClick={() => calculatorUpdateFunctions.onRemoveFromCalculator(food.id)}
             >
               <p className={styles.minusSign}>-</p>
             </div>
@@ -106,8 +104,11 @@ function FoodCard({ id, name, food_group, water_footprint, carbon_footprint, sta
             <div
               className={styles.addFoodButton}
               onClick={() =>
-                calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath, water:water_footprint, carbon:carbon_footprint, stars })
-              }
+                calculatorUpdateFunctions.onAddToCalculator({
+                  ...food,
+                  imagePath,
+                })
+              }              
             >   
               <p className={styles.plusSign}>+</p>
             </div>
