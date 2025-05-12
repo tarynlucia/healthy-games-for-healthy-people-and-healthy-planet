@@ -152,7 +152,7 @@ export default function RightSideBar({ onCalcClick }) {
               alt=""
               width={200}
               height={200}
-            /> */}
+            /> 
           </div>
           <span className={styles.tooltipText}>
             Ideally, include all 5 food groups in your meals.
