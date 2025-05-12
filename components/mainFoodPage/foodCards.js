@@ -77,7 +77,7 @@ function FoodCard({ id, name, food_group, water_footprint, carbon_footprint, sta
             <div
               className={styles.addFoodButton}
               onClick={() =>
-                calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath, water:water_footprint, carbon:carbon_footprint, stars })
+                calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath, water:water_footprint, carbon:carbon_footprint, stars, food_group })
               }
             >   
               <p className={styles.plusSign}>+</p>
@@ -106,7 +106,7 @@ function FoodCard({ id, name, food_group, water_footprint, carbon_footprint, sta
             <div
               className={styles.addFoodButton}
               onClick={() =>
-                calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath, water:water_footprint, carbon:carbon_footprint, stars })
+                calculatorUpdateFunctions.onAddToCalculator({ id, name, imagePath, water:water_footprint, carbon:carbon_footprint, stars, food_group })
               }
             >   
               <p className={styles.plusSign}>+</p>

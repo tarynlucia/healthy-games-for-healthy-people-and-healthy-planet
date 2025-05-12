@@ -31,10 +31,29 @@
   font-family: "Nerko One", cursive;
 }
 
-.myPlateIcon,
-.waterIcon,
-.carbonIcon,
-.starsIcon {
+.imageContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.myPlateIcon {
+  position: absolute;
+  height: 130px;
+  width: auto;
+  object-fit: cover;
+  margin-left: -60%;
+  margin-top: -10%;
+}
+
+.waterIcon {
+  height: 100px;
+  width: auto;
+  margin-top: 4%;
+  object-fit: cover;
+}
+
+.carbonIcon {
   height: 100px;
   width: auto;
   object-fit: cover;
