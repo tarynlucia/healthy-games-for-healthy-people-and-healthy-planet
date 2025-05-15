@@ -1,48 +1,52 @@
 
-## Games for Healthy People and Healthy Planet [Food Calculator]
+## Games for Healthy People and Healthy Planet [Food Hero Calculator]
 
-## Project timeline/status: 
+## Project Timeline/Status: 
 This project is in its second year as a capstone, building on work from the previous team. This year’s contributions included implementing usability improvements, developing a comparison feature, creating an interactive game, and adding explanatory content for environmental footprints. This year we also conducted prtotype testing with the target audience. 
 
-## Team members and roles: 
-- Aaron Underhill - Front end, communications 
-- Abdulrahman Samargandi - Front end, responsible for dealing with project deadlines
-- Anastasiia Ragozina - Front end, facilitator
-- Charissa Mia Wai Jun Kau - Front end, notetaker
-- Taryn Eng - Front end, notetaker
-- Yaire Aguilar Carrion - Front end, facilitator
+## Team Members and Roles: 
+- **Aaron Underhill** - Front end, communications 
+- **Abdulrahman Samargandi** - Front end, responsible for dealing with project deadlines
+- **Anastasiia Ragozina** - Front end, facilitator
+- **Charissa Mia Wai Jun Kau** - Front end, notetaker
+- **Taryn Eng** - Front end, notetaker
+- **Yaire Aguilar Carrion** - Front end, facilitator
 
-## Problem statement: 
+## Problem Statement: 
 Most existing websites  focus only on the nutritional value of food, overlooking its environmental impact. The Food Hero Calculator fills this gap by combining nutrition facts with carbon and water footprint data to generate a single, easy-to-understand summary. 
 
-## Target audience:
-Children aged 7-9 years
+## Target Audience:
+- **Children (3rd–8th grade):** Need an intuitive, game-like experience to learn about food choices and their environmental impact.
+- **Parents:** Look for accessible, educational tools that teach children sustainability and health in a fun way.
+- **Educators:** Require a platform that is easy to integrate into classroom lessons and that clearly communicates environmental and nutritional concepts.
+- **Youth-focused organizations and institutions:** Seek reliable teaching tools for promoting sustainable food practices.
 
+This project offers children an engaging, kid-friendly educational tool that teaches essential facts about sustainability and health, fostering lifelong skills. By promoting environmental awareness early on, the project aims to develop climate-conscious, health-focused individuals through interactive learning.
 (put the old vercel link here then update it with our version once its published)
 
-Value Proposition
-Core features and benefits
-Comparison with existing solutions (if applicable)
+The **Food Hero Calculator** educates children on the environmental impacts of their food choices—specifically carbon and water footprints—encouraging better decisions for the planet. Through a fun, interactive app, young users gain insights into how different foods impact the environment, helping them build a foundation for eco-friendly habits. Ultimately, this project seeks to address gaps in environmental education and inspire a new generation of informed, environmentally conscious food citizens.
 
-Technical Implementation
-Key technologies used
-Architecture overview (appropriate for your audience)
+For institutions and educators, the platform must be interactive and effective in teaching food sustainability. For children, it must be playful, intuitive, and educational.
+
+## Architecture
+For the architecture of our program it can be divided into 3 different parts which I will go over briefly and more into details in the demo.  First, the program is currently supported on Safari and Chrome browsers for end users. For the front-end, the program is built with React, CSS and Javascript. And finally we have the website deployed via Vercel. Where it automatically builds and hosts the application from the connected repository, ensuring seamless updates with every push. 
+
 
 Development challenges and solutions
-Access and Usage
-Clear instructions for accessing/downloading/running the project
-Link to repository (if public)
-
-Documentation or user guide
-Installation requirements
-Visual Elements
+## Features
+Core features
 Screenshots/demos of the project in action
 Diagrams where appropriate
 Consistent visual design
-Contact Information
-How users/employers can reach you for questions or feedback
 
 
+
+Access and Usage:
+Clear instructions for accessing/downloading/running the project
+Link to repository (if public)
+Documentation or user guide
+Installation requirements
+Development challenges and solutions
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
