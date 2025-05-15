@@ -64,11 +64,11 @@ export default function CalculatorSideBar({ onCalcClick, onCompareClick, onClose
         )}
       </div>
       <div className={styles.bottomButtonsContainer}>
-        { /*foods.length > 1 && foods.length < 5 && (
+        { foods.length > 1 && foods.length < 5 && (
           <div className={styles.compareButton} onClick={onCompareClick}>
             Compare 
           </div>
-        ) */}
+        ) }
         {foods.length > 0 && (
           <div className={styles.calculateButton} onClick={onCalcClick}>
             Calculate
