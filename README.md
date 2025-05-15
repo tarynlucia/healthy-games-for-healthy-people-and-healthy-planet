@@ -1,7 +1,7 @@
 
 ## Games for Healthy People and Healthy Planet [Food Hero Calculator]
 
-## Project Timeline/Status: 
+## Project Timeline/ Status: 
 This project is in its second year as a capstone, building on work from the previous team. This year’s contributions included implementing usability improvements, developing a comparison feature, creating an interactive game, and adding explanatory content for environmental footprints. This year we also conducted prtotype testing with the target audience. 
 
 ## Team Members and Roles: 
@@ -33,11 +33,36 @@ For the architecture of our program it can be divided into 3 different parts whi
 
 
 Development challenges and solutions
-## Features
-Core features
-Screenshots/demos of the project in action
-Diagrams where appropriate
-Consistent visual design
+## Features/ Pages
+
+### 1. Kid-Friendly Calculator Page
+![Game Demo](assets/game-demo.gif)
+
+- A more kid-friendly calculator page where children can explore different foods and learn about them
+- Select 4 foods to compare data about
+- Flip the cards for a summary about them
+
+---
+
+### 2. Results Page
+![Game Demo](assets/game-demo.gif)
+
+Your description here:
+- An improved results page over selected foods they chose to check out
+- Tells nutrition value
+- Tells carbon/water overall footprint
+- Adjust serving size
+
+---
+
+### 3. Food Ranking Game
+![Game Demo](assets/game-demo.gif)
+
+Your description here:
+- A food ranking game that lets kids rank 4 random food items from our database from smallest to largest footprint
+- Users can choose carbon or water mode
+- Can reshuffle foods
+- Change mode at any time
 
 
 
