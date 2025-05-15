@@ -10,6 +10,10 @@ import Image from "next/image";
 export default function RightSideBar({ onCalcClick }) {
   const foods = useCalculator();
   const calculatorFunctions = useCalculatorUpdate();
+  const food_groups = foods.reduce((total, food) => {
+    console.log("food.food_group:", food.food_group, "parsed:", parseFloat(food.food_group));
+    return total + (parseFloat(food.food_group) || 0);
+  }, 0);
 
   const water_footprint = foods.reduce((total, food) => total + (parseFloat(food.water_footprint) || 0), 0);
   const carbon_footprint = foods.reduce((total, food) => total + (parseFloat(food.carbon_footprint) || 0), 0);
@@ -48,27 +52,107 @@ export default function RightSideBar({ onCalcClick }) {
     return "/stars-11.png";
   };
 
+  const uniqueFoodGroups = Array.from(
+    new Set(
+      foods
+        .map((food) => food.food_group)
+        .filter((group) => typeof group === "string")
+        .map((group) => group.toLowerCase())
+    )
+  );
+
+  console.log("Unique Food Groups:", uniqueFoodGroups);
+
+  // Update food group image map for all groups
+  const foodGroupImageMap = {
+    fruit: "/foodPlate_fruitPlate.png",
+    vegetable: "/foodPlate_vegetablePlate.png",
+    grain: "/foodPlate_grainPlate.png",
+    protein: "/foodPlate_proteinPlate.png",
+    dairy: "/foodPlate_dairyPlate.png",
+  };
+
+  // Determine the image to display based on the first food group in the uniqueFoodGroups array
+  const plateImage = uniqueFoodGroups
+    .map((group) => foodGroupImageMap[group]) // Try to match food groups
+    .find((image) => image); // Find the first valid image
+
+  console.log("Water Footprint:", water_footprint);
+  console.log("Carbon Footprint:", carbon_footprint);
+  console.log("Stars Rating:", stars_rating);
+
+
   return (
     <div className={styles.calculatorsidebarframe}>
       <div className={styles.headers}>
-        {/* Food Groups */}
-        <div className={styles.tooltipContainer}>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+        <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
+        <div className={styles.imageContainer}>
           <Image
             className={styles.myPlateIcon}
-            src="/myPlate.png"
-            alt=""
+            src="/foodPlate_names.png"
+            alt="Fruit"
             width={200}
             height={200}
-          />
-          <div className={styles.titleName}>
-            Food Groups
-            {/* <Image
+            />
+          {uniqueFoodGroups.includes("fruit") && (
+          <Image
+            className={styles.myPlateIcon}
+            src="/foodPlate_fruitsPlate.png"
+            alt="Fruit"
+            width={200}
+            height={200}
+            />
+          )}
+          {uniqueFoodGroups.includes("vegetable") && (
+          <Image
+            className={styles.myPlateIcon}
+            src="/foodPlate_vegetablesPlate.png"
+            alt="Fruit"
+            width={200}
+            height={200}
+            />
+          )}
+          {uniqueFoodGroups.includes("grains") && (
+          <Image
+            className={styles.myPlateIcon}
+            src="/foodPlate_grainsPlate.png"
+            alt="Fruit"
+            width={200}
+            height={200}
+            />
+          )}
+          {uniqueFoodGroups.includes("protein") && (
+          <Image
+            className={styles.myPlateIcon}
+            src="/foodPlate_proteinPlate.png"
+            alt="Fruit"
+            width={200}
+            height={200}
+            />
+          )}
+          {uniqueFoodGroups.includes("dairy") && (
+          <Image
+            className={styles.myPlateIcon}
+            src="/foodPlate_dairyPlate.png"
+            alt="Fruit"
+            width={200}
+            height={200}
+            />
+          )}
+        </div>
+        <div className={styles.titleName}>
+          Food Groups
+          <div className={styles.tooltipContainer}>
+            <Image
               className={styles.information}
               src="/information.png"
               alt=""
               width={200}
               height={200}
-            /> */}
+            /> 
           </div>
           <span className={styles.tooltipText}>
             Ideally, include all 5 food groups in your meals.
