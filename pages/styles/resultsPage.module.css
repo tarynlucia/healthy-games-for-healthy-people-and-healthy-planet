@@ -137,18 +137,18 @@
 }
 
 .dropdownColumn {
-  flex: 0 0 22.5%;
-  text-align: center;
-  border-radius: 10px;
-  background-color: white;
-  font-size: 18px;
-  font-weight: bold;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+flex: 0 0 22.5%;
+text-align: center;
+border-radius: 10px;
+background-color: white;
+font-size: 18px;
+font-weight: bold;
+min-height: 300px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 15px; 
 }
 
 
@@ -228,15 +228,19 @@
   max-width: 100%;
   gap: 10px;
   flex-wrap: nowrap;
+  /* Prevents the serving size box from dropping */
   overflow: hidden;
+  /* Ensures nothing spills */
 }
 
 
 .amountInput input {
   flex: 1;
+  /* Ensures both elements scale together */
   min-width: 50px;
+  /* Prevents them from getting too small */
   max-width: 80px;
-
+  /* Ensures they don’t grow too big */
   height: 40px;
   width: 80px;
   text-align: center;
@@ -244,39 +248,54 @@
   border: 2px solid black;
   border-radius: 5px;
   box-sizing: border-box;
-
+  /* Prevents padding from increasing size */
   overflow: hidden;
+  /* Ensures text doesn’t expand the box */
 }
 
 .footprintContainer {
+
   border-radius: 10px;
   border: 3px solid black;
   display: flex;
   flex-direction: row;
-  height: 200px;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  gap: 5px;
-  margin-bottom: 20px;
+  height: auto;
   overflow: hidden;
-}
+  /* Arrange Water & Carbon footprint side by side */
+  justify-content: space-between;
+  /* Space them evenly */
+  align-items: flex-start;
+  /* Align to the top */
+  width: 100%;
+  gap: 20px;
+  /* Adjust spacing between the two boxes */
 
+  border-radius: 10px;
+  height: 200px;
+  margin-bottom: 20px;
+}
 
 .footprintBox {
   width: 100%;
   height: 200px;
   text-align: center;
   display: flex;
+  overflow: hidden;
+
+
+
+  flex: 1;
+  /* Make sure both take equal space */
+  max-width: 50%;
+  /* Prevent them from taking up too much space */
+  text-align: center;
+  display: flex;
   flex-direction: column;
+  /* Stack content inside each box */
   align-items: center;
   justify-content: flex-start;
-  padding: 5px;
-  flex: 1;
-  max-width: 50%;
-  overflow: hidden;
+  padding-bottom: 10px;
 }
-
 
 .footprintText {
   /* OLD STYLING: font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
@@ -304,19 +323,18 @@
   font-size: clamp(12px, 1.2vw, 16px);
   display: flex;
   margin-top: 2px;
+  /* Reduce spacing above */
   margin-bottom: 2px;
+  /* Reduce spacing below */
 }
 
 .comparisonText {
-  font-size: clamp(10px, 1vw, 14px);
+  font-size: clamp(12px, 1.2vw, 16px);
+  /* Smaller text */
   margin-top: 6px;
+  /* Reduce spacing above */
   margin-bottom: 2px;
-  padding: 0 2px;
-  width: 95%;
-  white-space: normal;
-  word-break: break-word;
-  hyphens: auto;
-  display: block;
+  /* Reduce spacing below */
 }
 
 .carbonFootprintText {
@@ -468,7 +486,58 @@
   overflow: hidden;
 }
 
-
 .colorSegment {
   height: 100%;
+}
+
+ /* INTERACTIVE ICONS FORMATING */
+.information{
+  height: 10px;
+  width: 10px;
+  margin-left: 10px;
+}
+
+.tooltipContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipContainer .tooltipText {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+
+  /* Positioning */
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-80%);
+
+  /* Animation */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tooltipContainer:hover .tooltipText {
+  visibility: visible;
+  opacity: 1;
+}
+
+.myPlateContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.plateLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
 }
