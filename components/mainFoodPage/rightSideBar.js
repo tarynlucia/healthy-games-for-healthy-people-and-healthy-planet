@@ -89,74 +89,69 @@ export default function RightSideBar({ onCalcClick }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Nerko+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
-        <div className={styles.imageContainer}>
-          <Image
-            className={styles.myPlateIcon}
-            src="/foodPlate_names.png"
-            alt="Fruit"
-            width={200}
-            height={200}
-            />
-          {uniqueFoodGroups.includes("fruit") && (
-          <Image
-            className={styles.myPlateIcon}
-            src="/foodPlate_fruitsPlate.png"
-            alt="Fruit"
-            width={200}
-            height={200}
-            />
-          )}
-          {uniqueFoodGroups.includes("vegetable") && (
-          <Image
-            className={styles.myPlateIcon}
-            src="/foodPlate_vegetablesPlate.png"
-            alt="Fruit"
-            width={200}
-            height={200}
-            />
-          )}
-          {uniqueFoodGroups.includes("grains") && (
-          <Image
-            className={styles.myPlateIcon}
-            src="/foodPlate_grainsPlate.png"
-            alt="Fruit"
-            width={200}
-            height={200}
-            />
-          )}
-          {uniqueFoodGroups.includes("protein") && (
-          <Image
-            className={styles.myPlateIcon}
-            src="/foodPlate_proteinPlate.png"
-            alt="Fruit"
-            width={200}
-            height={200}
-            />
-          )}
-          {uniqueFoodGroups.includes("dairy") && (
-          <Image
-            className={styles.myPlateIcon}
-            src="/foodPlate_dairyPlate.png"
-            alt="Fruit"
-            width={200}
-            height={200}
-            />
-          )}
-        </div>
-        <div className={styles.titleName}>
-          Food Groups
-          <div className={styles.tooltipContainer}>
+        
+        {/* Food Plate */}
+        <div className={styles.tooltipContainer}>
+          <div className={styles.imageContainer}>
             <Image
-              className={styles.information}
-              src="/information.png"
-              alt=""
+              className={styles.myPlateIcon}
+              src="/foodPlate_names.png"
+              alt="Food Plate"
               width={200}
               height={200}
-            /> 
+              />
+            {uniqueFoodGroups.includes("fruit") && (
+            <Image
+              className={styles.myPlateIcon}
+              src="/foodPlate_fruitsPlate.png"
+              alt="Fruit"
+              width={200}
+              height={200}
+              />
+            )}
+            {uniqueFoodGroups.includes("vegetable") && (
+            <Image
+              className={styles.myPlateIcon}
+              src="/foodPlate_vegetablesPlate.png"
+              alt="Vegetable"
+              width={200}
+              height={200}
+              />
+            )}
+            {uniqueFoodGroups.includes("grains") && (
+            <Image
+              className={styles.myPlateIcon}
+              src="/foodPlate_grainsPlate.png"
+              alt="Grain"
+              width={200}
+              height={200}
+              />
+            )}
+            {uniqueFoodGroups.includes("protein") && (
+            <Image
+              className={styles.myPlateIcon}
+              src="/foodPlate_proteinPlate.png"
+              alt="Protein"
+              width={200}
+              height={200}
+              />
+            )}
+            {uniqueFoodGroups.includes("dairy") && (
+            <Image
+              className={styles.myPlateIcon}
+              src="/foodPlate_dairyPlate.png"
+              alt="Dairy"
+              width={200}
+              height={200}
+              />
+            )}
           </div>
-          <span className={styles.tooltipText}>
-            Ideally, include all 5 food groups in your meals.
-          </span>
+          <div className={styles.titleName}>
+            Food Groups
+            <span className={styles.tooltipText}>
+              Ideally, include all 5 food groups in your meals.
+            </span>
+          </div>
         </div>
 
         {/* Water Footprint */}

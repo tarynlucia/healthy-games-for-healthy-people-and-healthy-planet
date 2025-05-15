@@ -79,6 +79,7 @@
 }
 
 .tooltipContainer {
+  margin-top: 3px;
   position: relative;
   display: flex;
   flex-direction: column;
