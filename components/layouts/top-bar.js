@@ -78,6 +78,7 @@ function TopBar() {
         )}
         {router.pathname !== "/mainFoodPage" && (
           <div className={styles.linkbutton} onClick={handleCalculatorClick}>
+            <i class="fa-solid fa-calculator"></i>
             <b>Calculator</b>
           </div>
         )}
