@@ -20,20 +20,20 @@ export default function RightSideBar({ onCalcClick }) {
   const stars_rating = foods.reduce((total, food) => total + (parseFloat(food.stars) || 0), 0);
 
   const getWaterImage = (water) => {
-    if (water < 20) return "/waterbottle.png";
-    if (water < 50) return "/waterbottle1.png";
-    if (water < 100) return "/waterbottle2.png";
-    if (water < 200) return "/waterbottle3.png";
-    if (water < 300) return "/waterbottle4.png";
+    if (water < 13.2) return "/waterbottle.png";
+    if (water < 52.83) return "/waterbottle1.png";
+    if (water < 105.6) return "/waterbottle2.png";
+    if (water < 211.33) return "/waterbottle3.png";
+    if (water < 264.17) return "/waterbottle4.png";
     return "/waterbottle5.png";
   };
 
   const getCarbonImage = (carbon) => {
-    if (carbon < 20) return "/gas-01.png";
-    if (carbon < 50) return "/gas-02.png";
-    if (carbon < 100) return "/gas-03.png";
-    if (carbon < 200) return "/gas-04.png";
-    if (carbon < 300) return "/gas-05.png";
+    if (carbon < 100) return "/gas-01.png";
+    if (carbon < 500) return "/gas-02.png";
+    if (carbon < 1000) return "/gas-03.png";
+    if (carbon < 1500) return "/gas-04.png";
+    if (carbon < 2000) return "/gas-05.png";
     return "/gas-06.png";
   };
 
