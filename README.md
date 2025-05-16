@@ -177,3 +177,14 @@ Throughout this project, we encountered several challenges that required problem
 - **Solution**: We received and applied feedback from our Project Manager.
 - **Lesson Learned**: Communicating across disciplines often requires rethinking how information is presented.
 - **Impact**: Required more time and effort than anticipated.
+
+## 📬 Contact
+
+For questions or inquiries, feel free to reach out to any of us via email:
+
+- **Aaron Underhill** – underhaa@oregonstate.edu  
+- **Abdulrahman Samargandi** – samargaa@oregonstate.edu  
+- **Anastasiia Ragozina** – ragozina@oregonstate.edu  
+- **Charissa Mia Wai Jun Kau** – kauc@oregonstate.edu  
+- **Taryn Eng** – engta@oregonstate.edu  
+- **Yaire Aguilar Carrion** – aguilary@oregonstate.edu
