@@ -40,7 +40,9 @@ Development challenges and solutions
 ## Features/Pages
 
 ### 1. Kid-Friendly Calculator Page
-![Game Demo](assets/game-demo.gif)
+![Calculator Demo](https://github.com/user-attachments/assets/ac4d0a2d-7766-4bfb-a479-5a801c9e7d78)
+![Calculator Demo](https://github.com/user-attachments/assets/6051d55f-d83c-4857-b83e-cee8fa9bae7d)
+
 
 Description:
 -Explore the different food items in out database
@@ -51,7 +53,7 @@ Description:
 ---
 
 ### 2. Results Page
-![Game Demo](assets/game-demo.gif)
+![Result Demo](https://github.com/user-attachments/assets/8d8a7136-73a8-415c-a7c2-8b9f71a79b80)
 
 Description:
 - Tells nutrition value
@@ -61,6 +63,7 @@ Description:
 ---
 
 ### 3. Food Ranking Game
+![Game Demo](https://github.com/user-attachments/assets/836d002e-a1db-405c-a8af-43c88a48c11e)
 ![Game Demo](https://github.com/user-attachments/assets/41f01e73-6410-4dec-ab7b-d317e8183f2f)
 
 Description:
