@@ -277,17 +277,33 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    z-index: 1000; /* Ensure it appears on top */
+    z-index: 1000;
   }
   
-  .alertBox button {
+  .alertBox .top {
+    background-color: rgb(9, 59, 125);
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .alertBox .bottom {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    padding: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .blueButton {
     margin-top: 10px;
     padding: 8px 16px;
+    font-size: 1.5rem;
     background-color: #007bff;
     color: white;
     border: none;
@@ -295,9 +311,10 @@
     cursor: pointer;
   }
   
-  .alertBox button:hover {
+  .blueButton:hover {
     background-color: #0056b3;
   }
+  
 
   .incorrectSlot {
     border: 2px solid red;
@@ -309,25 +326,42 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    z-index: 1000; /* Ensure it appears on top */
+    z-index: 1000;
   }
   
-  .highlightBox button {
+  .highlightBox .topSection {
+    background-color: rgb(125, 9, 9);
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .highlightBox .bottomSection {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    padding: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  
+  .highlightBox .bottomSection button {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: #ff2600;
     color: white;
+    font-size: 1.5rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  .highlightox button:hover {
+  .highlightBox .bottomSection button:hover {
     background-color: #b32700;
   }
 
@@ -344,4 +378,49 @@
     color: red;
     margin-bottom: 4px;
   }
+  
+
+  .imageWrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .overlayX {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: red;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+
+
+.overlayContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(1, 1, 1, 0.366);
+    backdrop-filter: blur(5px);
+    z-index: 50;
+    pointer-events: none;
+  } 
+
   
