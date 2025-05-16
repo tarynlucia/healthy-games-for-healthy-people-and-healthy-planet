@@ -204,8 +204,8 @@ const GameRankingPage = () => {
                   onDrop={(e) => handleDrop(e, index)} // Handle drop event
                   onDragOver={handleDragOver} // Handle drag over event
                 >
-                  {isFirst && <div className={styles.lowestLabel}>Low</div>}
-                  {isLast && <div className={styles.highestLabel}>High</div>}
+                  {isFirst && !slot && <div className={styles.lowestLabel}>Low</div>}
+                  {isLast && !slot && <div className={styles.highestLabel}>High</div>}
 
                   <div className={styles.slotNumber} data-rank={index + 1}>
                     {index + 1}
