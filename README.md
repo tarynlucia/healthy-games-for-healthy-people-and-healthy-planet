@@ -13,7 +13,11 @@ This project is in its second year as a capstone, building on work from the prev
 - **Yaire Aguilar Carrion** - Front end, facilitator
 
 ## Problem Statement: 
-Most existing websites  focus only on the nutritional value of food, overlooking its environmental impact. The Food Hero Calculator fills this gap by combining nutrition facts with carbon and water footprint data to generate a single, easy-to-understand summary. 
+Most existing websites  focus only on the nutritional value of food, overlooking its environmental impact. The Food Hero Calculator fills this gap by combining nutrition facts with carbon and water footprint data to generate a single, easy-to-understand summary. The Food Hero Calculator bridges this gap by offering an engaging platform where kids learn about:
+
+- Carbon & water footprints of foods
+- Nutrition facts
+- Sustainable decision-making
 
 ## Target Audience:
 - **Children (3rd–8th grade):** Need an intuitive, game-like experience to learn about food choices and their environmental impact.
