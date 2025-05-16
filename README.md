@@ -70,12 +70,6 @@ Description:
 - Change mode at any time
 
 
-
-Access and Usage:
-Documentation or user guide
-Development challenges and solutions
-
-
 ## Getting Started
 
 - git remote add [Your name to represent Gerald's Forked Repo on your local machine] [The url for Gerald's Forked Repo]
@@ -150,3 +144,40 @@ Next.js:
 Version: 14.0.3
 Description: A framework for server-rendered React applications.
 Official Website: [Next.js Website](https://nextjs.org/)
+
+## Obstacles
+Throughout this project, we encountered several challenges that required problem-solving, communication, and adaptability. Below are some key issues we faced and how we addressed them:
+
+### 🐞 Code Wouldn’t Work
+- **Challenge**: For our personal coding parts, we ran into issues with the code not working as expected.
+- **Solution**: Debugging the code and asking for help from others.
+- **Lesson Learned**: Don’t hesitate to reach out for help; collaboration speeds up problem-solving.
+- **Impact**: Improved team collaboration and better understanding of the codebase.
+
+
+### 📅 Registering for the Bend Conference
+- **Challenge**: Difficulty registering due to communication gaps.
+- **Solution**: Back-and-forth communication with our Project Mentor helped clarify the process.
+- **Lesson Learned**: Ask questions early and often to avoid confusion.
+- **Impact**: Led to team confusion and missing the submission deadline.
+
+
+### 🧪 Deciding on a Second Round of Testing
+- **Challenge**: Uncertainty about whether to conduct a second round of prototype testing.
+- **Solution**: We communicated with our PRAx leader and collectively decided not to proceed.
+- **Lesson Learned**: Be more decisive and proactive as a group.
+- **Impact**: Last-minute decisions led to rushed communication and responses.
+
+
+### 🎨 Reconfiguring Our Expo Poster
+- **Challenge**: The initial version of our expo poster did not effectively communicate the project to a broader audience.
+- **Solution**: We received and applied feedback from our Project Manager.
+- **Lesson Learned**: Communicating across disciplines often requires rethinking how information is presented.
+- **Impact**: Required more time and effort than anticipated.
+
+
+### ⏰ Finding a Prototype Testing Group/Time
+- **Challenge**: Coordinating availability for testing sessions.
+- **Solution**: Effective communication and searching for overlapping availability.
+- **Lesson Learned**: Start planning early to ensure smoother scheduling.
+- **Impact**: Created uncertainty and delays in our testing timeline.
