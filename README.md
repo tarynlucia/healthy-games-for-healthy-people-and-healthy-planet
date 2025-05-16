@@ -61,7 +61,7 @@ Description:
 ---
 
 ### 3. Food Ranking Game
-![Game Demo](assets/game-demo.gif)
+![Game Demo](https://github.com/user-attachments/assets/41f01e73-6410-4dec-ab7b-d317e8183f2f)
 
 Description:
 - A food ranking game that lets kids rank 4 random food items from smallest to largest footprint
