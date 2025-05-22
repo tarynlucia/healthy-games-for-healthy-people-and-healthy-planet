@@ -149,7 +149,7 @@ export default function RightSideBar({ onCalcClick }) {
           <div className={styles.titleName}>
             Food Groups
             <span className={styles.tooltipText}>
-              Ideally, include all 5 food groups in your meals.
+              Ideally, have all 5 groups.
             </span>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function RightSideBar({ onCalcClick }) {
             /> */}
           </div>
           <span className={styles.tooltipText}>
-            Ideally, have a water footprint less than 50 gallons.
+            Ideally, have a water footprint less than 400 gallons.
           </span>
         </div>
 
@@ -198,7 +198,7 @@ export default function RightSideBar({ onCalcClick }) {
             /> */}
           </div>
           <span className={styles.tooltipText}>
-            Ideally, have a carbon footprint less than 50 gallons.
+            Ideally, have a carbon footprint less than 500 grams.
           </span>
         </div>
 
